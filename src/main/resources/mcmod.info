@@ -1,0 +1,16 @@
+[
+{
+  "modid": "logimine",
+  "name": "LogiMine",
+  "description": "Brings LOGITOW support to Minecraft",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["itsMatoosh", "Acrogenous A.K.A acrominer"],
+  "credits": "the logitow team in China",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
