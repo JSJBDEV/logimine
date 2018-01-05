@@ -18,6 +18,7 @@ public class ModItems {
         );
     }
 
+
     public static void registerModels() {
         logiCard.registerItemModel();
     }

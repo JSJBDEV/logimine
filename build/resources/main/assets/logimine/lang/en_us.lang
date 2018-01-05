@@ -1,0 +1,15 @@
+#blocks
+tile.blue_lblock.name=Blue Logic Block
+tile.yellow_lblock.name=Yellow Logic Block
+tile.magenta_lblock.name=Magenta Logic Block
+tile.pink_lblock.name=Pink Logic Block
+tile.purple_lblock.name=Purple Logic Block
+tile.green_lblock.name=Green Logic Block
+tile.white_lblock.name=White Logic Block
+tile.key_lblock.name=Logitow Key Block
+
+#items
+item.logicard.name=LogiCard
+
+#tab
+itemGroup.logimine=LogiMine for Logitow

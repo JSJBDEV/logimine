@@ -1,0 +1,282 @@
+[16:47:07] [main/INFO]: Extra: []
+[16:47:07] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, /Users/matoosh/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12.2, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[16:47:07] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[16:47:07] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[16:47:07] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[16:47:07] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[16:47:07] [main/INFO]: Forge Mod Loader version 14.23.1.2578 for Minecraft 1.12.2 loading
+[16:47:07] [main/INFO]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_152, running on Mac OS X:x86_64:10.13.2, installed at /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre
+[16:47:07] [main/INFO]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[16:47:07] [main/INFO]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[16:47:07] [main/INFO]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[16:47:07] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[16:47:07] [main/INFO]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[16:47:07] [main/INFO]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[16:47:07] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[16:47:07] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[16:47:07] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[16:47:07] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[16:47:07] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[16:47:07] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[16:47:10] [main/ERROR]: FML appears to be missing any signature data. This is not a good thing
+[16:47:10] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[16:47:10] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[16:47:11] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[16:47:11] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[16:47:11] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[16:47:11] [main/INFO]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[16:47:14] [main/INFO]: Setting user: Player357
+[16:47:22] [main/INFO]: LWJGL Version: 2.9.2
+[16:47:23] [main/INFO]: Could not load splash.properties, will create a default one
+[16:47:23] [main/INFO]: -- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Mac OS X (x86_64) version 10.13.2
+	Java Version: 1.8.0_152, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 66142056 bytes (63 MB) / 501219328 bytes (478 MB) up to 1908932608 bytes (1820 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'Intel Inc.' Version: '2.1 INTEL-10.30.12' Renderer: 'Intel(R) HD Graphics 6000'
+[16:47:23] [main/INFO]: MinecraftForge v14.23.1.2578 Initialized
+[16:47:23] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[16:47:23] [main/INFO]: Replaced 1036 ore ingredients
+[16:47:24] [main/INFO]: Found 0 mods from the command line. Injecting into mod discoverer
+[16:47:24] [main/INFO]: Searching /Volumes/NewBadDrive/Coding/Dektop/logitow/logimine/run/mods for mods
+[16:47:24] [main/WARN]: Zip file jni4net.j-0.8.8.0.pom failed to read properly, it will be ignored
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method) ~[?:1.8.0_152]
+	at java.util.zip.ZipFile.<init>(ZipFile.java:225) ~[?:1.8.0_152]
+	at java.util.zip.ZipFile.<init>(ZipFile.java:155) ~[?:1.8.0_152]
+	at java.util.jar.JarFile.<init>(JarFile.java:166) ~[?:1.8.0_152]
+	at java.util.jar.JarFile.<init>(JarFile.java:130) ~[?:1.8.0_152]
+	at net.minecraftforge.fml.common.discovery.JarDiscoverer.discover(JarDiscoverer.java:49) [JarDiscoverer.class:?]
+	at net.minecraftforge.fml.common.discovery.ContainerType.findMods(ContainerType.java:47) [ContainerType.class:?]
+	at net.minecraftforge.fml.common.discovery.ModCandidate.explore(ModCandidate.java:74) [ModCandidate.class:?]
+	at net.minecraftforge.fml.common.discovery.ModDiscoverer.identifyMods(ModDiscoverer.java:138) [ModDiscoverer.class:?]
+	at net.minecraftforge.fml.common.Loader.identifyMods(Loader.java:401) [Loader.class:?]
+	at net.minecraftforge.fml.common.Loader.loadMods(Loader.java:541) [Loader.class:?]
+	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:231) [FMLClientHandler.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:466) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:377) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(SourceFile:123) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_152]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_152]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_152]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_152]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_152]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_152]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_152]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_152]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:26) [start/:?]
+[16:47:25] [main/INFO]: Forge Mod Loader has identified 5 mods to load
+[16:47:26] [Thread-3/INFO]: Using alternative sync timing : 200 frames of Display.update took 1802082723 nanos
+[16:47:26] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, logimine] at CLIENT
+[16:47:26] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, logimine] at SERVER
+[16:47:28] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:LogiMine
+[16:47:29] [main/INFO]: Processing ObjectHolder annotations
+[16:47:29] [main/INFO]: Found 1168 ObjectHolder annotations
+[16:47:29] [main/INFO]: Identifying ItemStackHolder annotations
+[16:47:29] [main/INFO]: Found 0 ItemStackHolder annotations
+[16:47:29] [main/INFO]: Configured a dormant chunk cache size of 0
+[16:47:29] [Forge Version Check/INFO]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[16:47:29] [main/INFO]: [com.logitow.logimine.LogiMine:preInit:31]: LogiMine is loading!
+[16:47:29] [main/INFO]: Applying holder lookups
+[16:47:29] [main/INFO]: Holder lookups applied
+[16:47:29] [main/INFO]: Applying holder lookups
+[16:47:29] [main/INFO]: Holder lookups applied
+[16:47:29] [main/INFO]: Applying holder lookups
+[16:47:29] [main/INFO]: Holder lookups applied
+[16:47:29] [main/INFO]: Applying holder lookups
+[16:47:29] [main/INFO]: Holder lookups applied
+[16:47:29] [main/INFO]: Injecting itemstacks
+[16:47:29] [main/INFO]: Itemstack injection complete
+[16:47:29] [Forge Version Check/INFO]: [forge] Found status: OUTDATED Target: 14.23.1.2583
+[16:47:33] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[16:47:33] [Thread-4/INFO]: Initializing LWJGL OpenAL
+[16:47:33] [Thread-4/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[16:47:33] [Thread-4/INFO]: OpenAL initialized.
+[16:47:33] [Sound Library Loader/INFO]: Sound engine started
+[16:47:39] [main/INFO]: Max texture size: 16384
+[16:47:40] [main/INFO]: Created: 512x512 textures-atlas
+[16:47:43] [main/INFO]: Applying holder lookups
+[16:47:43] [main/INFO]: Holder lookups applied
+[16:47:43] [main/INFO]: Injecting itemstacks
+[16:47:43] [main/INFO]: Itemstack injection complete
+[16:47:44] [main/INFO]: Forge Mod Loader has successfully loaded 5 mods
+[16:47:46] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
+[16:48:11] [Server thread/INFO]: Starting integrated minecraft server version 1.12.2
+[16:48:11] [Server thread/INFO]: Generating keypair
+[16:48:11] [Server thread/INFO]: Injecting existing registry data into this server instance
+[16:48:11] [Server thread/INFO]: Applying holder lookups
+[16:48:11] [Server thread/INFO]: Holder lookups applied
+[16:48:12] [Server thread/INFO]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@6438e0fe)
+[16:48:12] [Server thread/INFO]: Loaded 488 advancements
+[16:48:13] [Server thread/INFO]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@6438e0fe)
+[16:48:13] [Server thread/INFO]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@6438e0fe)
+[16:48:13] [Server thread/INFO]: Preparing start region for level 0
+[16:48:14] [Server thread/INFO]: Preparing spawn area: 5%
+[16:48:15] [Server thread/INFO]: Preparing spawn area: 9%
+[16:48:16] [Server thread/INFO]: Preparing spawn area: 14%
+[16:48:17] [Server thread/INFO]: Preparing spawn area: 19%
+[16:48:18] [Server thread/INFO]: Preparing spawn area: 25%
+[16:48:19] [Server thread/INFO]: Preparing spawn area: 33%
+[16:48:20] [Server thread/INFO]: Preparing spawn area: 43%
+[16:48:21] [Server thread/INFO]: Preparing spawn area: 51%
+[16:48:22] [Server thread/INFO]: Preparing spawn area: 58%
+[16:48:24] [Server thread/INFO]: Preparing spawn area: 67%
+[16:48:25] [Server thread/INFO]: Preparing spawn area: 78%
+[16:48:26] [Server thread/INFO]: Preparing spawn area: 89%
+[16:48:27] [Server thread/INFO]: Preparing spawn area: 99%
+[16:48:27] [Server thread/INFO]: Changing view distance to 12, from 10
+[16:48:29] [Netty Local Client IO #0/INFO]: Server protocol version 2
+[16:48:29] [Netty Server IO #1/INFO]: Client protocol version 2
+[16:48:29] [Netty Server IO #1/INFO]: Client attempting to join with 5 mods : minecraft@1.12.2,FML@8.0.99.99,forge@14.23.1.2578,logimine@1.0.0,mcp@9.42
+[16:48:29] [Netty Local Client IO #0/INFO]: [Netty Local Client IO #0] Client side modded connection established
+[16:48:29] [Server thread/INFO]: [Server thread] Server side modded connection established
+[16:48:29] [Server thread/INFO]: Player357[local:E:5fb0d094] logged in with entity id 833 at (5.5, 87.0, 261.5)
+[16:48:29] [Server thread/INFO]: Player357 joined the game
+[16:48:29] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2109ms behind, skipping 42 tick(s)
+[16:48:31] [pool-2-thread-1/WARN]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@3c1785fc[id=4ed99654-4a5a-39dd-9f7c-459b50aa79a5,name=Player357,properties={},legacy=false]
+com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[YggdrasilAuthenticationService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) [YggdrasilMinecraftSessionService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:60) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:57) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:5153) [guava-21.0.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:170) [YggdrasilMinecraftSessionService.class:?]
+	at net.minecraft.client.Minecraft.getProfileProperties(Minecraft.java:3007) [Minecraft.class:?]
+	at net.minecraft.client.resources.SkinManager$3.run(SourceFile:110) [SkinManager$3.class:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_152]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_152]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_152]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_152]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_152]
+[16:48:36] [Server thread/INFO]: Saving and pausing game...
+[16:48:36] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
+[16:48:40] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
+[16:48:40] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
+[16:49:00] [Server thread/INFO]: Saving and pausing game...
+[16:49:01] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
+[16:49:01] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
+[16:49:01] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
+[16:49:01] [Server thread/INFO]: Stopping server
+[16:49:01] [Server thread/INFO]: Saving players
+[16:49:01] [Server thread/INFO]: Player357 lost connection: Disconnected
+[16:49:01] [Server thread/INFO]: Player357 left the game
+[16:49:01] [Server thread/INFO]: Stopping singleplayer server as player logged out
+[16:49:01] [Server thread/INFO]: Saving worlds
+[16:49:01] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
+[16:49:01] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
+[16:49:01] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
+[16:49:02] [Server thread/INFO]: Unloading dimension 0
+[16:49:02] [Server thread/INFO]: Unloading dimension -1
+[16:49:02] [Server thread/INFO]: Unloading dimension 1
+[16:49:02] [Server thread/INFO]: Applying holder lookups
+[16:49:02] [Server thread/INFO]: Holder lookups applied
+[16:49:08] [Server thread/INFO]: Starting integrated minecraft server version 1.12.2
+[16:49:08] [Server thread/INFO]: Generating keypair
+[16:49:08] [Server thread/INFO]: Injecting existing registry data into this server instance
+[16:49:08] [Server thread/INFO]: Applying holder lookups
+[16:49:08] [Server thread/INFO]: Holder lookups applied
+[16:49:08] [Server thread/INFO]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@75d0a563)
+[16:49:08] [Server thread/INFO]: Loaded 488 advancements
+[16:49:08] [Server thread/INFO]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@75d0a563)
+[16:49:08] [Server thread/INFO]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@75d0a563)
+[16:49:08] [Server thread/INFO]: Preparing start region for level 0
+[16:49:09] [Server thread/INFO]: Preparing spawn area: 10%
+[16:49:10] [Server thread/INFO]: Preparing spawn area: 18%
+[16:49:11] [Server thread/INFO]: Preparing spawn area: 24%
+[16:49:13] [Server thread/INFO]: Preparing spawn area: 33%
+[16:49:14] [Server thread/INFO]: Preparing spawn area: 41%
+[16:49:15] [Server thread/INFO]: Preparing spawn area: 49%
+[16:49:16] [Server thread/INFO]: Preparing spawn area: 58%
+[16:49:17] [Server thread/INFO]: Preparing spawn area: 68%
+[16:49:18] [Server thread/INFO]: Preparing spawn area: 76%
+[16:49:19] [Server thread/INFO]: Preparing spawn area: 85%
+[16:49:20] [Server thread/INFO]: Preparing spawn area: 94%
+[16:49:20] [Server thread/INFO]: Changing view distance to 12, from 10
+[16:49:21] [Netty Local Client IO #1/INFO]: Server protocol version 2
+[16:49:21] [Netty Server IO #3/INFO]: Client protocol version 2
+[16:49:21] [Netty Server IO #3/INFO]: Client attempting to join with 5 mods : minecraft@1.12.2,FML@8.0.99.99,forge@14.23.1.2578,logimine@1.0.0,mcp@9.42
+[16:49:21] [Netty Local Client IO #1/INFO]: [Netty Local Client IO #1] Client side modded connection established
+[16:49:22] [Server thread/INFO]: [Server thread] Server side modded connection established
+[16:49:22] [Server thread/INFO]: Player357[local:E:63a27a66] logged in with entity id 4917 at (-251.5, 65.0, 229.5)
+[16:49:22] [Server thread/INFO]: Player357 joined the game
+[16:49:26] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 4873ms behind, skipping 97 tick(s)
+[16:49:41] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3800ms behind, skipping 76 tick(s)
+[16:49:59] [main/INFO]: [CHAT] dir 2
+[16:49:59] [main/INFO]: [CHAT] dir 2
+[16:49:59] [main/INFO]: [CHAT] dir 3
+[16:49:59] [main/INFO]: [CHAT] dir 3
+[16:49:59] [main/INFO]: [CHAT] dir 4
+[16:49:59] [main/INFO]: [CHAT] dir 4
+[16:50:03] [main/INFO]: [CHAT] dir 5
+[16:50:03] [main/INFO]: [CHAT] dir 5
+[16:50:04] [main/INFO]: [CHAT] dir 6
+[16:50:04] [main/INFO]: [CHAT] dir 6
+[16:50:05] [main/INFO]: [CHAT] dir 1
+[16:50:05] [main/INFO]: [CHAT] dir 1
+[16:50:07] [main/INFO]: [CHAT] dir 2
+[16:50:07] [main/INFO]: [CHAT] dir 2
+[16:50:08] [main/INFO]: [CHAT] dir 3
+[16:50:08] [main/INFO]: [CHAT] dir 3
+[16:50:12] [main/INFO]: [CHAT] dir 4
+[16:50:12] [main/INFO]: [CHAT] dir 4
+[16:50:23] [main/INFO]: [CHAT] dir 5
+[16:50:23] [main/INFO]: [CHAT] dir 5
+[16:50:24] [main/INFO]: [CHAT] dir 6
+[16:50:24] [main/INFO]: [CHAT] dir 6
+[16:50:25] [main/INFO]: [CHAT] dir 1
+[16:50:25] [main/INFO]: [CHAT] dir 1
+[16:50:29] [main/INFO]: [CHAT] dir 2
+[16:50:29] [main/INFO]: [CHAT] dir 2
+[16:50:30] [main/INFO]: [CHAT] dir 3
+[16:50:30] [main/INFO]: [CHAT] dir 3
+[16:50:32] [main/INFO]: [CHAT] dir 4
+[16:50:33] [main/INFO]: [CHAT] dir 4
+[16:50:33] [main/INFO]: [CHAT] dir 5
+[16:50:33] [main/INFO]: [CHAT] dir 5
+[16:50:35] [main/INFO]: [CHAT] dir 6
+[16:50:35] [main/INFO]: [CHAT] dir 6
+[16:50:40] [main/INFO]: [CHAT] dir 1
+[16:50:40] [main/INFO]: [CHAT] dir 1
+[16:50:43] [main/INFO]: [CHAT] dir 2
+[16:50:43] [main/INFO]: [CHAT] dir 2
+[16:50:47] [main/INFO]: [CHAT] dir 3
+[16:50:47] [main/INFO]: [CHAT] dir 3
+[16:50:51] [main/INFO]: [CHAT] dir 4
+[16:50:51] [main/INFO]: [CHAT] dir 4
+[16:50:52] [Server thread/INFO]: Saving and pausing game...
+[16:50:52] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
+[16:50:53] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
+[16:50:53] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
+[16:52:13] [Server thread/INFO]: Stopping server
+[16:52:13] [Server thread/INFO]: Saving players
+[16:52:13] [Server thread/INFO]: Player357 lost connection: Disconnected
+[16:52:13] [Server thread/INFO]: Player357 left the game
+[16:52:13] [Server thread/INFO]: Stopping singleplayer server as player logged out
+[16:52:13] [Server thread/INFO]: Saving worlds
+[16:52:13] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
+[16:52:13] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
+[16:52:13] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
+[16:52:13] [Server thread/INFO]: Unloading dimension 0
+[16:52:13] [Server thread/INFO]: Unloading dimension -1
+[16:52:13] [Server thread/INFO]: Unloading dimension 1
+[16:52:13] [Server thread/INFO]: Applying holder lookups
+[16:52:13] [Server thread/INFO]: Holder lookups applied
+[16:52:15] [main/INFO]: Stopping!
+[16:52:15] [main/INFO]: SoundSystem shutting down...
+[16:52:15] [main/WARN]: Author: Paul Lamb, www.paulscode.com
