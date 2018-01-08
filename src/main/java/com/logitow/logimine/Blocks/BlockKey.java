@@ -128,6 +128,7 @@ public class BlockKey extends BlockBase {
     @Override
     public void updateTick(World world, BlockPos blockPos, IBlockState blockState, Random randomWithSeed)
     {
+        //TODO: Move this to the event class.
         //Checking if the block has a device attached.
         if(device == null) {
             //Attaching device from unassigned.
