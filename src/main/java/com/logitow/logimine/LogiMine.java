@@ -17,6 +17,7 @@ import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
 import com.logitow.logimine.Blocks.ModBlocks;
 import com.logitow.logimine.Event.LogitowBridgeEvent;
+import com.logitow.logimine.Event.LogitowBridgeEventHandler;
 import com.logitow.logimine.Items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -82,7 +83,7 @@ public class LogiMine {
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceManagerErrorEvent.class);
 
         //Registering the mod side bridge event.
-        MinecraftForge.EVENT_BUS.register(MyStaticForgeEventHandler.class);
+        MinecraftForge.EVENT_BUS.register(LogitowBridgeEventHandler.class);
 
         //Starting device search.
         //TODO: Call this when the world loads.
