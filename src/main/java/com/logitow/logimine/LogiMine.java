@@ -1,20 +1,17 @@
 package com.logitow.logimine;
 
-import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.communication.LogitowDeviceManager;
 import com.logitow.bridge.event.Event;
 import com.logitow.bridge.event.EventHandler;
 import com.logitow.bridge.event.EventManager;
-import com.logitow.bridge.event.device.DeviceConnectedEvent;
-import com.logitow.bridge.event.device.DeviceDisconnectedEvent;
-import com.logitow.bridge.event.device.DeviceDiscoveredEvent;
-import com.logitow.bridge.event.device.DeviceLostEvent;
+import com.logitow.bridge.event.device.*;
 import com.logitow.bridge.event.device.battery.DeviceBatteryLowChargeEvent;
 import com.logitow.bridge.event.device.battery.DeviceBatteryVoltageUpdateEvent;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
+import com.logitow.logimine.Blocks.BlockKey;
 import com.logitow.logimine.Blocks.ModBlocks;
 import com.logitow.logimine.Event.LogitowBridgeEvent;
 import com.logitow.logimine.Event.LogitowBridgeEventHandler;
@@ -31,7 +28,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The core class of the mod.
@@ -52,9 +50,9 @@ public class LogiMine {
     };
 
     /**
-     * List of devices with their base blocks unassigned.
+     * The currently assigned devices and their assigned key blocks.
      */
-    public static ArrayList<Device> unassignedDevices = new ArrayList<>();
+    public static Map<String, BlockKey> assignedDevices = new HashMap<>();
 
     @Mod.Instance(modId)
     public static LogiMine instance;
@@ -65,6 +63,10 @@ public class LogiMine {
         System.out.println(name + " is loading!");
     }
 
+    /**
+     * Called when the mod initializes.
+     * @param event
+     */
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         //Booting the device manager.
@@ -73,6 +75,7 @@ public class LogiMine {
         //Registering events with the bridge.
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceDiscoveredEvent.class);
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceConnectedEvent.class);
+        EventManager.registerHandler(logitowBridgeEventHandler, DeviceConnectionErrorEvent.class);
         EventManager.registerHandler(logitowBridgeEventHandler, BlockOperationEvent.class);
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceDisconnectedEvent.class);
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceLostEvent.class);
@@ -84,10 +87,6 @@ public class LogiMine {
 
         //Registering the mod side bridge event.
         MinecraftForge.EVENT_BUS.register(LogitowBridgeEventHandler.class);
-
-        //Starting device search.
-        //TODO: Call this when the world loads.
-        LogitowDeviceManager.current.startDeviceDiscovery();
     }
 
     @Mod.EventHandler

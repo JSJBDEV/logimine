@@ -2,15 +2,13 @@ package com.logitow.logimine.Blocks;
 
 import com.logitow.bridge.build.block.BlockOperation;
 import com.logitow.bridge.build.block.BlockOperationType;
-import com.logitow.bridge.communication.Device;
-import com.logitow.bridge.event.Event;
-import com.logitow.bridge.event.EventHandler;
-import com.logitow.bridge.event.EventManager;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
-import com.logitow.logimine.LogiMine;
+import com.logitow.logimine.Items.ModItems;
+import com.logitow.logimine.client.gui.DeviceManagerGui;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -20,15 +18,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import com.logitow.logimine.Items.ModItems;
 
-import java.lang.reflect.Array;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -36,12 +28,6 @@ import java.util.Random;
  * Modified by itsMatoosh on 05/01/2017.
  */
 public class BlockKey extends BlockBase {
-
-    /**
-     * The device registered to this block base.
-     */
-    public Device device;
-
     /**
      * Whether a block operation has been received.
      */
@@ -50,14 +36,11 @@ public class BlockKey extends BlockBase {
      * The latest received block operation.
      */
     private ArrayList<BlockOperation> latestOperations = new ArrayList<>();
-    /**
-     * The block operation event handler.
-     */
-    private EventHandler blockOperationHandler;
+
+    private BlockPos position;
 
     /**
      * Creates a base block with a certain name.
-     * TODO: Why is the name not hard-coded?
      * @param name
      */
     public BlockKey(String name)
@@ -92,11 +75,25 @@ public class BlockKey extends BlockBase {
     @Override
     public boolean onBlockActivated(World world, BlockPos blockpos, IBlockState p_onBlockActivated_3_, EntityPlayer player, EnumHand hand, EnumFacing p_onBlockActivated_6_, float p_onBlockActivated_7_, float p_onBlockActivated_8_, float p_onBlockActivated_9_)
     {
+        this.position = blockpos;
         if(player.getHeldItem(hand) != ItemStack.EMPTY)
         {
             ItemStack stack = player.getHeldItem(hand);
             if(stack.hasTagCompound())
             {
+                //Assigning the block to the device manager dialog.
+
+                new java.util.Timer().schedule(
+                        new java.util.TimerTask() {
+                            @Override
+                            public void run() {
+                                System.out.println("Set the key block reference.");
+                                DeviceManagerGui.selectedKeyBlock = BlockKey.this;
+                            }
+                        },
+                        500
+                );
+
                 if (stack.getItem() == ModItems.logiCard && player.isSneaking() )
                 {
                     NBTTagCompound card = stack.getTagCompound();
@@ -119,48 +116,26 @@ public class BlockKey extends BlockBase {
     }
 
     /**
-     * Called every tick.
-     * @param world
-     * @param blockPos
-     * @param blockState
-     * @param randomWithSeed
+     * Called when the structure data is updated from the assigned device.
+     * @param event
      */
-    @Override
-    public void updateTick(World world, BlockPos blockPos, IBlockState blockState, Random randomWithSeed)
-    {
-        //TODO: Move this to the event class.
-        //Checking if the block has a device attached.
-        if(device == null) {
-            //Attaching device from unassigned.
-            Device d = LogiMine.unassignedDevices.get(0);
-            assignDevice(d);
-            LogiMine.unassignedDevices.remove(d);
+    public void onStructureUpdate(BlockOperationEvent event) {
+        //Setting the operation flag and waiting for update to change the structure.
+        System.out.println("Handling block update on key block " + position);
+        BlockOperation operation = event.operation;
+
+        //No need to recreate the structure each time. Just adding the one updated block.
+        //Getting the affected position.
+        BlockPos affpos = position.add(operation.blockB.coordinate.x,operation.blockB.coordinate.y,operation.blockB.coordinate.z);
+
+        if(operation.operationType == BlockOperationType.BLOCK_ADD) {
+            //Block added.
+            Block colour = BlockBase.getBlockFromName("logimine:"+operation.blockB.getBlockType().name().toLowerCase()+"_lblock");
+            Minecraft.getMinecraft().world.setBlockState(affpos,colour.getDefaultState());
+        } else {
+            //Block removed.
+            Minecraft.getMinecraft().world.setBlockToAir(affpos);
         }
-
-        //Checking if an update happened since last tick.
-        if(blockOperationReceived) {
-            blockOperationReceived = false;
-
-            //Enumeration operations.
-            BlockOperation[] operations = (BlockOperation[])latestOperations.toArray();
-            for (BlockOperation operation : operations) {
-                //No need to recreate the structure each time. Just adding the one updated block.
-                //Getting the affected position.
-                BlockPos affpos = blockPos.add(operation.blockB.coordinate.x,operation.blockB.coordinate.y,operation.blockB.coordinate.z);
-
-                if(operation.operationType == BlockOperationType.BLOCK_ADD) {
-                    //Block added.
-                    Block colour = BlockBase.getBlockFromName("logimine:"+operation.blockB.getBlockType().name().toLowerCase()+"_lblock");
-                    world.setBlockState(affpos,colour.getDefaultState());
-                } else {
-                    //Block removed.
-                    world.setBlockToAir(affpos);
-                }
-
-                latestOperations.remove(operation);
-            }
-        }
-        super.updateTick(world, blockPos, blockState, randomWithSeed);
     }
 
     /**
@@ -224,55 +199,6 @@ public class BlockKey extends BlockBase {
             }
         } catch(Exception e){nbt.setInteger("dir",0);}
 
-    }
-
-    /**
-     * Assigns a LOGITOW device to this base block.
-     */
-    public void assignDevice(Device device) {
-        this.device = device;
-
-        //Registering block operation events.
-        blockOperationHandler = new EventHandler() {
-            @Override
-            public void onEventCalled(Event event) {
-                //Called when a block operation takes place on the LOGITOW device.
-                //Checking if the device is right.
-                BlockOperationEvent operationEvent = (BlockOperationEvent)event;
-                if(operationEvent.device.toString() == operationEvent.device.toString()) {
-                    //Setting the operation flag and waiting for update to change the structure.
-                    blockOperationReceived = true;
-                    latestOperations.add(operationEvent.operation);
-                }
-            }
-        };
-        EventManager.registerHandler(blockOperationHandler, BlockOperationEvent.class);
-    }
-
-    /**
-     * Called when destroyed by player.
-     * @param p_onBlockDestroyedByPlayer_1_
-     * @param p_onBlockDestroyedByPlayer_2_
-     * @param p_onBlockDestroyedByPlayer_3_
-     */
-    @Override
-    public void onBlockDestroyedByPlayer(World p_onBlockDestroyedByPlayer_1_, BlockPos p_onBlockDestroyedByPlayer_2_, IBlockState p_onBlockDestroyedByPlayer_3_) {
-        this.device = null;
-        EventManager.unregisterHandler(blockOperationHandler, BlockOperationEvent.class);
-        super.onBlockDestroyedByPlayer(p_onBlockDestroyedByPlayer_1_, p_onBlockDestroyedByPlayer_2_, p_onBlockDestroyedByPlayer_3_);
-    }
-
-    /**
-     * Called when exploded.
-     * @param p_onBlockExploded_1_
-     * @param p_onBlockExploded_2_
-     * @param p_onBlockExploded_3_
-     */
-    @Override
-    public void onBlockExploded(World p_onBlockExploded_1_, BlockPos p_onBlockExploded_2_, Explosion p_onBlockExploded_3_) {
-        this.device = null;
-        EventManager.unregisterHandler(blockOperationHandler, BlockOperationEvent.class);
-        super.onBlockExploded(p_onBlockExploded_1_, p_onBlockExploded_2_, p_onBlockExploded_3_);
     }
 
     /**

@@ -1,18 +1,22 @@
 package com.logitow.logimine.Event;
 
+import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.communication.LogitowDeviceManager;
 import com.logitow.bridge.event.Event;
 import com.logitow.bridge.event.device.DeviceConnectedEvent;
+import com.logitow.bridge.event.device.DeviceConnectionErrorEvent;
 import com.logitow.bridge.event.device.DeviceDisconnectedEvent;
-import com.logitow.bridge.event.device.DeviceDiscoveredEvent;
-import com.logitow.bridge.event.device.DeviceLostEvent;
 import com.logitow.bridge.event.device.battery.DeviceBatteryLowChargeEvent;
 import com.logitow.bridge.event.device.battery.DeviceBatteryVoltageUpdateEvent;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
+import com.logitow.logimine.Blocks.BlockKey;
 import com.logitow.logimine.LogiMine;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -26,32 +30,25 @@ public class LogitowBridgeEventHandler {
 
         if(bridgeEvent instanceof DeviceConnectedEvent) {
             //Called when a logitow device is connected.
-            //TODO: Show device connected notification.
             DeviceConnectedEvent deviceConnectedEvent = (DeviceConnectedEvent) bridgeEvent;
 
-            //Adding the connected device to the unassigned devices list.
-            LogiMine.unassignedDevices.add(deviceConnectedEvent.device);
+            //Show device connected notification.
+            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Device " + deviceConnectedEvent.device + " connected!"));
         } else if(bridgeEvent instanceof DeviceDisconnectedEvent) {
             //Called when a logitow device is disconnected
-            //TODO: Show device disconnected notification.
             DeviceDisconnectedEvent deviceDisconnectedEvent = (DeviceDisconnectedEvent) bridgeEvent;
 
-            //Removing the disconnected device from the unassigned devices list if it is on it.
-            if(LogiMine.unassignedDevices.contains(deviceDisconnectedEvent.device)) {
-                LogiMine.unassignedDevices.remove(deviceDisconnectedEvent.device);
-            }
-        } else if(bridgeEvent instanceof DeviceDiscoveredEvent) {
-            //Called when a logitow device is discovered.
-            //TODO: Maybe give the player a list of discovered devices to connect to.
-            DeviceDiscoveredEvent deviceDiscoveredEvent = (DeviceDiscoveredEvent) bridgeEvent;
+            //Show device disconnected notification.
+            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Device " + deviceDisconnectedEvent.device + " disconnected!"));
+        }
+        else if (bridgeEvent instanceof DeviceConnectionErrorEvent) {
+            //Called when there is a problem connecting to a device.
+            DeviceConnectionErrorEvent errorEvent = (DeviceConnectionErrorEvent) bridgeEvent;
 
-            //Automatically connecting to the newly discovered devices.
-            LogitowDeviceManager.current.connectDevice(deviceDiscoveredEvent.device);
-        } else if (bridgeEvent instanceof DeviceLostEvent) {
-            //Called when a logitow device is no longer available to connect. (out of range)
-            //TODO: Update the list of discovered devices. (remove the lost device)
-            DeviceLostEvent deviceLostEvent = (DeviceLostEvent) bridgeEvent;
-        } else if(bridgeEvent instanceof DeviceManagerDiscoveryStartedEvent) {
+            //Show device conn error notification.
+            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Couldn't connect to device " + errorEvent.device));
+        }
+        else if(bridgeEvent instanceof DeviceManagerDiscoveryStartedEvent) {
             //Called when device discovery starts.
             //TODO: Maybe give the player a list of discovered devices to connect to.
             DeviceManagerDiscoveryStartedEvent deviceManagerDiscoveryStartedEvent = (DeviceManagerDiscoveryStartedEvent) bridgeEvent;
@@ -72,8 +69,31 @@ public class LogitowBridgeEventHandler {
             DeviceBatteryLowChargeEvent deviceBatteryLowChargeEvent = (DeviceBatteryLowChargeEvent) bridgeEvent;
         } else if (bridgeEvent instanceof BlockOperationEvent) {
             //Called when a block state update is received from the device.
-            //TODO: Move the block updating logic here.
             BlockOperationEvent blockOperationEvent = (BlockOperationEvent) bridgeEvent;
+
+            System.out.println("Handling the block operation in the mod. Block local pos: " + blockOperationEvent.operation.blockB.coordinate);
+
+            //Passing the event to the respective assigned key block.
+            BlockKey keyBlock = LogiMine.assignedDevices.get(blockOperationEvent.device.info.uuid);
+            if(keyBlock != null) {
+                keyBlock.onStructureUpdate(blockOperationEvent);
+            } else {
+                System.out.println("No keyblock assigned to the device, can't handle the block operation.");
+            }
+        }
+    }
+
+    /**
+     * Called when the world is unloaded.
+     * Disconnects all the devices.
+     * @param unloadEvent
+     */
+    @SubscribeEvent
+    public static void onWorldUnload(WorldEvent.Unload unloadEvent) {
+        //Disconnecting all devices.
+        for (Device d :
+                LogitowDeviceManager.current.connectedDevices) {
+            d.disconnect();
         }
     }
 }
