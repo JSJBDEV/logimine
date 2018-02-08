@@ -19,6 +19,11 @@ sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse t
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 
 minecraft {
     version = "1.12.2-14.23.1.2578"
@@ -36,6 +41,8 @@ minecraft {
 dependencies {
     // https://mvnrepository.com/artifact/net.sf.jni4net/jni4net.j
     compile group: 'net.sf.jni4net', name: 'jni4net.j', version: '0.8.8.0', ext: 'pom'
+    compile name: 'logitow-bridge-0.3-all'
+
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
