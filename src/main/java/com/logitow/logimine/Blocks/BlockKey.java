@@ -1,9 +1,12 @@
 package com.logitow.logimine.Blocks;
 
+import com.logitow.bridge.build.Structure;
 import com.logitow.bridge.build.block.BlockOperation;
 import com.logitow.bridge.build.block.BlockOperationType;
+import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.logimine.Items.ModItems;
+import com.logitow.logimine.LogiMine;
 import com.logitow.logimine.client.gui.DeviceManagerGui;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -20,7 +23,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -28,14 +30,6 @@ import java.util.Random;
  * Modified by itsMatoosh on 05/01/2017.
  */
 public class BlockKey extends BlockBase {
-    /**
-     * Whether a block operation has been received.
-     */
-    private boolean blockOperationReceived = false;
-    /**
-     * The latest received block operation.
-     */
-    private ArrayList<BlockOperation> latestOperations = new ArrayList<>();
 
     private BlockPos position;
 
@@ -87,8 +81,7 @@ public class BlockKey extends BlockBase {
                         new java.util.TimerTask() {
                             @Override
                             public void run() {
-                                System.out.println("Set the key block reference.");
-                                DeviceManagerGui.selectedKeyBlock = BlockKey.this;
+                                DeviceManagerGui.onKeyBlockAssigned(BlockKey.this);
                             }
                         },
                         500
@@ -120,7 +113,6 @@ public class BlockKey extends BlockBase {
      * @param event
      */
     public void onStructureUpdate(BlockOperationEvent event) {
-        //Setting the operation flag and waiting for update to change the structure.
         System.out.println("Handling block update on key block " + position);
         BlockOperation operation = event.operation;
 
@@ -135,6 +127,19 @@ public class BlockKey extends BlockBase {
         } else {
             //Block removed.
             Minecraft.getMinecraft().world.setBlockToAir(affpos);
+        }
+    }
+    public void onStructureUpdate(Structure structure) {
+        System.out.println("Handling structure update on key block " + position);
+
+        for (com.logitow.bridge.build.block.Block b :
+                structure.blocks) {
+            //Getting the affected position.
+            BlockPos affpos = position.add(b.coordinate.x,b.coordinate.y,b.coordinate.z);
+
+            //Block added.
+            Block colour = BlockBase.getBlockFromName("logimine:"+b.getBlockType().name().toLowerCase()+"_lblock");
+            Minecraft.getMinecraft().world.setBlockState(affpos,colour.getDefaultState());
         }
     }
 
@@ -199,6 +204,20 @@ public class BlockKey extends BlockBase {
             }
         } catch(Exception e){nbt.setInteger("dir",0);}
 
+    }
+
+    /**
+     * Gets the device assigned to this block.
+     * @return
+     */
+    public Device getAssignedDevice() {
+        for (String uuid :
+                LogiMine.assignedDevices.keySet()) {
+            if(LogiMine.assignedDevices.get(uuid).position == this.position) {
+                return Device.getConnectedFromUuid(uuid);
+            }
+        }
+        return null;
     }
 
     /**

@@ -8,6 +8,7 @@ import com.logitow.bridge.event.device.DeviceConnectionErrorEvent;
 import com.logitow.bridge.event.device.DeviceDisconnectedEvent;
 import com.logitow.bridge.event.device.battery.DeviceBatteryLowChargeEvent;
 import com.logitow.bridge.event.device.battery.DeviceBatteryVoltageUpdateEvent;
+import com.logitow.bridge.event.device.block.BlockOperationErrorEvent;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
@@ -77,6 +78,18 @@ public class LogitowBridgeEventHandler {
             BlockKey keyBlock = LogiMine.assignedDevices.get(blockOperationEvent.device.info.uuid);
             if(keyBlock != null) {
                 keyBlock.onStructureUpdate(blockOperationEvent);
+            } else {
+                System.out.println("No keyblock assigned to the device, can't handle the block operation.");
+            }
+        } else if(bridgeEvent instanceof BlockOperationErrorEvent) {
+            BlockOperationErrorEvent blockOperationErrorEvent = (BlockOperationErrorEvent)bridgeEvent;
+
+            System.out.println("Handling the block structure update in the mod.");
+
+            //Passing the event to the respective assigned key block.
+            BlockKey keyBlock = LogiMine.assignedDevices.get(blockOperationErrorEvent.device.info.uuid);
+            if(keyBlock != null) {
+                keyBlock.onStructureUpdate(blockOperationErrorEvent.structure);
             } else {
                 System.out.println("No keyblock assigned to the device, can't handle the block operation.");
             }
