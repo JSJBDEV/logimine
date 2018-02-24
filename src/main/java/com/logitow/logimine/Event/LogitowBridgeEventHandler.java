@@ -89,7 +89,7 @@ public class LogitowBridgeEventHandler {
             //Passing the event to the respective assigned key block.
             BlockKey keyBlock = LogiMine.assignedDevices.get(blockOperationErrorEvent.device.info.uuid);
             if(keyBlock != null) {
-                keyBlock.onStructureUpdate(blockOperationErrorEvent.structure);
+                keyBlock.rebuildStructure(blockOperationErrorEvent.structure);
             } else {
                 System.out.println("No keyblock assigned to the device, can't handle the block operation.");
             }
