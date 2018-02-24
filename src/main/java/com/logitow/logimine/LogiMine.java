@@ -34,6 +34,7 @@ import java.util.Map;
 /**
  * The core class of the mod.
  * Created by James on 14/12/2017.
+ * Modified by itsMatoosh
  */
 @Mod(modid = LogiMine.modId, name = LogiMine.name, version = LogiMine.version)
 public class LogiMine {

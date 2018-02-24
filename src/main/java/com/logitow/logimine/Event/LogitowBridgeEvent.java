@@ -6,6 +6,8 @@ public class LogitowBridgeEvent extends Event {
 
     /**
      * The logitow-bridge event.
+     *
+     * Created by itsMatoosh
      */
     public com.logitow.bridge.event.Event deviceEvent;
 

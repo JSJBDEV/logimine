@@ -8,6 +8,7 @@ import com.logitow.logimine.LogiMine;
 
 /**
  * Created by James on 14/12/2017.
+ * Modified by itsMatoosh
  */
 public class ModBlocks {
     public static BlockKey key_lblock = new BlockKey("key_lblock").setCreativeTab(LogiMine.tab);
@@ -18,12 +19,13 @@ public class ModBlocks {
     public static BlockBase green_lblock = new BlockBase(Material.CAKE,"green_lblock").setCreativeTab(LogiMine.tab);
     public static BlockBase purple_lblock = new BlockBase(Material.CAKE,"purple_lblock").setCreativeTab(LogiMine.tab);
     public static BlockBase yellow_lblock = new BlockBase(Material.CAKE,"yellow_lblock").setCreativeTab(LogiMine.tab);
+    public static BlockBase end_lblock = new BlockBase(Material.CAKE,"end_lblock").setCreativeTab(LogiMine.tab);
 
 
 
     public static void register(IForgeRegistry<Block> registry) {
         registry.registerAll(
-                key_lblock,white_lblock,blue_lblock,magenta_lblock,pink_lblock,green_lblock,purple_lblock,yellow_lblock
+                key_lblock,white_lblock,blue_lblock,magenta_lblock,pink_lblock,green_lblock,purple_lblock,yellow_lblock, end_lblock
         );
 
     }
@@ -31,7 +33,7 @@ public class ModBlocks {
     public static void registerItemBlocks(IForgeRegistry<Item> registry) {
         registry.registerAll(
                 key_lblock.createItemBlock(),white_lblock.createItemBlock(),blue_lblock.createItemBlock(),magenta_lblock.createItemBlock(),
-                pink_lblock.createItemBlock(), green_lblock.createItemBlock(),purple_lblock.createItemBlock(),yellow_lblock.createItemBlock()
+                pink_lblock.createItemBlock(), green_lblock.createItemBlock(),purple_lblock.createItemBlock(),yellow_lblock.createItemBlock(), end_lblock.createItemBlock()
         );
 
     }
@@ -45,8 +47,6 @@ public class ModBlocks {
         green_lblock.registerItemModel(Item.getItemFromBlock(green_lblock));
         purple_lblock.registerItemModel(Item.getItemFromBlock(purple_lblock));
         yellow_lblock.registerItemModel(Item.getItemFromBlock(yellow_lblock));
-
-
-
+        end_lblock.registerItemModel(Item.getItemFromBlock(end_lblock));
     }
 }

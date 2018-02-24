@@ -22,6 +22,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Handles LOGITOW bridge events.
+ *
+ * Created by itsMatoosh
  */
 public class LogitowBridgeEventHandler {
     @SubscribeEvent

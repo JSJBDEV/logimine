@@ -4,6 +4,7 @@ import com.logitow.bridge.build.Structure;
 import com.logitow.bridge.build.block.BlockOperation;
 import com.logitow.bridge.build.block.BlockOperationType;
 import com.logitow.bridge.build.block.BlockSide;
+import com.logitow.bridge.build.block.BlockType;
 import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.logimine.Items.ModItems;
@@ -134,9 +135,9 @@ public class BlockKey extends BlockBase {
         } else {
             //Block removed.
             Minecraft.getMinecraft().world.setBlockToAir(affpos);
-            for (BlockPos pos :
-                    blocks) {
-                if (pos == affpos) {
+            for (int i = 0; i < blocks.size(); i++) {
+                BlockPos pos = blocks.get(i);
+                if(pos != null && pos==affpos) {
                     blocks.remove(pos);
                 }
             }
@@ -150,9 +151,10 @@ public class BlockKey extends BlockBase {
         System.out.println("Rebuilding the structure: " + structure + " on: " + position);
 
         //Removing all the old blocks.
-        for (BlockPos pos :
-                blocks) {
+        for (int i = 0; i < blocks.size(); i++) {
+            BlockPos pos = blocks.get(i);
             if(pos==null) continue;
+
             Minecraft.getMinecraft().world.setBlockToAir(pos);
             blocks.remove(pos);
         }
@@ -160,13 +162,16 @@ public class BlockKey extends BlockBase {
         //Placing all the new blocks.
         for (com.logitow.bridge.build.block.Block b :
                 structure.blocks) {
-            //Getting the affected position.
-            BlockPos affpos = this.position.add(b.coordinate.x,b.coordinate.y,b.coordinate.z);
-            System.out.println("Placing block: " + b + " at: " + affpos);
-
             //Block added.
-            Block colour = BlockBase.getBlockFromName("logimine:"+b.getBlockType().name().toLowerCase()+"_lblock");
-            Minecraft.getMinecraft().world.setBlockState(affpos,colour.getDefaultState());
+            if(b.getBlockType() != BlockType.BASE) {
+                //Getting the affected position.
+                BlockPos affpos = this.position.add(b.coordinate.x,b.coordinate.y,b.coordinate.z);
+                System.out.println("Placing block: " + b + " at: " + affpos);
+                blocks.add(affpos);
+
+                Block colour = BlockBase.getBlockFromName("logimine:"+b.getBlockType().name().toLowerCase()+"_lblock");
+                Minecraft.getMinecraft().world.setBlockState(affpos,colour.getDefaultState());
+            }
         }
     }
 
