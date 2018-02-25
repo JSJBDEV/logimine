@@ -25,6 +25,8 @@ import java.util.Map;
 
 /**
  * Represents the device manager gui window.
+ *
+ * Created by itsMatoosh
  */
 @SideOnly(Side.CLIENT)
 public class DeviceManagerGui extends GuiScreen {
