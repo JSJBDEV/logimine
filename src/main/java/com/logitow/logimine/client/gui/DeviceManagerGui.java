@@ -80,7 +80,7 @@ public class DeviceManagerGui extends GuiScreen {
     /**
      * Id of the assigned device button.
      */
-    int ASSIGNED_DEVICE_BUTTON_ID = 200;
+    int ASSIGNED_DEVICE_BUTTON_ID = -1;
 
     /**
      * The currently assigned logitow device.
@@ -157,25 +157,27 @@ public class DeviceManagerGui extends GuiScreen {
 
             //Updating the list.
             if(assignedDevice == disconnectEvent.device) {
+                System.out.println("Device " + assignedDevice + " disconnected, unassigning it from block " + selectedKeyBlock);
+
                 assignedDevice = null;
-            }
 
-            //Updating the buttons.
-            GuiButton buttonToRemove = null;
-            int lastY = getDeviceStartPosition()-deviceButtonSeparation;
-            for (GuiButton button :
-                    buttonList) {
-                if(button.id == ASSIGNED_DEVICE_BUTTON_ID) {
-                    buttonToRemove = button;
+                //Updating the buttons.
+                GuiButton buttonToRemove = null;
+                int lastY = getDeviceStartPosition()-deviceButtonSeparation;
+                for (GuiButton button :
+                        buttonList) {
+                    if(button.id == ASSIGNED_DEVICE_BUTTON_ID) {
+                        buttonToRemove = button;
+                    }
+                    else if(button.id > 100) {
+                        button.y = lastY + deviceButtonSeparation;
+                        lastY = button.y;
+                    }
                 }
-                else if(button.id > 100) {
-                    button.y = lastY + deviceButtonSeparation;
-                    lastY = button.y;
-                }
-            }
 
-            //Removing the button.
-            buttonList.remove(buttonToRemove);
+                //Removing the button.
+                buttonList.remove(buttonToRemove);
+            }
         }
     };
     private EventHandler deviceConnectHandler = new EventHandler() {

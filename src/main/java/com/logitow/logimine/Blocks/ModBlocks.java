@@ -12,14 +12,16 @@ import com.logitow.logimine.LogiMine;
  */
 public class ModBlocks {
     public static BlockKey key_lblock = new BlockKey("key_lblock").setCreativeTab(LogiMine.tab);
-    public static BlockBase white_lblock = new BlockBase(Material.CAKE,"white_lblock").setCreativeTab(LogiMine.tab);
-    public static BlockBase blue_lblock = new BlockBase(Material.CAKE,"blue_lblock").setCreativeTab(LogiMine.tab);
-    public static BlockBase magenta_lblock = new BlockBase(Material.CAKE,"magenta_lblock").setCreativeTab(LogiMine.tab);
-    public static BlockBase pink_lblock = new BlockBase(Material.CAKE,"pink_lblock").setCreativeTab(LogiMine.tab);
-    public static BlockBase green_lblock = new BlockBase(Material.CAKE,"green_lblock").setCreativeTab(LogiMine.tab);
-    public static BlockBase purple_lblock = new BlockBase(Material.CAKE,"purple_lblock").setCreativeTab(LogiMine.tab);
-    public static BlockBase yellow_lblock = new BlockBase(Material.CAKE,"yellow_lblock").setCreativeTab(LogiMine.tab);
-    public static BlockBase end_lblock = new BlockBase(Material.CAKE,"end_lblock").setCreativeTab(LogiMine.tab);
+
+    //Below blocks will only appear as a part of a structure. They will not be available in creative.
+    public static BlockBase white_lblock = new BlockBase(Material.CAKE,"white_lblock");
+    public static BlockBase blue_lblock = new BlockBase(Material.CAKE,"blue_lblock");
+    public static BlockBase magenta_lblock = new BlockBase(Material.CAKE,"magenta_lblock");
+    public static BlockBase pink_lblock = new BlockBase(Material.CAKE,"pink_lblock");
+    public static BlockBase green_lblock = new BlockBase(Material.CAKE,"green_lblock");
+    public static BlockBase purple_lblock = new BlockBase(Material.CAKE,"purple_lblock");
+    public static BlockBase yellow_lblock = new BlockBase(Material.CAKE,"yellow_lblock");
+    public static BlockBase end_lblock = new BlockBase(Material.CAKE,"end_lblock");
 
 
 

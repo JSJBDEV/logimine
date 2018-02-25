@@ -1,11 +1,12 @@
 #blocks
-tile.blue_lblock.name=Blue Logic Block
-tile.yellow_lblock.name=Yellow Logic Block
-tile.magenta_lblock.name=Magenta Logic Block
-tile.pink_lblock.name=Pink Logic Block
-tile.purple_lblock.name=Purple Logic Block
-tile.green_lblock.name=Green Logic Block
-tile.white_lblock.name=White Logic Block
+tile.blue_lblock.name=Blue Logitow Block
+tile.yellow_lblock.name=Yellow Logitow Block
+tile.magenta_lblock.name=Magenta Logitow Block
+tile.pink_lblock.name=Pink Logitow Block
+tile.purple_lblock.name=Purple Logitow Block
+tile.green_lblock.name=Green Logitow Block
+tile.white_lblock.name=White Logitow Block
+tile.end_lblock.name=End Structure Logitow Block
 tile.key_lblock.name=Logitow Key Block
 
 #items
