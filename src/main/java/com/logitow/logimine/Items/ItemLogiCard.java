@@ -1,6 +1,9 @@
 package com.logitow.logimine.Items;
 
+import com.logitow.bridge.communication.BluetoothState;
+import com.logitow.bridge.communication.LogitowDeviceManager;
 import com.logitow.logimine.LogiMine;
+import com.logitow.logimine.client.gui.BluetoothDialogGui;
 import com.logitow.logimine.client.gui.DeviceManagerGui;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
@@ -51,10 +54,14 @@ public class ItemLogiCard extends Item {
      */
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        //TODO: Check if there's a key block in front.
-
-        //Opening the device manager screen.
-        Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
+        //Checking for bluetooth availability.
+        if(LogitowDeviceManager.current.getBluetoothState() == BluetoothState.PoweredOn) {
+            //Opening the device manager screen.
+            Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
+        } else {
+            //Showing ble unavailable dialog.
+            Minecraft.getMinecraft().displayGuiScreen(new BluetoothDialogGui(LogitowDeviceManager.current.getBluetoothState()));
+        }
 
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }
