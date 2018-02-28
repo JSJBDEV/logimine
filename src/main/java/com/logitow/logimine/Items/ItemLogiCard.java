@@ -22,7 +22,6 @@ import net.minecraft.world.World;
  */
 public class ItemLogiCard extends Item {
     protected String name;
-    boolean itemBound = false;
 
     public ItemLogiCard(String name) {
         this.name = name;
@@ -54,13 +53,16 @@ public class ItemLogiCard extends Item {
      */
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        //Checking for bluetooth availability.
-        if(LogitowDeviceManager.current.getBluetoothState() == BluetoothState.PoweredOn) {
-            //Opening the device manager screen.
-            Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
-        } else {
-            //Showing ble unavailable dialog.
-            Minecraft.getMinecraft().displayGuiScreen(new BluetoothDialogGui(LogitowDeviceManager.current.getBluetoothState()));
+        //Cancel if sneaking.
+        if(!playerIn.isSneaking()) {
+            //Checking for bluetooth availability.
+            if(LogitowDeviceManager.current.getBluetoothState() == BluetoothState.PoweredOn) {
+                //Opening the device manager screen.
+                Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
+            } else {
+                //Showing ble unavailable dialog.
+                Minecraft.getMinecraft().displayGuiScreen(new BluetoothDialogGui(LogitowDeviceManager.current.getBluetoothState()));
+            }
         }
 
         return super.onItemRightClick(worldIn, playerIn, handIn);

@@ -312,6 +312,7 @@ public class DeviceManagerGui extends GuiScreen {
                 System.out.println("Disconnecting device: " + assignedDevice + ", unassigning it from block " + selectedKeyBlock);
 
                 //Unassigning
+                selectedKeyBlock.clearStructure(assignedDevice.currentStructure);
                 assignedDevice = null;
 
                 //Updating the buttons.

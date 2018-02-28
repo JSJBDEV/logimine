@@ -1,9 +1,9 @@
 package com.logitow.logimine.Blocks;
 
 import com.logitow.bridge.build.Structure;
+import com.logitow.bridge.build.Vec3;
 import com.logitow.bridge.build.block.BlockOperation;
 import com.logitow.bridge.build.block.BlockOperationType;
-import com.logitow.bridge.build.block.BlockSide;
 import com.logitow.bridge.build.block.BlockType;
 import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
@@ -25,7 +25,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -35,11 +34,6 @@ import java.util.Random;
 public class BlockKey extends BlockBase {
 
     private BlockPos position;
-
-    /**
-     * All the blocks attached to this key block.
-     */
-    private ArrayList<BlockPos> blocks = new ArrayList<>();
 
     /**
      * Creates a base block with a certain name.
@@ -89,12 +83,12 @@ public class BlockKey extends BlockBase {
                     if (player.isSneaking() )
                     {
                         //Rotating the structure.
-                        direction(stack, player, world, blockpos);
+                        direction(stack, player, world, blockpos, p_onBlockActivated_6_);
                     }
                     else
                     {
-                        //Assigning the block to the device manager dialog.
                         Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
+                        //Assigning the block to the device manager dialog.
                         new java.util.Timer().schedule(
                                 new java.util.TimerTask() {
                                     @Override
@@ -106,20 +100,31 @@ public class BlockKey extends BlockBase {
                         );
                     }
                 }
-            }else
-                {
-                    NBTTagCompound nbt = new NBTTagCompound();
-                    stack.setTagCompound(nbt);
+            }
+            else
+            {
+                if (world.isRemote){ //Running on server only.
+                    return false;
                 }
+                NBTTagCompound nbt = new NBTTagCompound();
+                stack.setTagCompound(nbt);
+            }
         }
         return true;
     }
 
     /**
      * Called when the structure data is updated from the assigned device.
+     * Called on client only.
      * @param event
      */
     public void onStructureUpdate(BlockOperationEvent event) {
+        //Making sure the update doesn't happen when the player is not in the world.
+        if (Minecraft.getMinecraft().world == null)  {
+            getAssignedDevice().disconnect();
+            return;
+        }
+
         System.out.println("Handling block update on key block " + position);
         BlockOperation operation = event.operation;
 
@@ -130,34 +135,39 @@ public class BlockKey extends BlockBase {
         if(operation.operationType == BlockOperationType.BLOCK_ADD) {
             //Block added.
             Block colour = BlockBase.getBlockFromName("logimine:"+operation.blockB.getBlockType().name().toLowerCase()+"_lblock");
-            blocks.add(affpos);
-            Minecraft.getMinecraft().world.setBlockState(affpos,colour.getDefaultState());
+            Minecraft.getMinecraft().world.setBlockState(affpos, colour.getDefaultState());
+            Minecraft.getMinecraft().effectRenderer.addBlockDestroyEffects(affpos, colour.getDefaultState());
         } else {
             //Block removed.
+            IBlockState aimState = Minecraft.getMinecraft().world.getBlockState(affpos);
             Minecraft.getMinecraft().world.setBlockToAir(affpos);
-            for (int i = 0; i < blocks.size(); i++) {
-                BlockPos pos = blocks.get(i);
-                if(pos != null && pos==affpos) {
-                    blocks.remove(pos);
-                }
-            }
+            Minecraft.getMinecraft().effectRenderer.addBlockDestroyEffects(affpos, aimState);
         }
+
+        //TODO: Send update packet to server.
     }
 
+    /**
+     * Clears the current structure.
+     * @param structure
+     */
+    public void clearStructure(Structure structure) {
+        //Removing all the old blocks.
+        for (int i = 0; i < structure.blocks.size(); i++) {
+            com.logitow.bridge.build.block.Block b = structure.blocks.get(i);
+            if(b==null) continue;
+            if(b.getBlockType() == BlockType.BASE) continue;
+
+            BlockPos removePosition = this.position.add(b.coordinate.x, b.coordinate.y, b.coordinate.z);
+
+            Minecraft.getMinecraft().world.setBlockToAir(removePosition);
+        }
+    }
     /**
      * Rebuilds the structure.
      */
     public void rebuildStructure(Structure structure) {
         System.out.println("Rebuilding the structure: " + structure + " on: " + position);
-
-        //Removing all the old blocks.
-        for (int i = 0; i < blocks.size(); i++) {
-            BlockPos pos = blocks.get(i);
-            if(pos==null) continue;
-
-            Minecraft.getMinecraft().world.setBlockToAir(pos);
-            blocks.remove(pos);
-        }
 
         //Placing all the new blocks.
         for (com.logitow.bridge.build.block.Block b :
@@ -167,7 +177,6 @@ public class BlockKey extends BlockBase {
                 //Getting the affected position.
                 BlockPos affpos = this.position.add(b.coordinate.x,b.coordinate.y,b.coordinate.z);
                 System.out.println("Placing block: " + b + " at: " + affpos);
-                blocks.add(affpos);
 
                 Block colour = BlockBase.getBlockFromName("logimine:"+b.getBlockType().name().toLowerCase()+"_lblock");
                 Minecraft.getMinecraft().world.setBlockState(affpos,colour.getDefaultState());
@@ -182,22 +191,57 @@ public class BlockKey extends BlockBase {
      * @param world
      * @param blockpos
      */
-    public void direction(ItemStack stack,EntityPlayer player, World world,BlockPos blockpos)
+    public void direction(ItemStack stack,EntityPlayer player, World world,BlockPos blockpos, EnumFacing facing)
     {
+        //Run on server only.
+        if (world.isRemote){
+            return;
+        }
+
         NBTTagCompound nbt;
         nbt = stack.getTagCompound();
         Device assigned = getAssignedDevice();
         if(assigned == null) {
-            player.sendMessage(new TextComponentString("Can't rotate the LOGITOW base. No structure attached!"));
+        player.sendMessage(new TextComponentString("Can't rotate the LOGITOW base. No structure attached!"));
             return;
         }
         try
         {
             //The currently applied rotation.
-            int currentRotation = nbt.getInteger("dir");
-            System.out.println("Rotating LOGITOW base block " + position + " to " + (currentRotation +1));
+            int[] currentRotation = nbt.getIntArray("rot");
 
-            switch(currentRotation)
+            //Getting the rotation to apply.
+            Vec3 rotation = Vec3.zero();
+            switch(facing) {
+                case UP:
+                    rotation = new Vec3(0,90,0);
+                    break;
+                case DOWN:
+                    rotation = new Vec3(0,-90,0);
+                    break;
+                case NORTH:
+                    rotation = new Vec3(0,0,90);
+                    break;
+                case SOUTH:
+                    rotation = new Vec3(0,0,-90);
+                    break;
+                case EAST:
+                    rotation = new Vec3(90,0,0);
+                    break;
+                case WEST:
+                    rotation = new Vec3(-90,0,0);
+                    break;
+            }
+
+            System.out.println("Rotating LOGITOW base block: " + position + " by " + rotation);
+
+            //Increasing current rot.
+            currentRotation[0] += rotation.x;
+            currentRotation[1] += rotation.y;
+            currentRotation[2] += rotation.z;
+
+            //TODO: Position second base block.
+            /*switch(currentRotation)
             {
                 case 0:
                     world.setBlockToAir(blockpos.up());
@@ -224,18 +268,14 @@ public class BlockKey extends BlockBase {
                     world.setBlockState(blockpos.up(),ModBlocks.white_lblock.getDefaultState());
                     break;
 
-            }
+            }*/
 
-            int newRotation = currentRotation+1;
-            if(newRotation > 5) {
-                newRotation = 0;
-            }
-
-            nbt.setInteger("dir", newRotation);
-            assigned.currentStructure.rotate(BlockSide.getBlockSide(newRotation+1));
+            nbt.setIntArray("rot", currentRotation);
+            clearStructure(assigned.currentStructure);
+            assigned.currentStructure.rotate(rotation);
             rebuildStructure(getAssignedDevice().currentStructure);
-            player.sendMessage(new TextComponentString("Rotated structure to direction: " + newRotation));
-        } catch(Exception e){nbt.setInteger("dir",0);}
+            player.sendMessage(new TextComponentString("Rotated structure by: " + rotation));
+        } catch(Exception e){nbt.setIntArray("rot",new int[] {0,0,0});}
     }
 
     /**
