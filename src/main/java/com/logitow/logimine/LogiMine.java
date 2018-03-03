@@ -11,11 +11,11 @@ import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
-import com.logitow.logimine.Blocks.BlockKey;
-import com.logitow.logimine.Blocks.ModBlocks;
-import com.logitow.logimine.Event.LogitowBridgeEvent;
-import com.logitow.logimine.Event.LogitowBridgeEventHandler;
-import com.logitow.logimine.Items.ModItems;
+import com.logitow.logimine.blocks.BlockKey;
+import com.logitow.logimine.blocks.ModBlocks;
+import com.logitow.logimine.event.LogitowBridgeEvent;
+import com.logitow.logimine.event.LogitowBridgeEventHandler;
+import com.logitow.logimine.items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -94,8 +94,8 @@ public class LogiMine {
     public void postInit(FMLPostInitializationEvent event) {
 
     }
-    @SidedProxy(serverSide = "com.logitow.logimine.Proxy.CommonProxy", clientSide = "com.logitow.logimine.Proxy.ClientProxy")
-    public static com.logitow.logimine.Proxy.CommonProxy proxy;
+    @SidedProxy(serverSide = "com.logitow.logimine.proxy.CommonProxy", clientSide = "com.logitow.logimine.proxy.ClientProxy")
+    public static com.logitow.logimine.proxy.CommonProxy proxy;
 
     @Mod.EventBusSubscriber
     public static class RegistrationHandler {

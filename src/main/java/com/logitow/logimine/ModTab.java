@@ -2,7 +2,7 @@ package com.logitow.logimine;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import com.logitow.logimine.Blocks.ModBlocks;
+import com.logitow.logimine.blocks.ModBlocks;
 
 /**
  * Created by James on 17/12/2017.

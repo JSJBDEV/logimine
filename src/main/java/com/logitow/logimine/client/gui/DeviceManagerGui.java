@@ -7,7 +7,7 @@ import com.logitow.bridge.event.EventHandler;
 import com.logitow.bridge.event.EventManager;
 import com.logitow.bridge.event.device.DeviceDiscoveredEvent;
 import com.logitow.bridge.event.device.DeviceLostEvent;
-import com.logitow.logimine.Blocks.BlockKey;
+import com.logitow.logimine.blocks.BlockKey;
 import com.logitow.logimine.LogiMine;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -86,7 +86,7 @@ public class DeviceManagerGui extends GuiScreen {
     Device assignedDevice = null;
 
     /**
-     * Event handler for updating the discovered devices list.
+     * event handler for updating the discovered devices list.
      */
     private EventHandler deviceDiscoveredHandler = new EventHandler() {
         @Override
@@ -113,7 +113,7 @@ public class DeviceManagerGui extends GuiScreen {
         }
     };
     /**
-     * Event handler for updating the discovered devices list.
+     * event handler for updating the discovered devices list.
      */
     private EventHandler deviceLostHandler = new EventHandler() {
         @Override

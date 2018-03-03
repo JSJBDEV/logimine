@@ -1,4 +1,4 @@
-package com.logitow.logimine.Event;
+package com.logitow.logimine.event;
 
 import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.communication.LogitowDeviceManager;
@@ -13,7 +13,7 @@ import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
-import com.logitow.logimine.Blocks.BlockKey;
+import com.logitow.logimine.blocks.BlockKey;
 import com.logitow.logimine.LogiMine;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.TextComponentString;

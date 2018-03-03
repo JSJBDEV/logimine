@@ -1,4 +1,4 @@
-package com.logitow.logimine.Event;
+package com.logitow.logimine.event;
 
 import net.minecraftforge.fml.common.eventhandler.Event;
 

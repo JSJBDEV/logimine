@@ -1,127 +1,127 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ac778a1-141f-4855-aede-e569cc24d1ae" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEventHandler.java" />
-      <change beforePath="$PROJECT_DIR$/.gradle/gradle.log" afterPath="$PROJECT_DIR$/.gradle/gradle.log" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockKey.java" afterPath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockKey.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/BlockUpdateEvent.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/LogiMine.java" afterPath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/LogiMine.java" />
+    <list comment="" default="true" id="1ac778a1-141f-4855-aede-e569cc24d1ae" name="Default">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEvent.java" beforePath=""/>
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEventHandler.java" beforePath=""/>
+      <change afterPath="$PROJECT_DIR$/.gradle/gradle.log" beforePath="$PROJECT_DIR$/.gradle/gradle.log"/>
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockKey.java" beforePath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockKey.java"/>
+      <change afterPath="" beforePath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/BlockUpdateEvent.java"/>
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/LogiMine.java" beforePath="$PROJECT_DIR$/src/main/java/com/logitow/logimine/LogiMine.java"/>
     </list>
-    <ignored path="$PROJECT_DIR$/.gradle/" />
-    <ignored path="$PROJECT_DIR$/build/" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
+    <ignored path="$PROJECT_DIR$/.gradle/"/>
+    <ignored path="$PROJECT_DIR$/build/"/>
+    <ignored path="$PROJECT_DIR$/out/"/>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true"/>
+    <option name="TRACKING_ENABLED" value="true"/>
+    <option name="SHOW_DIALOG" value="false"/>
+    <option name="HIGHLIGHT_CONFLICTS" value="true"/>
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false"/>
+    <option name="LAST_RESOLUTION" value="IGNORE"/>
   </component>
   <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
+    <option name="optimizeImportsOnTheFly" value="true"/>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
-      <ProjectState />
+      <ProjectState/>
     </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view/>
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LogitowBridgeEvent.java" pinned="false" current-in-tab="false">
+      <file current-in-tab="false" leaf-file-name="LogitowBridgeEvent.java" pinned="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor" selected="true">
             <state relative-caret-position="60">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <caret column="13" lean-forward="false" line="4" selection-end-column="13" selection-end-line="4" selection-start-column="13" selection-start-line="4"/>
               <folding>
-                <element signature="e#297#298#0" expanded="true" />
-                <element signature="e#325#326#0" expanded="true" />
+                <element expanded="true" signature="e#297#298#0"/>
+                <element expanded="true" signature="e#325#326#0"/>
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogiMine.java" pinned="false" current-in-tab="true">
+      <file current-in-tab="true" leaf-file-name="LogiMine.java" pinned="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/LogiMine.java">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor" selected="true">
             <state relative-caret-position="98">
-              <caret line="84" column="75" lean-forward="false" selection-start-line="84" selection-start-column="75" selection-end-line="84" selection-end-column="75" />
+              <caret column="75" lean-forward="false" line="84" selection-end-column="75" selection-end-line="84" selection-start-column="75" selection-start-line="84"/>
               <folding>
-                <element signature="e#2112#2355#0" expanded="true" />
-                <element signature="e#2354#2355#0" expanded="true" />
+                <element expanded="true" signature="e#2112#2355#0"/>
+                <element expanded="true" signature="e#2354#2355#0"/>
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModBlocks.java" pinned="false" current-in-tab="false">
+      <file current-in-tab="false" leaf-file-name="ModBlocks.java" pinned="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/ModBlocks.java">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor" selected="true">
             <state relative-caret-position="56">
-              <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-              <folding />
+              <caret column="38" lean-forward="true" line="16" selection-end-column="38" selection-end-line="16" selection-start-column="38" selection-start-line="16"/>
+              <folding/>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockBase.java" pinned="false" current-in-tab="false">
+      <file current-in-tab="false" leaf-file-name="BlockBase.java" pinned="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockBase.java">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor" selected="true">
             <state relative-caret-position="-2">
-              <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+              <caret column="36" lean-forward="false" line="16" selection-end-column="36" selection-end-line="16" selection-start-column="36" selection-start-line="16"/>
               <folding>
-                <element signature="imports" expanded="true" />
+                <element expanded="true" signature="imports"/>
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientProxy.java" pinned="false" current-in-tab="false">
+      <file current-in-tab="false" leaf-file-name="ClientProxy.java" pinned="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Proxy/ClientProxy.java">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor" selected="true">
             <state relative-caret-position="105">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
+              <caret column="13" lean-forward="false" line="10" selection-end-column="13" selection-end-line="10" selection-start-column="13" selection-start-line="10"/>
+              <folding/>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogitowBridgeEventHandler.java" pinned="false" current-in-tab="false">
+      <file current-in-tab="false" leaf-file-name="LogitowBridgeEventHandler.java" pinned="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEventHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor" selected="true">
             <state relative-caret-position="-79">
-              <caret line="52" column="76" lean-forward="true" selection-start-line="52" selection-start-column="76" selection-end-line="52" selection-end-column="76" />
+              <caret column="76" lean-forward="true" line="52" selection-end-column="76" selection-end-line="52" selection-start-column="76" selection-start-line="52"/>
               <folding>
-                <element signature="imports" expanded="true" />
+                <element expanded="true" signature="imports"/>
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommonProxy.java" pinned="false" current-in-tab="false">
+      <file current-in-tab="false" leaf-file-name="CommonProxy.java" pinned="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Proxy/CommonProxy.java">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor" selected="true">
             <state relative-caret-position="126">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
+              <caret column="13" lean-forward="false" line="7" selection-end-column="13" selection-end-line="7" selection-start-column="13" selection-start-line="7"/>
+              <folding/>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockKey.java" pinned="false" current-in-tab="false">
+      <file current-in-tab="false" leaf-file-name="BlockKey.java" pinned="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockKey.java">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor" selected="true">
             <state relative-caret-position="179">
-              <caret line="130" column="45" lean-forward="false" selection-start-line="130" selection-start-column="45" selection-end-line="130" selection-end-column="45" />
-              <folding />
+              <caret column="45" lean-forward="false" line="130" selection-end-column="45" selection-end-line="130" selection-start-column="45" selection-start-line="130"/>
+              <folding/>
             </state>
           </provider>
         </entry>
@@ -131,22 +131,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
+        <option value="Class"/>
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$"/>
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14" />
+        <entry key="$PROJECT_DIR$" value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14"/>
       </map>
     </option>
     <option name="myGradleVersions">
       <map>
-        <entry key="$PROJECT_DIR$" value="2.14" />
+        <entry key="$PROJECT_DIR$" value="2.14"/>
       </map>
     </option>
     <option name="availableProjects">
@@ -154,15 +154,15 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="logimine" />
-              <option name="path" value="$PROJECT_DIR$" />
+              <option name="name" value="logimine"/>
+              <option name="path" value="$PROJECT_DIR$"/>
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="logimine" />
-                <option name="path" value="$PROJECT_DIR$" />
+                <option name="name" value="logimine"/>
+                <option name="path" value="$PROJECT_DIR$"/>
               </ExternalProjectPojo>
             </list>
           </value>
@@ -175,393 +175,393 @@
           <value>
             <list>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="reobfJar" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="reobfJar"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'logimine'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="projects" />
+                <option name="description" value="Displays the sub-projects of root project 'logimine'."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="projects"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="sourceMainJava" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="sourceMainJava"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="deobfProvidedDummyTask" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="deobfProvidedDummyTask"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Generates Gradle wrapper files. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="wrapper" />
+                <option name="description" value="Generates Gradle wrapper files. [incubating]"/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="wrapper"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="retromapReplacedTest" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="retromapReplacedTest"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles api classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="apiClasses" />
+                <option name="description" value="Assembles api classes."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="apiClasses"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Generates the Eclipse classpath file." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="eclipseClasspath" />
+                <option name="description" value="Generates the Eclipse classpath file."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="eclipseClasspath"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Runs the Minecraft Server" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="runServer" />
+                <option name="description" value="Runs the Minecraft Server"/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="runServer"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles a jar archive containing the main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="jar" />
+                <option name="description" value="Assembles a jar archive containing the main classes."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="jar"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'logimine'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="model" />
+                <option name="description" value="Displays the configuration model of root project 'logimine'. [incubating]"/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="model"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="applyBinaryPatches" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="applyBinaryPatches"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="deobfMcMCP" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="deobfMcMCP"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractMcpMappings" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractMcpMappings"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Processes api resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processApiResources" />
+                <option name="description" value="Processes api resources."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="processApiResources"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Processes main resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processResources" />
+                <option name="description" value="Processes main resources."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="processResources"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'logimine'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="tasks" />
+                <option name="description" value="Displays the tasks runnable from root project 'logimine'."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="tasks"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="deobfCompileDummyTask" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="deobfCompileDummyTask"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractUserdev" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractUserdev"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Initializes a new Gradle build. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="init" />
+                <option name="description" value="Initializes a new Gradle build. [incubating]"/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="init"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractRangemapReplacedTest" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractRangemapReplacedTest"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Runs the unit tests." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="test" />
+                <option name="description" value="Runs the unit tests."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="test"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Sets up the bare minimum to build a minecraft mod. Ideally for CI servers" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="setupCiWorkspace" />
+                <option name="description" value="Sets up the bare minimum to build a minecraft mod. Ideally for CI servers"/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="setupCiWorkspace"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="makeEclipseCleanRunClient" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="makeEclipseCleanRunClient"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="retromapTest" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="retromapTest"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="DevWorkspace + the deobfuscated Minecraft source linked as a source jar." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="setupDecompWorkspace" />
+                <option name="description" value="DevWorkspace + the deobfuscated Minecraft source linked as a source jar."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="setupDecompWorkspace"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Compiles main Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="compileJava" />
+                <option name="description" value="Compiles main Java source."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="compileJava"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="sourceApiJava" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="sourceApiJava"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="check" />
+                <option name="description" value="Runs all checks."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="check"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="retromapReplacedMain" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="retromapReplacedMain"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractMcpData" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractMcpData"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="deobfMcSRG" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="deobfMcSRG"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractNatives" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractNatives"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'logimine'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencies" />
+                <option name="description" value="Displays all dependencies declared in root project 'logimine'."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="dependencies"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Generates all Eclipse files." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="eclipse" />
+                <option name="description" value="Generates all Eclipse files."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="eclipse"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Compiles api Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="compileApiJava" />
+                <option name="description" value="Compiles api Java source."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="compileApiJava"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Processes test resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processTestResources" />
+                <option name="description" value="Processes test resources."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="processTestResources"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Generates the Eclipse JDT settings file." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="eclipseJdt" />
+                <option name="description" value="Generates the Eclipse JDT settings file."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="eclipseJdt"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="retromapReplacedApi" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="retromapReplacedApi"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildNeeded" />
+                <option name="description" value="Assembles and tests this project and all projects it depends on."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="buildNeeded"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractRangemapReplacedMain" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractRangemapReplacedMain"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Generates the Eclipse project file." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="eclipseProject" />
+                <option name="description" value="Generates the Eclipse project file."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="eclipseProject"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="remapMcSources" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="remapMcSources"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="decompileMc" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="decompileMc"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="getAssetIndex" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="getAssetIndex"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'logimine'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="components" />
+                <option name="description" value="Displays the components produced by root project 'logimine'. [incubating]"/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="components"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="retromapMain" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="retromapMain"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildDependents" />
+                <option name="description" value="Assembles and tests this project and all projects that depend on it."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="buildDependents"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="cleanEclipseClasspath" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="cleanEclipseClasspath"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractRangemapReplacedApi" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractRangemapReplacedApi"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="retromapApi" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="retromapApi"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="sourceJar" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="sourceJar"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="makeStart" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="makeStart"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Cleans all Eclipse files." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="cleanEclipse" />
+                <option name="description" value="Cleans all Eclipse files."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="cleanEclipse"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="classes" />
+                <option name="description" value="Assembles main classes."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="classes"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in root project 'logimine'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildEnvironment" />
+                <option name="description" value="Displays all buildscript dependencies declared in root project 'logimine'."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="buildEnvironment"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="cleanEclipseProject" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="cleanEclipseProject"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="genSrgs" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="genSrgs"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="fixMcSources" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="fixMcSources"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="getVersionJson" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="getVersionJson"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles test classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="testClasses" />
+                <option name="description" value="Assembles test classes."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="testClasses"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Generates Javadoc API documentation for the main source code." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="javadoc" />
+                <option name="description" value="Generates Javadoc API documentation for the main source code."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="javadoc"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Cleares the ForgeGradle cache. DONT RUN THIS unless you want a fresh start, or the dev tells you to." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="cleanCache" />
+                <option name="description" value="Cleares the ForgeGradle cache. DONT RUN THIS unless you want a fresh start, or the dev tells you to."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="cleanCache"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="sourceTestJava" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="sourceTestJava"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="CIWorkspace + natives and assets to run and test Minecraft" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="setupDevWorkspace" />
+                <option name="description" value="CIWorkspace + natives and assets to run and test Minecraft"/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="setupDevWorkspace"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="recompileMc" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="recompileMc"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Generates the ForgeGradle run configurations for intellij Idea" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="genIntellijRuns" />
+                <option name="description" value="Generates the ForgeGradle run configurations for intellij Idea"/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="genIntellijRuns"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractRangemapMain" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractRangemapMain"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="getAssets" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="getAssets"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="cleanEclipseJdt" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="cleanEclipseJdt"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="downloadClient" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="downloadClient"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="makeEclipseCleanRunServer" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="makeEclipseCleanRunServer"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="mergeJars" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="mergeJars"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractDependencyATs" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractDependencyATs"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'logimine'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencyInsight" />
+                <option name="description" value="Displays the insight into a specific dependency in root project 'logimine'."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="dependencyInsight"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="applySourcePatches" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="applySourcePatches"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles the outputs of this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="assemble" />
+                <option name="description" value="Assembles the outputs of this project."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="assemble"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="clean" />
+                <option name="description" value="Deletes the build directory."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="clean"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Compiles test Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="compileTestJava" />
+                <option name="description" value="Compiles test Java source."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="compileTestJava"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="downloadServer" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="downloadServer"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="help" />
+                <option name="description" value="Displays a help message."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="help"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="build" />
+                <option name="description" value="Assembles and tests this project."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="build"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractRangemapTest" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractRangemapTest"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="splitServerJar" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="splitServerJar"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractRangemapApi" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="extractRangemapApi"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'logimine'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="properties" />
+                <option name="description" value="Displays the properties of root project 'logimine'."/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="properties"/>
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Runs the Minecraft client" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="runClient" />
+                <option name="description" value="Runs the Minecraft client"/>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$"/>
+                <option name="name" value="runClient"/>
               </ExternalTaskPojo>
             </list>
           </value>
@@ -570,9 +570,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3030794179000" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="1896793960" />
-        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="159431464" />
+        <entry key="$PROJECT_DIR$" value="3030794179000"/>
+        <entry key="$PROJECT_DIR$/build.gradle" value="1896793960"/>
+        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="159431464"/>
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -587,121 +587,121 @@
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
                           <list>
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minecraftforge.gradle/ForgeGradle/2.3-SNAPSHOT/824184fff01a00c3559a4c862e5fbfaace38b0dd/ForgeGradle-2.3-SNAPSHOT.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-debug-all/6.0_BETA/d1ce213dc9f28569f908355e7abd16db1f331943/asm-debug-all-6.0_BETA-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-debug-all/6.0_BETA/5d1f7d145b0094c3955dff56d3119d7bd9807aff/asm-debug-all-6.0_BETA.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/ad97fe8faaf01a3d3faacecd58e8fa6e78a973ca/guava-18.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.opencsv/opencsv/2.3/235993117036d44d126f76db9ea2202ee4884682/opencsv-2.3-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.opencsv/opencsv/2.3/c23708cdb9e80a144db433e23344a788a1fd6599/opencsv-2.3.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.cloudbees/diff4j/1.1/e01e5168c15a325a548be3a0d18af5eac6f6343f/diff4j-1.1-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.cloudbees/diff4j/1.1/645329c0d4ebbea5f73758929c6e63bab9e77204/diff4j-1.1.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.abrarsyed.jastyle/jAstyle/1.3/61707e2098d6ee76983a8c7c2915ac38c84115da/jAstyle-1.3-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.abrarsyed.jastyle/jAstyle/1.3/42431e5834cfb184d60be4142e2806cf2d806ea/jAstyle-1.3.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.trove4j/trove4j/2.1.0/3d51239e46537fc45dd18c639cc29bbc4e390326/trove4j-2.1.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.trove4j/trove4j/2.1.0/c82f2749a460b95de4c9d2466b62f18c23c7c914/trove4j-2.1.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jponge/lzma-java/1.3/c0f18880fb29c7bfc088a6e114c66fe30a5e8df2/lzma-java-1.3-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jponge/lzma-java/1.3/a25db9d4d385ccda4825ae1b47a7a61d86e595af/lzma-java-1.3.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nothome/javaxdelta/2.0.1/c99bfecfaa91279b8a3d7d25a99cbbda107c903d/javaxdelta-2.0.1-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nothome/javaxdelta/2.0.1/d4f5d077f1b15c6f67595015d69572303ad3f66d/javaxdelta-2.0.1.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a6dc5db8a12928e583bd3f23e72d3ab611ecd58f/gson-2.2.4-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.tony19/named-regexp/0.2.3/74e99674da3dcbd04e30fc62e164073b4d95e8b9/named-regexp-0.2.3-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.tony19/named-regexp/0.2.3/370846bf3837952d981deb8f91e81da8c65b09e1/named-regexp-0.2.3.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minecraftforge/forgeflower/1.0.342-SNAPSHOT/83b7d227aa011da5f140558240149ed26a0f5d76/forgeflower-1.0.342-SNAPSHOT.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.3.3/65cba03c4f6207f2885f88206fcf52c53f8d111b/httpclient-4.3.3-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.3.3/18f4247ff4572a074444572cee34647c43e7c9c7/httpclient-4.3.3.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.3.3/884b613cfc42948ad5d4cf507286ffe19592ebed/httpmime-4.3.3-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.3.3/e02368d7b56c0c376f227378a4f77de62864d020/httpmime-4.3.3.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jvnet.localizer/localizer/1.12/261a0e844fe30de1c30372135275fa0b299bdee4/localizer-1.12-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jvnet.localizer/localizer/1.12/6d456886a035b2c3f758059da1f91a823eaa4a62/localizer-1.12.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/1.4/48753e43ff29409fbbeadfb36186cbe27e41b179/commons-io-1.4-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/1.4/a8762d07e76cfde2395257a5da47ba7c1dbd3dce/commons-io-1.4.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/trove/trove/1.0.2/112b40581ab9a4d3de4636d49985a7f686d181c8/trove-1.0.2.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.3.2/4809f38359edeea9487f747e09aa58ec8d3a54c5/httpcore-4.3.2-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.3.2/31fbbff1ddbf98f3aa7377c94d33b0447c646b6e/httpcore-4.3.2.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.3/28bb0405fddaf04f15058fbfbe01fe2780d7d3b6/commons-logging-1.1.3-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.3/f6f66e966c70a83ffbdb6f17a0919eaf7c8aca7f/commons-logging-1.1.3.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/61e9f9d11fe3e12ec62f633006e99d75fd7f19c8/commons-codec-1.6-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/b7f0fc8f61ecadeb3695f0b9464755eee44374d4/commons-codec-1.6.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minecraftforge.gradle/ForgeGradle/2.3-SNAPSHOT/824184fff01a00c3559a4c862e5fbfaace38b0dd/ForgeGradle-2.3-SNAPSHOT.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-debug-all/6.0_BETA/d1ce213dc9f28569f908355e7abd16db1f331943/asm-debug-all-6.0_BETA-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-debug-all/6.0_BETA/5d1f7d145b0094c3955dff56d3119d7bd9807aff/asm-debug-all-6.0_BETA.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/ad97fe8faaf01a3d3faacecd58e8fa6e78a973ca/guava-18.0-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.opencsv/opencsv/2.3/235993117036d44d126f76db9ea2202ee4884682/opencsv-2.3-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.opencsv/opencsv/2.3/c23708cdb9e80a144db433e23344a788a1fd6599/opencsv-2.3.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.cloudbees/diff4j/1.1/e01e5168c15a325a548be3a0d18af5eac6f6343f/diff4j-1.1-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.cloudbees/diff4j/1.1/645329c0d4ebbea5f73758929c6e63bab9e77204/diff4j-1.1.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.abrarsyed.jastyle/jAstyle/1.3/61707e2098d6ee76983a8c7c2915ac38c84115da/jAstyle-1.3-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.abrarsyed.jastyle/jAstyle/1.3/42431e5834cfb184d60be4142e2806cf2d806ea/jAstyle-1.3.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.trove4j/trove4j/2.1.0/3d51239e46537fc45dd18c639cc29bbc4e390326/trove4j-2.1.0-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.trove4j/trove4j/2.1.0/c82f2749a460b95de4c9d2466b62f18c23c7c914/trove4j-2.1.0.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jponge/lzma-java/1.3/c0f18880fb29c7bfc088a6e114c66fe30a5e8df2/lzma-java-1.3-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jponge/lzma-java/1.3/a25db9d4d385ccda4825ae1b47a7a61d86e595af/lzma-java-1.3.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nothome/javaxdelta/2.0.1/c99bfecfaa91279b8a3d7d25a99cbbda107c903d/javaxdelta-2.0.1-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nothome/javaxdelta/2.0.1/d4f5d077f1b15c6f67595015d69572303ad3f66d/javaxdelta-2.0.1.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a6dc5db8a12928e583bd3f23e72d3ab611ecd58f/gson-2.2.4-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.tony19/named-regexp/0.2.3/74e99674da3dcbd04e30fc62e164073b4d95e8b9/named-regexp-0.2.3-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.tony19/named-regexp/0.2.3/370846bf3837952d981deb8f91e81da8c65b09e1/named-regexp-0.2.3.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minecraftforge/forgeflower/1.0.342-SNAPSHOT/83b7d227aa011da5f140558240149ed26a0f5d76/forgeflower-1.0.342-SNAPSHOT.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.3.3/65cba03c4f6207f2885f88206fcf52c53f8d111b/httpclient-4.3.3-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.3.3/18f4247ff4572a074444572cee34647c43e7c9c7/httpclient-4.3.3.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.3.3/884b613cfc42948ad5d4cf507286ffe19592ebed/httpmime-4.3.3-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.3.3/e02368d7b56c0c376f227378a4f77de62864d020/httpmime-4.3.3.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jvnet.localizer/localizer/1.12/261a0e844fe30de1c30372135275fa0b299bdee4/localizer-1.12-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jvnet.localizer/localizer/1.12/6d456886a035b2c3f758059da1f91a823eaa4a62/localizer-1.12.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/1.4/48753e43ff29409fbbeadfb36186cbe27e41b179/commons-io-1.4-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/1.4/a8762d07e76cfde2395257a5da47ba7c1dbd3dce/commons-io-1.4.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/trove/trove/1.0.2/112b40581ab9a4d3de4636d49985a7f686d181c8/trove-1.0.2.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.3.2/4809f38359edeea9487f747e09aa58ec8d3a54c5/httpcore-4.3.2-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.3.2/31fbbff1ddbf98f3aa7377c94d33b0447c646b6e/httpcore-4.3.2.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.3/28bb0405fddaf04f15058fbfbe01fe2780d7d3b6/commons-logging-1.1.3-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.3/f6f66e966c70a83ffbdb6f17a0919eaf7c8aca7f/commons-logging-1.1.3.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/61e9f9d11fe3e12ec62f633006e99d75fd7f19c8/commons-codec-1.6-sources.jar"/>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/b7f0fc8f61ecadeb3695f0b9464755eee44374d4/commons-codec-1.6.jar"/>
                           </list>
                         </option>
-                        <option name="path" value="$PROJECT_DIR$" />
+                        <option name="path" value="$PROJECT_DIR$"/>
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
                 </map>
               </option>
-              <option name="name" value="logimine" />
+              <option name="name" value="logimine"/>
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-logging-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-open-api-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-core-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-base-services-groovy-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-base-services-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-jvm-services-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-cli-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-ui-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-process-services-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/ant-1.9.6.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-model-groovy-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-installation-beacon-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/ant-launcher-1.9.6.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-launcher-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-native-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-wrapper-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-model-core-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-tooling-api-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-docs-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-messaging-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/groovy-all-2.4.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-resources-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-build-comparison-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-tooling-api-builders-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-platform-native-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-testing-native-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-jvm-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ide-native-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-osgi-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-java-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-diagnostics-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-jetty-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-resources-s3-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ivy-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-native-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-announce-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-testing-jvm-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ear-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-testing-base-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-signing-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-publish-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-build-init-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-resources-sftp-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-plugins-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-sonar-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-reporting-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-plugin-use-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-groovy-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-maven-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-scala-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-platform-base-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-scala-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ide-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-resources-http-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-jacoco-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-platform-play-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-test-kit-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-dependency-management-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-plugin-development-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-antlr-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-code-quality-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-platform-jvm-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/ivy-2.2.0.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-javascript-2.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ide-play-2.14.jar" />
-                  <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
-                  <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-logging-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-open-api-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-core-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-base-services-groovy-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-base-services-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-jvm-services-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-cli-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-ui-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-process-services-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/ant-1.9.6.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-model-groovy-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-installation-beacon-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/ant-launcher-1.9.6.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-launcher-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-native-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-wrapper-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-model-core-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-tooling-api-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-docs-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-messaging-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/groovy-all-2.4.4.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/gradle-resources-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-build-comparison-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-tooling-api-builders-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-platform-native-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-testing-native-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-jvm-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ide-native-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-osgi-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-java-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-diagnostics-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-jetty-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-resources-s3-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ivy-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-native-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-announce-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-testing-jvm-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ear-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-testing-base-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-signing-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-publish-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-build-init-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-resources-sftp-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-plugins-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-sonar-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-reporting-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-plugin-use-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-groovy-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-maven-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-scala-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-platform-base-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-language-scala-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ide-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-resources-http-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-jacoco-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-platform-play-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-test-kit-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-dependency-management-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-plugin-development-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-antlr-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-code-quality-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-platform-jvm-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/ivy-2.2.0.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-javascript-2.14.jar"/>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.14-bin/76oc0mnc3ieqtsukq90mp0rxk/gradle-2.14/lib/plugins/gradle-ide-play-2.14.jar"/>
+                  <option value="$PROJECT_DIR$/buildSrc/src/main/java"/>
+                  <option value="$PROJECT_DIR$/buildSrc/src/main/groovy"/>
                 </list>
               </option>
             </ExternalProjectBuildClasspathPojo>
@@ -710,119 +710,119 @@
       </map>
     </option>
     <option name="externalProjectsViewState">
-      <projects_view />
+      <projects_view/>
     </option>
     <option name="projectSyncType">
       <map>
-        <entry key="$PROJECT_DIR$" value="IMPORT" />
-        <entry key="/Volumes/NewBadDrive/Coding/Dektop/logitow" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$" value="IMPORT"/>
+        <entry key="/Volumes/NewBadDrive/Coding/Dektop/logitow" value="PREVIEW"/>
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowDeviceEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockBase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEventHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockKey.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/LogiMine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowDeviceEvent.java"/>
+        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEvent.java"/>
+        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockBase.java"/>
+        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEventHandler.java"/>
+        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockKey.java"/>
+        <option value="$PROJECT_DIR$/src/main/java/com/logitow/logimine/LogiMine.java"/>
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component extendedState="6" name="ProjectFrameBounds">
+    <option name="width" value="1440"/>
+    <option name="height" value="900"/>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true"/>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
+      <flattenPackages/>
+      <showMembers/>
+      <showModules/>
+      <showLibraryContents/>
+      <hideEmptyPackages/>
+      <abbreviatePackageNames/>
+      <autoscrollToSource/>
+      <autoscrollFromSource/>
+      <sortByType/>
+      <manualOrder/>
+      <foldersAlwaysOnTop value="true"/>
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="Scope"/>
+      <pane id="PackagesPane"/>
+      <pane id="AndroidView"/>
+      <pane id="Scratches"/>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="logimine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="logimine" type="b2602c69:ProjectViewProjectNode"/>
+              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
             </path>
             <path>
-              <item name="logimine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logimine" type="b2602c69:ProjectViewProjectNode"/>
+              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="src" type="462c0819:PsiDirectoryNode"/>
             </path>
             <path>
-              <item name="logimine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="logimine" type="b2602c69:ProjectViewProjectNode"/>
+              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="src" type="462c0819:PsiDirectoryNode"/>
+              <item name="api" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
             </path>
             <path>
-              <item name="logimine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="logimine" type="b2602c69:ProjectViewProjectNode"/>
+              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="src" type="462c0819:PsiDirectoryNode"/>
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
             </path>
             <path>
-              <item name="logimine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logimine" type="b2602c69:ProjectViewProjectNode"/>
+              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="src" type="462c0819:PsiDirectoryNode"/>
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="java" type="462c0819:PsiDirectoryNode"/>
             </path>
             <path>
-              <item name="logimine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="logimine" type="462c0819:PsiDirectoryNode" />
+              <item name="logimine" type="b2602c69:ProjectViewProjectNode"/>
+              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="src" type="462c0819:PsiDirectoryNode"/>
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="java" type="462c0819:PsiDirectoryNode"/>
+              <item name="logimine" type="462c0819:PsiDirectoryNode"/>
             </path>
             <path>
-              <item name="logimine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="logimine" type="462c0819:PsiDirectoryNode" />
-              <item name="Blocks" type="462c0819:PsiDirectoryNode" />
+              <item name="logimine" type="b2602c69:ProjectViewProjectNode"/>
+              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="src" type="462c0819:PsiDirectoryNode"/>
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="java" type="462c0819:PsiDirectoryNode"/>
+              <item name="logimine" type="462c0819:PsiDirectoryNode"/>
+              <item name="Blocks" type="462c0819:PsiDirectoryNode"/>
             </path>
             <path>
-              <item name="logimine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="logimine" type="462c0819:PsiDirectoryNode" />
-              <item name="Event" type="462c0819:PsiDirectoryNode" />
+              <item name="logimine" type="b2602c69:ProjectViewProjectNode"/>
+              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="src" type="462c0819:PsiDirectoryNode"/>
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="java" type="462c0819:PsiDirectoryNode"/>
+              <item name="logimine" type="462c0819:PsiDirectoryNode"/>
+              <item name="Event" type="462c0819:PsiDirectoryNode"/>
             </path>
             <path>
-              <item name="logimine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="logimine" type="462c0819:PsiDirectoryNode" />
-              <item name="Proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="logimine" type="b2602c69:ProjectViewProjectNode"/>
+              <item name="logimine" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="src" type="462c0819:PsiDirectoryNode"/>
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode"/>
+              <item name="java" type="462c0819:PsiDirectoryNode"/>
+              <item name="logimine" type="462c0819:PsiDirectoryNode"/>
+              <item name="Proxy" type="462c0819:PsiDirectoryNode"/>
             </path>
           </expand>
-          <select />
+          <select/>
         </subPane>
       </pane>
     </panes>
@@ -831,231 +831,261 @@
     <option name="ruleStates">
       <list>
         <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule"/>
         </RuleState>
         <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
+          <option name="name" value="StatusDashboardGroupingRule"/>
         </RuleState>
       </list>
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
+    <configuration default="true" factoryName="Applet" type="Applet">
+      <option name="WIDTH" value="400"/>
+      <option name="HEIGHT" value="300"/>
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy"/>
+      <module/>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
+    <configuration default="true" factoryName="Application" type="Application">
+      <extension enabled="false" merge="false" name="coverage" runner="idea" sample_coverage="true"/>
+      <option name="MAIN_CLASS_NAME"/>
+      <option name="VM_PARAMETERS"/>
+      <option name="PROGRAM_PARAMETERS"/>
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$"/>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false"/>
+      <option name="ALTERNATIVE_JRE_PATH"/>
+      <option name="ENABLE_SWING_INSPECTOR" value="false"/>
+      <option name="ENV_VARIABLES"/>
+      <option name="PASS_PARENT_ENVS" value="true"/>
+      <module name=""/>
+      <envs/>
     </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
+    <configuration default="true" factoryName="JUnit" type="JUnit">
+      <extension enabled="false" merge="false" name="coverage" runner="idea" sample_coverage="true"/>
+      <module name=""/>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false"/>
+      <option name="ALTERNATIVE_JRE_PATH"/>
+      <option name="PACKAGE_NAME"/>
+      <option name="MAIN_CLASS_NAME"/>
+      <option name="METHOD_NAME"/>
+      <option name="TEST_OBJECT" value="class"/>
+      <option name="VM_PARAMETERS" value="-ea"/>
+      <option name="PARAMETERS"/>
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%"/>
+      <option name="ENV_VARIABLES"/>
+      <option name="PASS_PARENT_ENVS" value="true"/>
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
+        <value defaultName="singleModule"/>
       </option>
-      <envs />
-      <patterns />
+      <envs/>
+      <patterns/>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration default="true" factoryName="Remote" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true"/>
+      <option name="SERVER_MODE" value="false"/>
+      <option name="SHMEM_ADDRESS" value="javadebug"/>
+      <option name="HOST" value="localhost"/>
+      <option name="PORT" value="5005"/>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
+    <configuration default="true" factoryName="TestNG" type="TestNG">
+      <extension enabled="false" merge="false" name="coverage" runner="idea" sample_coverage="true"/>
+      <module name=""/>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false"/>
+      <option name="ALTERNATIVE_JRE_PATH"/>
+      <option name="SUITE_NAME"/>
+      <option name="PACKAGE_NAME"/>
+      <option name="MAIN_CLASS_NAME"/>
+      <option name="METHOD_NAME"/>
+      <option name="GROUP_NAME"/>
+      <option name="TEST_OBJECT" value="CLASS"/>
+      <option name="VM_PARAMETERS" value="-ea"/>
+      <option name="PARAMETERS"/>
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%"/>
+      <option name="OUTPUT_DIRECTORY"/>
+      <option name="ANNOTATION_TYPE"/>
+      <option name="ENV_VARIABLES"/>
+      <option name="PASS_PARENT_ENVS" value="true"/>
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
+        <value defaultName="singleModule"/>
       </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
+      <option name="USE_DEFAULT_REPORTERS" value="false"/>
+      <option name="PROPERTIES_FILE"/>
+      <envs/>
+      <properties/>
+      <listeners/>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+    <configuration default="true" factoryName="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name=""/>
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea"/>
+      <option name="PROGRAM_PARAMETERS"/>
+      <predefined_log_file enabled="true" id="idea.log"/>
     </configuration>
-  </component>
+  <configuration default="false" factoryName="Application" name="Minecraft Client" type="Application">
+            <extension enabled="false" name="coverage" runner="idea" sample_coverage="true"/>
+            <option name="MAIN_CLASS_NAME" value="GradleStart"/>
+            <option name="VM_PARAMETERS" value=""/>
+            <option name="PROGRAM_PARAMETERS" value=""/>
+            <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$\run"/>
+            <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false"/>
+            <option name="ALTERNATIVE_JRE_PATH" value=""/>
+            <option name="ENABLE_SWING_INSPECTOR" value="false"/>
+            <option name="ENV_VARIABLES"/>
+            <option name="PASS_PARENT_ENVS" value="true"/>
+            <module name="logimine_main"/>
+            <RunnerSettings RunnerId="Run"/>
+            <ConfigurationWrapper RunnerId="Run"/>
+        </configuration>
+        <configuration default="false" factoryName="Application" name="Minecraft Server" type="Application">
+            <extension enabled="false" name="coverage" runner="idea" sample_coverage="true"/>
+            <option name="MAIN_CLASS_NAME" value="GradleStartServer"/>
+            <option name="VM_PARAMETERS" value=""/>
+            <option name="PROGRAM_PARAMETERS" value=""/>
+            <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$\run"/>
+            <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false"/>
+            <option name="ALTERNATIVE_JRE_PATH" value=""/>
+            <option name="ENABLE_SWING_INSPECTOR" value="false"/>
+            <option name="ENV_VARIABLES"/>
+            <option name="PASS_PARENT_ENVS" value="true"/>
+            <module name="logimine_main"/>
+            <RunnerSettings RunnerId="Run"/>
+            <ConfigurationWrapper RunnerId="Run"/>
+        </configuration>
+    </component>
   <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+    <option name="remove_strategy" value="false"/>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration/>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1ac778a1-141f-4855-aede-e569cc24d1ae" name="Default" comment="" />
+      <changelist comment="" id="1ac778a1-141f-4855-aede-e569cc24d1ae" name="Default"/>
       <created>1515397111845</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
+      <option name="number" value="Default"/>
+      <option name="presentableId" value="Default"/>
       <updated>1515397111845</updated>
     </task>
-    <servers />
+    <servers/>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="825" extended-state="6" />
-    <editor active="true" />
+    <frame extended-state="6" height="825" width="1440" x="0" y="22"/>
+    <editor active="true"/>
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info active="false" anchor="right" auto_hide="false" content_ui="tabs" id="Palette" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="TODO" internal_type="DOCKED" order="6" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="right" auto_hide="false" content_ui="tabs" id="Palette&#9;" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="left" auto_hide="false" content_ui="tabs" id="Image Layers" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="right" auto_hide="false" content_ui="tabs" id="Capture Analysis" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Event Log" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="true" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="right" auto_hide="false" content_ui="tabs" id="Maven Projects" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Run" internal_type="DOCKED" order="2" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Version Control" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Terminal" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="left" auto_hide="false" content_ui="tabs" id="Capture Tool" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="left" auto_hide="false" content_ui="tabs" id="Designer" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="left" auto_hide="false" content_ui="combo" id="Project" internal_type="DOCKED" order="0" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="true" weight="0.24964234"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Build" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="true" weight="0.32876712"/>
+      <window_info active="false" anchor="right" auto_hide="false" content_ui="tabs" id="Gradle" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="left" auto_hide="false" content_ui="tabs" id="Structure" internal_type="DOCKED" order="1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.25"/>
+      <window_info active="false" anchor="right" auto_hide="false" content_ui="tabs" id="Ant Build" internal_type="DOCKED" order="1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.25"/>
+      <window_info active="false" anchor="left" auto_hide="false" content_ui="tabs" id="UI Designer" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="right" auto_hide="false" content_ui="tabs" id="Theme Preview" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Debug" internal_type="DOCKED" order="3" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.4"/>
+      <window_info active="false" anchor="left" auto_hide="false" content_ui="tabs" id="Favorites" internal_type="DOCKED" order="-1" show_stripe_button="true" sideWeight="0.5" side_tool="true" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Cvs" internal_type="DOCKED" order="4" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.25"/>
+      <window_info active="false" anchor="right" auto_hide="false" content_ui="combo" id="Hierarchy" internal_type="DOCKED" order="2" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.25"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Message" internal_type="DOCKED" order="0" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="right" auto_hide="false" content_ui="tabs" id="Commander" internal_type="DOCKED" order="0" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.4"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Find" internal_type="DOCKED" order="1" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.33"/>
+      <window_info active="false" anchor="bottom" auto_hide="false" content_ui="tabs" id="Inspection" internal_type="DOCKED" order="5" show_stripe_button="true" sideWeight="0.5" side_tool="false" type="DOCKED" visible="false" weight="0.4"/>
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="myLimit" value="2678400000"/>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
+    <breakpoint-manager/>
+    <watches-manager/>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/BlockUpdateEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor" selected="true">
         <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
+          <caret column="13" lean-forward="false" line="4" selection-end-column="13" selection-end-line="4" selection-start-column="13" selection-start-line="4"/>
+          <folding/>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/ModBlocks.java">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor" selected="true">
         <state relative-caret-position="56">
-          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding />
+          <caret column="38" lean-forward="true" line="16" selection-end-column="38" selection-end-line="16" selection-start-column="38" selection-start-line="16"/>
+          <folding/>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Proxy/CommonProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor" selected="true">
         <state relative-caret-position="126">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
+          <caret column="13" lean-forward="false" line="7" selection-end-column="13" selection-end-line="7" selection-start-column="13" selection-start-line="7"/>
+          <folding/>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Proxy/ClientProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor" selected="true">
         <state relative-caret-position="105">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
+          <caret column="13" lean-forward="false" line="10" selection-end-column="13" selection-end-line="10" selection-start-column="13" selection-start-line="10"/>
+          <folding/>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor" selected="true">
         <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <caret column="13" lean-forward="false" line="4" selection-end-column="13" selection-end-line="4" selection-start-column="13" selection-start-line="4"/>
           <folding>
-            <element signature="e#297#298#0" expanded="true" />
-            <element signature="e#325#326#0" expanded="true" />
+            <element expanded="true" signature="e#297#298#0"/>
+            <element expanded="true" signature="e#325#326#0"/>
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Event/LogitowBridgeEventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor" selected="true">
         <state relative-caret-position="-79">
-          <caret line="52" column="76" lean-forward="true" selection-start-line="52" selection-start-column="76" selection-end-line="52" selection-end-column="76" />
+          <caret column="76" lean-forward="true" line="52" selection-end-column="76" selection-end-line="52" selection-start-column="76" selection-start-line="52"/>
           <folding>
-            <element signature="imports" expanded="true" />
+            <element expanded="true" signature="imports"/>
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockBase.java">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor" selected="true">
         <state relative-caret-position="-2">
-          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <caret column="36" lean-forward="false" line="16" selection-end-column="36" selection-end-line="16" selection-start-column="36" selection-start-line="16"/>
           <folding>
-            <element signature="imports" expanded="true" />
+            <element expanded="true" signature="imports"/>
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/Blocks/BlockKey.java">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor" selected="true">
         <state relative-caret-position="179">
-          <caret line="130" column="45" lean-forward="false" selection-start-line="130" selection-start-column="45" selection-end-line="130" selection-end-column="45" />
-          <folding />
+          <caret column="45" lean-forward="false" line="130" selection-end-column="45" selection-end-line="130" selection-start-column="45" selection-start-line="130"/>
+          <folding/>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/logitow/logimine/LogiMine.java">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor" selected="true">
         <state relative-caret-position="98">
-          <caret line="84" column="75" lean-forward="false" selection-start-line="84" selection-start-column="75" selection-end-line="84" selection-end-column="75" />
+          <caret column="75" lean-forward="false" line="84" selection-end-column="75" selection-end-line="84" selection-start-column="75" selection-start-line="84"/>
           <folding>
-            <element signature="e#2112#2355#0" expanded="true" />
-            <element signature="e#2354#2355#0" expanded="true" />
+            <element expanded="true" signature="e#2112#2355#0"/>
+            <element expanded="true" signature="e#2354#2355#0"/>
           </folding>
         </state>
       </provider>
