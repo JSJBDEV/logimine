@@ -53,6 +53,9 @@ public class ItemLogiCard extends Item {
      */
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        //Display only on client.
+        if(!worldIn.isRemote) return super.onItemRightClick(worldIn, playerIn, handIn);
+
         //Cancel if sneaking.
         if(!playerIn.isSneaking()) {
             //Checking for bluetooth availability.

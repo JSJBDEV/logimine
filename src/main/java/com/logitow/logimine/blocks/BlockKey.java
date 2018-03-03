@@ -7,15 +7,17 @@ import com.logitow.bridge.build.block.BlockOperationType;
 import com.logitow.bridge.build.block.BlockType;
 import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
-import com.logitow.logimine.items.ModItems;
 import com.logitow.logimine.LogiMine;
 import com.logitow.logimine.client.gui.DeviceManagerGui;
+import com.logitow.logimine.items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -26,6 +28,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Created by James on 14/12/2017.
@@ -33,6 +36,7 @@ import java.util.Random;
  */
 public class BlockKey extends BlockBase {
 
+    private World world;
     private BlockPos position;
 
     /**
@@ -55,7 +59,38 @@ public class BlockKey extends BlockBase {
         return this;
     }
 
+    /**
+     * Called by ItemBlocks after a block is set in the world, to allow post-place logic
+     *
+     * @param worldIn
+     * @param pos
+     * @param state
+     * @param placer
+     * @param stack
+     */
+    @Override
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+        if (worldIn.isRemote) return;
 
+        this.world = worldIn;
+        this.position = pos;
+
+        //Removing duplicates.
+        BlockKey duplicate = null;
+        for (BlockKey key :
+                LogiMine.activeKeyBlocks) {
+            if (key.position == this.position) {
+                duplicate = key;
+                break;
+            }
+        }
+        LogiMine.activeKeyBlocks.remove(duplicate);
+
+        //Adding the block to the keyblock list.
+        LogiMine.activeKeyBlocks.add(this);
+
+        super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
+    }
 
     /**
      * Called when the player right clicks the block.
@@ -73,20 +108,36 @@ public class BlockKey extends BlockBase {
     @Override
     public boolean onBlockActivated(World world, BlockPos blockpos, IBlockState p_onBlockActivated_3_, EntityPlayer player, EnumHand hand, EnumFacing p_onBlockActivated_6_, float p_onBlockActivated_7_, float p_onBlockActivated_8_, float p_onBlockActivated_9_)
     {
+        //Adding the block to the active key blocks list if its not yet there.
+        if (world.isRemote) return false;
+
+        this.world = world;
         this.position = blockpos;
-        if(player.getHeldItem(hand) != ItemStack.EMPTY)
-        {
-            ItemStack stack = player.getHeldItem(hand);
-            if(stack.hasTagCompound())
-            {
-                if(stack.getItem() == ModItems.logiCard) {
-                    if (player.isSneaking() )
-                    {
+
+        boolean addActive = true;
+        BlockKey duplicate = null;
+        for (BlockKey key :
+                LogiMine.activeKeyBlocks) {
+            if (key.position == this.position) {
+                addActive = false;
+                break;
+            }
+        }
+        if(addActive) {
+            //Adding the block to the keyblock list.
+            LogiMine.activeKeyBlocks.add(this);
+        }
+
+        //Checking if the player has permission to this key block.
+        if(getAssignedPlayer() == null || player.getUniqueID() == getAssignedPlayer()) {
+            //Making sure the player is holding the logicard.
+            if(player.getHeldItem(hand) != ItemStack.EMPTY) {
+                ItemStack stack = player.getHeldItem(hand);
+                if (stack.getItem() == ModItems.logiCard) {
+                    if (player.isSneaking() && !world.isRemote) {
                         //Rotating the structure.
                         direction(stack, player, world, blockpos, p_onBlockActivated_6_);
-                    }
-                    else
-                    {
+                    } else if(world.isRemote) {
                         Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
                         //Assigning the block to the device manager dialog.
                         new java.util.Timer().schedule(
@@ -96,35 +147,24 @@ public class BlockKey extends BlockBase {
                                         DeviceManagerGui.onKeyBlockAssigned(BlockKey.this);
                                     }
                                 },
-                                500
+                                100
                         );
                     }
                 }
             }
-            else
-            {
-                if (world.isRemote){ //Running on server only.
-                    return false;
-                }
-                NBTTagCompound nbt = new NBTTagCompound();
-                stack.setTagCompound(nbt);
-            }
+            return true;
+        } else {
+            player.sendMessage(new TextComponentString("Another player is currently using this key block!"));
+            return false;
         }
-        return true;
     }
 
     /**
      * Called when the structure data is updated from the assigned device.
-     * Called on client only.
+     * Called on server only.
      * @param event
      */
     public void onStructureUpdate(BlockOperationEvent event) {
-        //Making sure the update doesn't happen when the player is not in the world.
-        if (Minecraft.getMinecraft().world == null)  {
-            getAssignedDevice().disconnect();
-            return;
-        }
-
         System.out.println("Handling block update on key block " + position);
         BlockOperation operation = event.operation;
 
@@ -191,13 +231,8 @@ public class BlockKey extends BlockBase {
      * @param world
      * @param blockpos
      */
-    public void direction(ItemStack stack,EntityPlayer player, World world,BlockPos blockpos, EnumFacing facing)
+    public void direction(ItemStack stack, EntityPlayer player, World world,BlockPos blockpos, EnumFacing facing)
     {
-        //Run on server only.
-        if (world.isRemote){
-            return;
-        }
-
         NBTTagCompound nbt;
         nbt = stack.getTagCompound();
         Device assigned = getAssignedDevice();
@@ -282,14 +317,11 @@ public class BlockKey extends BlockBase {
      * Gets the device assigned to this block.
      * @return
      */
-    public Device getAssignedDevice() {
-        for (String uuid :
-                LogiMine.assignedDevices.keySet()) {
-            if(LogiMine.assignedDevices.get(uuid).position == this.position) {
-                return Device.getConnectedFromUuid(uuid);
-            }
-        }
-        return null;
+    public String getAssignedDevice() {
+        //TODO: Use the nbt.
+    }
+    public UUID getAssignedPlayer() {
+        //TODO: Use the nbt.
     }
 
     /**

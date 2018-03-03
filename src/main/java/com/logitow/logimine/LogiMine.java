@@ -14,8 +14,8 @@ import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
 import com.logitow.logimine.blocks.BlockKey;
 import com.logitow.logimine.blocks.ModBlocks;
 import com.logitow.logimine.event.LogitowBridgeEvent;
-import com.logitow.logimine.event.LogitowBridgeEventHandler;
 import com.logitow.logimine.items.ModItems;
+import com.logitow.logimine.proxy.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -27,9 +27,10 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 /**
  * The core class of the mod.
@@ -41,6 +42,7 @@ public class LogiMine {
     public static final String modId = "logimine";
     public static final String name = "LogiMine";
     public static final String version = "1.0.0";
+    public static SimpleNetworkWrapper networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(modId);
 
     public EventHandler logitowBridgeEventHandler = new EventHandler() {
         @Override
@@ -51,9 +53,11 @@ public class LogiMine {
     };
 
     /**
-     * The currently assigned devices and their assigned key blocks.
+     * The currently active key blocks.
+     * Server side only.
+     * Updated through the assign device message.
      */
-    public static Map<String, BlockKey> assignedDevices = new HashMap<>();
+    public static ArrayList<BlockKey> activeKeyBlocks = new ArrayList<>();
 
     @Mod.Instance(modId)
     public static LogiMine instance;
@@ -86,16 +90,15 @@ public class LogiMine {
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceManagerDiscoveryStoppedEvent.class);
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceManagerErrorEvent.class);
 
-        //Registering the mod side bridge event.
-        MinecraftForge.EVENT_BUS.register(LogitowBridgeEventHandler.class);
+        proxy.registerLogitowEvents();
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
     }
-    @SidedProxy(serverSide = "com.logitow.logimine.proxy.CommonProxy", clientSide = "com.logitow.logimine.proxy.ClientProxy")
-    public static com.logitow.logimine.proxy.CommonProxy proxy;
+    @SidedProxy(serverSide = "com.logitow.logimine.proxy.ServerProxy", clientSide = "com.logitow.logimine.proxy.ClientProxy")
+    public static ServerProxy proxy;
 
     @Mod.EventBusSubscriber
     public static class RegistrationHandler {
