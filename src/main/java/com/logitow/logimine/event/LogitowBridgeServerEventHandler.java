@@ -1,10 +1,11 @@
 package com.logitow.logimine.event;
 
 import com.logitow.bridge.event.Event;
+import com.logitow.bridge.event.device.DeviceDisconnectedEvent;
 import com.logitow.bridge.event.device.block.BlockOperationErrorEvent;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.logimine.LogiMine;
-import com.logitow.logimine.blocks.BlockKey;
+import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -22,11 +23,12 @@ public class LogitowBridgeServerEventHandler {
             System.out.println("Handling the block operation in the mod. Block local pos: " + blockOperationEvent.operation.blockB.coordinate);
 
             //Passing the event to the respective assigned key block.
-            BlockKey keyBlock = LogiMine.assignedDevices.get(blockOperationEvent.device.info.uuid);
-            if(keyBlock != null) {
-                keyBlock.onStructureUpdate(blockOperationEvent);
-            } else {
-                System.out.println("No keyblock assigned to the device, can't handle the block operation.");
+            for (TileEntityBlockKey keyBlock :
+                    LogiMine.activeKeyBlocks) {
+                if (blockOperationEvent.device == keyBlock.getAssignedDevice()) {
+                    keyBlock.onStructureUpdate(blockOperationEvent);
+                    break;
+                }
             }
         } else if(bridgeEvent instanceof BlockOperationErrorEvent) {
             BlockOperationErrorEvent blockOperationErrorEvent = (BlockOperationErrorEvent)bridgeEvent;
@@ -34,11 +36,24 @@ public class LogitowBridgeServerEventHandler {
             System.out.println("Handling the block structure update in the mod.");
 
             //Passing the event to the respective assigned key block.
-            BlockKey keyBlock = LogiMine.assignedDevices.get(blockOperationErrorEvent.device.info.uuid);
-            if(keyBlock != null) {
-                keyBlock.rebuildStructure(blockOperationErrorEvent.structure);
-            } else {
-                System.out.println("No keyblock assigned to the device, can't handle the block operation.");
+            for (TileEntityBlockKey keyBlock :
+                    LogiMine.activeKeyBlocks) {
+                if (blockOperationErrorEvent.device == keyBlock.getAssignedDevice()) {
+                    keyBlock.clearStructure();
+                    keyBlock.rebuildStructure();
+                    break;
+                }
+            }
+        } else if(bridgeEvent instanceof DeviceDisconnectedEvent) {
+            //Called when a logitow device is disconnected
+            DeviceDisconnectedEvent deviceDisconnectedEvent = (DeviceDisconnectedEvent) bridgeEvent;
+
+            //Make sure all keyblocks are unassigned.
+            for (TileEntityBlockKey keyBlock :
+                    LogiMine.activeKeyBlocks) {
+                if (keyBlock.getAssignedDevice() == deviceDisconnectedEvent.device) {
+                    keyBlock.assignDevice(null, null);
+                }
             }
         }
     }

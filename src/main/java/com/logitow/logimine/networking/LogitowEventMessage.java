@@ -1,11 +1,12 @@
 package com.logitow.logimine.networking;
 
 import com.logitow.bridge.event.Event;
-import com.logitow.bridge.event.EventManager;
+import com.logitow.bridge.event.device.DeviceConnectedEvent;
+import com.logitow.bridge.event.device.DeviceDisconnectedEvent;
+import com.logitow.bridge.event.device.battery.DeviceBatteryVoltageUpdateEvent;
+import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
-import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import org.apache.commons.lang3.SerializationUtils;
 
 /**
@@ -18,6 +19,8 @@ public class LogitowEventMessage implements IMessage {
      * Event transmitted.
      */
     public Event event;
+
+    public LogitowEventMessage(){}
 
     /**
      * Creates the update packet given the block operation event.
@@ -44,28 +47,17 @@ public class LogitowEventMessage implements IMessage {
      */
     @Override
     public void toBytes(ByteBuf buf) {
-        buf.writeBytes(SerializationUtils.serialize(this.event));
-    }
+        if(this.event instanceof DeviceConnectedEvent) {
+            DeviceConnectedEvent connectedEvent = (DeviceConnectedEvent)event;
+            buf.writeInt(0);
+            //connectedEvent.device.info.
 
-    /**
-     * Handler for the message packet.
-     */
-    public class LogitowEventMessageHandler implements IMessageHandler<LogitowEventMessage, IMessage> {
-
-        /**
-         * Called when a message is received of the appropriate type. You can optionally return a reply message, or null if no reply
-         * is needed.
-         *
-         * @param message The message
-         * @param ctx
-         * @return an optional return message
-         */
-        @Override
-        public IMessage onMessage(LogitowEventMessage message, MessageContext ctx) {
-            //Pushing the received event through the event system.
-            EventManager.callEvent(message.event);
-
-            return null;
+        } else if(this.event instanceof DeviceDisconnectedEvent) {
+            buf.writeInt(1);
+        } else if(this.event instanceof BlockOperationEvent) {
+            buf.writeInt(2);
+        } else if(this.event instanceof DeviceBatteryVoltageUpdateEvent) {
+            buf.writeInt(3);
         }
     }
 }

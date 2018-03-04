@@ -11,11 +11,15 @@ import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
-import com.logitow.logimine.blocks.BlockKey;
 import com.logitow.logimine.blocks.ModBlocks;
 import com.logitow.logimine.event.LogitowBridgeEvent;
 import com.logitow.logimine.items.ModItems;
+import com.logitow.logimine.networking.LogitowDeviceAssignMessage;
+import com.logitow.logimine.networking.LogitowDeviceAssignMessageHandler;
+import com.logitow.logimine.networking.LogitowEventMessage;
+import com.logitow.logimine.networking.LogitowEventMessageHandler;
 import com.logitow.logimine.proxy.ServerProxy;
+import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -29,6 +33,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 
@@ -42,7 +47,7 @@ public class LogiMine {
     public static final String modId = "logimine";
     public static final String name = "LogiMine";
     public static final String version = "1.0.0";
-    public static SimpleNetworkWrapper networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(modId);
+    public static SimpleNetworkWrapper networkWrapper;
 
     public EventHandler logitowBridgeEventHandler = new EventHandler() {
         @Override
@@ -57,7 +62,7 @@ public class LogiMine {
      * Server side only.
      * Updated through the assign device message.
      */
-    public static ArrayList<BlockKey> activeKeyBlocks = new ArrayList<>();
+    public static ArrayList<TileEntityBlockKey> activeKeyBlocks = new ArrayList<>();
 
     @Mod.Instance(modId)
     public static LogiMine instance;
@@ -91,11 +96,15 @@ public class LogiMine {
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceManagerErrorEvent.class);
 
         proxy.registerLogitowEvents();
+
+        networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(modId);
+        //Registerting packets.
+        networkWrapper.registerMessage(LogitowEventMessageHandler.class, LogitowEventMessage.class, 0, Side.SERVER);
+        networkWrapper.registerMessage(LogitowDeviceAssignMessageHandler.class, LogitowDeviceAssignMessage.class, 1, Side.SERVER);
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
     }
     @SidedProxy(serverSide = "com.logitow.logimine.proxy.ServerProxy", clientSide = "com.logitow.logimine.proxy.ClientProxy")
     public static ServerProxy proxy;

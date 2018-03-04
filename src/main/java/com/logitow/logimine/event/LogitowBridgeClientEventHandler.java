@@ -11,6 +11,9 @@ import com.logitow.bridge.event.device.battery.DeviceBatteryVoltageUpdateEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
+import com.logitow.logimine.LogiMine;
+import com.logitow.logimine.networking.LogitowDeviceAssignMessage;
+import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.world.WorldEvent;
@@ -33,12 +36,28 @@ public class LogitowBridgeClientEventHandler {
 
             //Show device connected notification.
             Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Device " + deviceConnectedEvent.device + " connected!"));
+
+            //Send device assign message.
+            for (TileEntityBlockKey keyBlock :
+                    LogiMine.activeKeyBlocks) {
+                if (keyBlock.getAssignedDevice() == deviceConnectedEvent.device) {
+                    LogiMine.networkWrapper.sendToServer(new LogitowDeviceAssignMessage(keyBlock.getPos(), deviceConnectedEvent.device));
+                }
+            }
         } else if(bridgeEvent instanceof DeviceDisconnectedEvent) {
             //Called when a logitow device is disconnected
             DeviceDisconnectedEvent deviceDisconnectedEvent = (DeviceDisconnectedEvent) bridgeEvent;
 
             //Show device disconnected notification.
             Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Device " + deviceDisconnectedEvent.device + " disconnected!"));
+
+            //Make sure all keyblocks are unassigned.
+            for (TileEntityBlockKey keyBlock :
+                    LogiMine.activeKeyBlocks) {
+                if (keyBlock.getAssignedDevice() == deviceDisconnectedEvent.device) {
+                    keyBlock.assignDevice(null, null);
+                }
+            }
         }
         else if (bridgeEvent instanceof DeviceConnectionErrorEvent) {
             //Called when there is a problem connecting to a device.
