@@ -41,6 +41,7 @@ minecraft {
 dependencies {
     // https://mvnrepository.com/artifact/net.sf.jni4net/jni4net.j
     compile group: 'net.sf.jni4net', name: 'jni4net.j', version: '0.8.8.0', ext: 'pom'
+    compile 'org.apache.commons:commons-lang3:3.5'
     compile name: 'logitow-bridge-0.3-all'
 
     // you may put jars on which you depend on in ./libs

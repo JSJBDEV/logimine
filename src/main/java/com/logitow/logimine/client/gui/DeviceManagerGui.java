@@ -2,18 +2,21 @@ package com.logitow.logimine.client.gui;
 
 import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.communication.LogitowDeviceManager;
-import com.logitow.bridge.event.Event;
-import com.logitow.bridge.event.EventHandler;
-import com.logitow.bridge.event.EventManager;
 import com.logitow.bridge.event.device.DeviceDiscoveredEvent;
 import com.logitow.bridge.event.device.DeviceLostEvent;
-import com.logitow.logimine.Blocks.BlockKey;
 import com.logitow.logimine.LogiMine;
+import com.logitow.logimine.event.LogitowBridgeEvent;
+import com.logitow.logimine.networking.LogitowDeviceAssignMessage;
+import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -81,76 +84,6 @@ public class DeviceManagerGui extends GuiScreen {
     int ASSIGNED_DEVICE_BUTTON_ID = -1;
 
     /**
-     * The currently assigned logitow device.
-     */
-    Device assignedDevice = null;
-
-    /**
-     * Event handler for updating the discovered devices list.
-     */
-    private EventHandler deviceDiscoveredHandler = new EventHandler() {
-        @Override
-        public void onEventCalled(Event event) {
-            DeviceDiscoveredEvent discoveredEvent = (DeviceDiscoveredEvent)event;
-
-            if(discoveredEvent.device == assignedDevice) return;
-
-            //The new y pos of the element.
-            int newYPos = getDeviceStartPosition()-deviceButtonSeparation;
-
-            //Getting the highest y position of the elements.
-            for (GuiButton button :
-                    buttonList) {
-                if(button.id > 100 && button.y > newYPos) {
-                    newYPos = button.y;
-                }
-            }
-
-            //Adding the new device.
-            int buttonId = 100 + buttonList.size()-3;
-            buttonList.add(new GuiButton(buttonId, width/2 - 70, newYPos + deviceButtonSeparation, 140, 20, discoveredEvent.device.toString()));
-            discoveredDevices.put(discoveredEvent.device, buttonId);
-        }
-    };
-    /**
-     * Event handler for updating the discovered devices list.
-     */
-    private EventHandler deviceLostHandler = new EventHandler() {
-        @Override
-        public void onEventCalled(Event event) {
-            DeviceLostEvent lostEvent = (DeviceLostEvent)event;
-
-            //Updating the list.
-            int removeButton = -1;
-            for (Device discoveredDevice:
-                 discoveredDevices.keySet()) {
-                if(discoveredDevice.info.uuid == lostEvent.device.info.uuid) {
-                    removeButton = discoveredDevices.get(discoveredDevice);
-                    discoveredDevices.remove(discoveredDevice);
-                }
-            }
-
-            //Updating the buttons.
-            GuiButton buttonToRemove = null;
-            int lastY = getDeviceStartPosition()-deviceButtonSeparation;
-            for (GuiButton button :
-                    buttonList) {
-                if(button.id == removeButton) {
-                    buttonToRemove = button;
-                }
-                else if(button.id > 100) {
-                    button.y = lastY + deviceButtonSeparation;
-                    lastY = button.y;
-                }
-            }
-
-            //Removing the button.
-            buttonList.remove(buttonToRemove);
-        }
-    };
-
-
-    /**
      * Whether the window is open.
      */
     private boolean opened = false;
@@ -159,7 +92,7 @@ public class DeviceManagerGui extends GuiScreen {
      * The currently selected key block to attach devices to.
      * NULL if no block selected.
      */
-    public BlockKey selectedKeyBlock = null;
+    public TileEntityBlockKey selectedKeyBlock = null;
 
     /**
      * The currently selected device.
@@ -230,8 +163,7 @@ public class DeviceManagerGui extends GuiScreen {
     public void initGui() {
         if(!opened) {
             //Registering events.
-            EventManager.registerHandler(deviceDiscoveredHandler, DeviceDiscoveredEvent.class);
-            EventManager.registerHandler(deviceLostHandler, DeviceLostEvent.class);
+            MinecraftForge.EVENT_BUS.register(this);
             instance = this;
         }
         opened = true;
@@ -264,26 +196,17 @@ public class DeviceManagerGui extends GuiScreen {
                 for (Device device :
                         discoveredDevices.keySet()) {
                     if(discoveredDevices.get(device) == deviceChosen) {
-                        //Found the appropriate device.
-                        if(LogiMine.assignedDevices.containsKey(device.info.uuid)) {
-                            LogiMine.assignedDevices.replace(device.info.uuid, selectedKeyBlock);
-                        } else {
-                            LogiMine.assignedDevices.put(device.info.uuid, selectedKeyBlock);
+                        Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Connecting to device: " + device + "..."));
+
+                        if(instance != null && instance.selectedKeyBlock != null && instance.selectedKeyBlock.getAssignedDevice() != null) {
+                            instance.selectedKeyBlock.getAssignedDevice().disconnect();
                         }
 
-                        Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Assigned device " + device + " to the key block!"));
-                        Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Connecting to device " + device));
+                        //Found the appropriate device. Temporarily assigning.
+                        selectedKeyBlock.assignDevice(Minecraft.getMinecraft().player, device);
 
                         //Avoiding slowdowns.
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if(instance != null && instance.assignedDevice != null) {
-                                    instance.assignedDevice.disconnect();
-                                }
-                                device.connect();
-                            }
-                        }).start();
+                        new Thread(() -> device.connect()).start();
 
                     }
                 }
@@ -306,14 +229,14 @@ public class DeviceManagerGui extends GuiScreen {
         if(button.id >= 100) {
             if(button.id == ASSIGNED_DEVICE_BUTTON_ID) {
                 //Disconnecting the device.
-                Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Disconnecting device " + assignedDevice));
-                assignedDevice.disconnect();
+                Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Disconnecting device: " + selectedKeyBlock.getAssignedDevice() + "..."));
+                selectedKeyBlock.getAssignedDevice().disconnect();
                 button.enabled = false;
-                System.out.println("Disconnecting device: " + assignedDevice + ", unassigning it from block " + selectedKeyBlock);
+                System.out.println("Disconnecting device: " + selectedKeyBlock.getAssignedDevice() + ", unassigning it from block " + selectedKeyBlock);
 
                 //Unassigning
-                selectedKeyBlock.clearStructure(assignedDevice.currentStructure);
-                assignedDevice = null;
+                selectedKeyBlock.assignDevice(null, null);
+                LogiMine.networkWrapper.sendToServer(new LogitowDeviceAssignMessage(selectedKeyBlock.getPos(), null));
 
                 //Updating the buttons.
                 GuiButton buttonToRemove = null;
@@ -356,8 +279,7 @@ public class DeviceManagerGui extends GuiScreen {
 
         //Unregister event listeners.
         selectedKeyBlock = null;
-        EventManager.unregisterHandler(deviceDiscoveredHandler, DeviceDiscoveredEvent.class);
-        EventManager.unregisterHandler(deviceLostHandler, DeviceLostEvent.class);
+        MinecraftForge.EVENT_BUS.unregister(this);
         instance = null;
 
         opened = false;
@@ -366,15 +288,15 @@ public class DeviceManagerGui extends GuiScreen {
 
     /**
      * Called when the selected key block is resolved.
-     * @param block
+     * @param pos
      */
-    public static void onKeyBlockAssigned(BlockKey block) {
+    public static void onKeyBlockAssigned(BlockPos pos) {
         //Assigning the key block.
-        instance.selectedKeyBlock = block;
-        //Resolving the assigned device.
-        instance.assignedDevice = block.getAssignedDevice();
+        TileEntity te = Minecraft.getMinecraft().world.getTileEntity(pos);
+        if(te == null || !(te instanceof TileEntityBlockKey)) return;
+        instance.selectedKeyBlock = (TileEntityBlockKey)te;
 
-        if(instance.assignedDevice != null) {
+        if(instance.selectedKeyBlock.getAssignedDevice() != null) {
             //The new y pos of the assigned device element.
             int newYPos = instance.getDeviceStartPosition() - instance.deviceButtonSeparation;
 
@@ -389,8 +311,8 @@ public class DeviceManagerGui extends GuiScreen {
             //Adding the new device.
             int buttonId = 100 + instance.buttonList.size() - 3;
             instance.ASSIGNED_DEVICE_BUTTON_ID = buttonId;
-            instance.buttonList.add(new GuiButton(buttonId, instance.width / 2 - 70, newYPos + instance.deviceButtonSeparation, 140, 20, "[DISCONNECT] " + instance.assignedDevice));
-            System.out.println("Set the key block reference for device: " + instance.assignedDevice);
+            instance.buttonList.add(new GuiButton(buttonId, instance.width / 2 - 70, newYPos + instance.deviceButtonSeparation, 140, 20, "[DISCONNECT] " + instance.selectedKeyBlock.getAssignedDevice()));
+            System.out.println("Set the key block reference for device: " + instance.selectedKeyBlock.getAssignedDevice());
         }
     }
 
@@ -400,5 +322,63 @@ public class DeviceManagerGui extends GuiScreen {
     @Override
     public boolean doesGuiPauseGame() {
         return false;
+    }
+
+    /**
+     * Logitow event handler.
+     * @param event
+     */
+    @SubscribeEvent
+    public void logitowEventReceived(LogitowBridgeEvent event) {
+        if(event.deviceEvent instanceof DeviceDiscoveredEvent) {
+            DeviceDiscoveredEvent discoveredEvent = (DeviceDiscoveredEvent)event.deviceEvent;
+
+            if(discoveredEvent.device == selectedKeyBlock.getAssignedDevice()) return;
+
+            //The new y pos of the element.
+            int newYPos = getDeviceStartPosition()-deviceButtonSeparation;
+
+            //Getting the highest y position of the elements.
+            for (GuiButton button :
+                    buttonList) {
+                if(button.id > 100 && button.y > newYPos) {
+                    newYPos = button.y;
+                }
+            }
+
+            //Adding the new device.
+            int buttonId = 100 + buttonList.size()-3;
+            buttonList.add(new GuiButton(buttonId, width/2 - 70, newYPos + deviceButtonSeparation, 140, 20, discoveredEvent.device.toString()));
+            discoveredDevices.put(discoveredEvent.device, buttonId);
+        } else if(event.deviceEvent instanceof DeviceLostEvent) {
+            DeviceLostEvent lostEvent = (DeviceLostEvent)event.deviceEvent;
+
+            //Updating the list.
+            int removeButton = -1;
+            for (Device discoveredDevice:
+                    discoveredDevices.keySet()) {
+                if(discoveredDevice.info.uuid == lostEvent.device.info.uuid) {
+                    removeButton = discoveredDevices.get(discoveredDevice);
+                    discoveredDevices.remove(discoveredDevice);
+                }
+            }
+
+            //Updating the buttons.
+            GuiButton buttonToRemove = null;
+            int lastY = getDeviceStartPosition()-deviceButtonSeparation;
+            for (GuiButton button :
+                    buttonList) {
+                if(button.id == removeButton) {
+                    buttonToRemove = button;
+                }
+                else if(button.id > 100) {
+                    button.y = lastY + deviceButtonSeparation;
+                    lastY = button.y;
+                }
+            }
+
+            //Removing the button.
+            buttonList.remove(buttonToRemove);
+        }
     }
 }
