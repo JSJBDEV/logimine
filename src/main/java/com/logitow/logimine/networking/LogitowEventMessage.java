@@ -9,6 +9,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import org.apache.commons.lang3.SerializationUtils;
 
+import java.io.Serializable;
+
 /**
  * Packet with structure update info.
  * Sent from client to server.
@@ -37,7 +39,8 @@ public class LogitowEventMessage implements IMessage {
      */
     @Override
     public void fromBytes(ByteBuf buf) {
-        this.event = SerializationUtils.deserialize(buf.array());
+        byte[] data = new byte[buf.readInt()];
+        this.event = SerializationUtils.deserialize(data);
     }
 
     /**
@@ -47,17 +50,8 @@ public class LogitowEventMessage implements IMessage {
      */
     @Override
     public void toBytes(ByteBuf buf) {
-        if(this.event instanceof DeviceConnectedEvent) {
-            DeviceConnectedEvent connectedEvent = (DeviceConnectedEvent)event;
-            buf.writeInt(0);
-            //connectedEvent.device.info.
-
-        } else if(this.event instanceof DeviceDisconnectedEvent) {
-            buf.writeInt(1);
-        } else if(this.event instanceof BlockOperationEvent) {
-            buf.writeInt(2);
-        } else if(this.event instanceof DeviceBatteryVoltageUpdateEvent) {
-            buf.writeInt(3);
-        }
+        byte[] data = SerializationUtils.serialize(this.event);
+        buf.writeInt(data.length);
+        buf.writeBytes(data);
     }
 }
