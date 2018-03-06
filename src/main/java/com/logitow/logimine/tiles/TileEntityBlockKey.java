@@ -180,7 +180,7 @@ public class TileEntityBlockKey extends TileEntity {
             this.assignedPlayer = null;
             clearStructure();
             this.assignedStructure = null;
-            logger.info("Unassigned device from keyblock at: {}", this.getPos());
+            logger.info("Unassigned device from key block at: {}", this.getPos());
         }
 
         this.markDirty();
@@ -206,15 +206,15 @@ public class TileEntityBlockKey extends TileEntity {
     /**
      * Rotates the structure assigned to this key block.
      */
-    public void rotateStructure(EntityPlayer player, EnumFacing facing)
+    public boolean rotateStructure(EntityPlayer player, EnumFacing facing)
     {
-        if (getWorld().isRemote)return;
+        if (getWorld().isRemote)return false;
 
         //Getting the current structure.
         Structure current = getAssignedStructure();
         if(current == null) {
             player.sendMessage(new TextComponentString("Can't rotate, no structure attached!"));
-            return;
+            return false;
         }
 
         //Getting the rotation to apply.
@@ -276,6 +276,8 @@ public class TileEntityBlockKey extends TileEntity {
         assignedStructure.rotate(rotation);
         rebuildStructure();
         player.sendMessage(new TextComponentString("Rotated structure by: " + rotation));
+
+        return true;
     }
     /**
      * Called when the structure data is updated from the assigned device.

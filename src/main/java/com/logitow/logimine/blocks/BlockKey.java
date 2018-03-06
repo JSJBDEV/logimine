@@ -73,22 +73,13 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
                 if(player.getHeldItem(hand) != ItemStack.EMPTY) {
                     ItemStack stack = player.getHeldItem(hand);
                     if (stack.getItem() == ModItems.logiCard) {
-                        if (player.isSneaking() && !world.isRemote) {
+                        if (player.isSneaking()) {
                             //Rotating the structure.
-                            blockKeyEntity.rotateStructure(player, facing);
-                            return true;
+                            return blockKeyEntity.rotateStructure(player, facing);
                         } else if(world.isRemote) {
                             Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
                             //Assigning the block to the device manager dialog.
-                            new java.util.Timer().schedule(
-                                    new java.util.TimerTask() {
-                                        @Override
-                                        public void run() {
-                                            DeviceManagerGui.onKeyBlockAssigned(blockpos);
-                                        }
-                                    },
-                                    100
-                            );
+                            DeviceManagerGui.onKeyBlockAssigned(blockpos);
                             return true;
                         }
                     }

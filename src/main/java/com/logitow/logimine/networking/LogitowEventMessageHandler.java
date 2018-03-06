@@ -1,6 +1,7 @@
 package com.logitow.logimine.networking;
 
-import com.logitow.bridge.event.EventManager;
+import com.logitow.logimine.event.LogitowBridgeEvent;
+import com.logitow.logimine.event.LogitowBridgeServerEventHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -23,7 +24,7 @@ public class LogitowEventMessageHandler implements IMessageHandler<LogitowEventM
     @Override
     public IMessage onMessage(LogitowEventMessage message, MessageContext ctx) {
         //Pushing the received event through the event system.
-        EventManager.callEvent(message.event);
+        LogitowBridgeServerEventHandler.onLogitowEvent(new LogitowBridgeEvent(message.event));
 
         return null;
     }

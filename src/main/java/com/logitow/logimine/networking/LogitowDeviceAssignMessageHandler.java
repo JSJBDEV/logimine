@@ -36,7 +36,7 @@ public class LogitowDeviceAssignMessageHandler implements IMessageHandler<Logito
                 TileEntityBlockKey keyBlock = null;
                 for (TileEntityBlockKey active :
                         LogiMine.activeKeyBlocks) {
-                    if (active.getPos() == message.position) {
+                    if (active.getPos().equals(message.position)) {
                         keyBlock = active;
                     }
                 }

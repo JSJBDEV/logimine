@@ -33,6 +33,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
@@ -98,7 +99,8 @@ public class LogiMine {
         proxy.registerLogitowEvents();
 
         networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(modId);
-        //Registerting packets.
+
+        //Registering packets.
         networkWrapper.registerMessage(LogitowEventMessageHandler.class, LogitowEventMessage.class, 0, Side.SERVER);
         networkWrapper.registerMessage(LogitowDeviceAssignMessageHandler.class, LogitowDeviceAssignMessage.class, 1, Side.SERVER);
     }
@@ -118,7 +120,9 @@ public class LogiMine {
             ModBlocks.registerItemBlocks(event.getRegistry());
         }
         @SubscribeEvent
-        public static void registerBlocks(RegistryEvent.Register<Block> event) { ModBlocks.register(event.getRegistry());
+        public static void registerBlocks(RegistryEvent.Register<Block> event) {
+            ModBlocks.register(event.getRegistry());
+            GameRegistry.registerTileEntity(TileEntityBlockKey.class, ModBlocks.key_lblock.getRegistryName().toString());
         }
         @SubscribeEvent
         public static void registerItems(ModelRegistryEvent event) {

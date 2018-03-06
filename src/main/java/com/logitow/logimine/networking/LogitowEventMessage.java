@@ -1,15 +1,10 @@
 package com.logitow.logimine.networking;
 
 import com.logitow.bridge.event.Event;
-import com.logitow.bridge.event.device.DeviceConnectedEvent;
-import com.logitow.bridge.event.device.DeviceDisconnectedEvent;
-import com.logitow.bridge.event.device.battery.DeviceBatteryVoltageUpdateEvent;
-import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
-import org.apache.commons.lang3.SerializationUtils;
 
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * Packet with structure update info.
@@ -40,7 +35,14 @@ public class LogitowEventMessage implements IMessage {
     @Override
     public void fromBytes(ByteBuf buf) {
         byte[] data = new byte[buf.readInt()];
-        this.event = SerializationUtils.deserialize(data);
+        buf.readBytes(data);
+        try {
+            this.event = (Event)deserialize(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -50,8 +52,25 @@ public class LogitowEventMessage implements IMessage {
      */
     @Override
     public void toBytes(ByteBuf buf) {
-        byte[] data = SerializationUtils.serialize(this.event);
+        byte[] data = new byte[0];
+        try {
+            data = serialize(this.event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         buf.writeInt(data.length);
         buf.writeBytes(data);
+    }
+
+    public static byte[] serialize(Object obj) throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ObjectOutputStream os = new ObjectOutputStream(out);
+        os.writeObject(obj);
+        return out.toByteArray();
+    }
+    public static Object deserialize(byte[] data) throws IOException, ClassNotFoundException {
+        ByteArrayInputStream in = new ByteArrayInputStream(data);
+        ObjectInputStream is = new ObjectInputStream(in);
+        return is.readObject();
     }
 }

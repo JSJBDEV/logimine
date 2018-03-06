@@ -8,6 +8,7 @@ import com.logitow.bridge.event.device.DeviceConnectionErrorEvent;
 import com.logitow.bridge.event.device.DeviceDisconnectedEvent;
 import com.logitow.bridge.event.device.battery.DeviceBatteryLowChargeEvent;
 import com.logitow.bridge.event.device.battery.DeviceBatteryVoltageUpdateEvent;
+import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
@@ -40,8 +41,10 @@ public class LogitowBridgeClientEventHandler {
             //Send device assign message.
             for (TileEntityBlockKey keyBlock :
                     LogiMine.activeKeyBlocks) {
-                if (keyBlock.getAssignedDevice() == deviceConnectedEvent.device) {
-                    LogiMine.networkWrapper.sendToServer(new LogitowDeviceAssignMessage(keyBlock.getPos(), deviceConnectedEvent.device));
+                if(keyBlock.getAssignedDevice() != null) {
+                    if (keyBlock.getAssignedDevice().equals(deviceConnectedEvent.device)) {
+                        LogiMine.networkWrapper.sendToServer(new LogitowDeviceAssignMessage(keyBlock.getPos(), deviceConnectedEvent.device));
+                    }
                 }
             }
         } else if(bridgeEvent instanceof DeviceDisconnectedEvent) {
@@ -56,6 +59,22 @@ public class LogitowBridgeClientEventHandler {
                     LogiMine.activeKeyBlocks) {
                 if (keyBlock.getAssignedDevice() == deviceDisconnectedEvent.device) {
                     keyBlock.assignDevice(null, null);
+                }
+            }
+        }
+        else if (bridgeEvent instanceof BlockOperationEvent) {
+            BlockOperationEvent blockOperationEvent = (BlockOperationEvent)bridgeEvent;
+
+            System.out.println("Handling the block operation on the client. Block local pos: " + blockOperationEvent.operation.blockB.coordinate);
+
+            //Passing the event to the respective assigned key block.
+            for (TileEntityBlockKey keyBlock :
+                    LogiMine.activeKeyBlocks) {
+                if(keyBlock.getAssignedDevice() != null) {
+                    if (blockOperationEvent.device.equals(keyBlock.getAssignedDevice()) && keyBlock.getWorld().isRemote) {
+                        keyBlock.onStructureUpdate(blockOperationEvent);
+                        break;
+                    }
                 }
             }
         }

@@ -40,7 +40,9 @@ public class LogitowDeviceAssignMessage implements IMessage {
     public void fromBytes(ByteBuf buf) {
         position = BlockPos.fromLong(buf.readLong());
         int uuidLength = buf.readInt();
-        deviceUUID = new String(buf.readBytes(uuidLength).array(), Charset.forName("UTF-8"));
+        byte[] data = new byte[uuidLength];
+        buf.readBytes(data);
+        deviceUUID = new String(data, Charset.forName("UTF-8"));
     }
 
     /**
