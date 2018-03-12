@@ -36,13 +36,13 @@ public class LogitowDeviceAssignMessageHandler implements IMessageHandler<Logito
                 TileEntityBlockKey keyBlock = null;
                 for (TileEntityBlockKey active :
                         LogiMine.activeKeyBlocks) {
-                    if (active.getPos().equals(message.position)) {
+                    if (!active.getWorld().isRemote && active.getPos().equals(message.position)) {
                         keyBlock = active;
                     }
                 }
 
                 if(keyBlock != null) {
-                    if(message.deviceUUID == "NULL") {
+                    if(message.deviceUUID.equals("NULL")) {
                         //Assigning the keyblock.
                         keyBlock.assignDevice(null, null);
                         serverPlayer.sendMessage(new TextComponentString("Device unassigned from the key block!"));

@@ -94,9 +94,9 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
 
     @Override
     public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
-        if(!worldIn.isRemote) { //Client
+        if(worldIn.isRemote) { //Client
             //Closing the gui.
-            if(DeviceManagerGui.instance != null) {
+            if(DeviceManagerGui.instance != null && DeviceManagerGui.instance.selectedKeyBlock != null && DeviceManagerGui.instance.selectedKeyBlock.getPos().equals(pos)) {
                 Minecraft.getMinecraft().displayGuiScreen(null);
             }
         }

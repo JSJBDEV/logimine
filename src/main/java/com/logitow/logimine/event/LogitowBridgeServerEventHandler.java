@@ -20,12 +20,13 @@ public class LogitowBridgeServerEventHandler {
             //Called when a block state update is received from the device.
             BlockOperationEvent blockOperationEvent = (BlockOperationEvent) bridgeEvent;
 
-            System.out.println("Handling the block operation on the server. Block local pos: " + blockOperationEvent.operation.blockB.coordinate);
+            System.out.println("Handling the block operation on the server received from device: " + ((BlockOperationEvent) bridgeEvent).device.info.uuid + ". Block local pos: " + blockOperationEvent.operation.blockB.coordinate);
 
             //Passing the event to the respective assigned key block.
             for (TileEntityBlockKey keyBlock :
                     LogiMine.activeKeyBlocks) {
                 if(keyBlock.getAssignedDevice() != null) {
+                    System.out.println("Key block device: " + keyBlock.getAssignedDevice().info.uuid + " client: " + keyBlock.getWorld().isRemote);
                     if (blockOperationEvent.device.equals(keyBlock.getAssignedDevice()) && !keyBlock.getWorld().isRemote) {
                         keyBlock.onStructureUpdate(blockOperationEvent);
                         break;

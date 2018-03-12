@@ -95,6 +95,7 @@ public class LogiMine {
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceManagerDiscoveryStartedEvent.class);
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceManagerDiscoveryStoppedEvent.class);
         EventManager.registerHandler(logitowBridgeEventHandler, DeviceManagerErrorEvent.class);
+        MinecraftForge.EVENT_BUS.register(TileEntityBlockKey.class);
 
         proxy.registerLogitowEvents();
 
