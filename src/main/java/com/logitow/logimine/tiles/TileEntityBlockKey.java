@@ -19,11 +19,13 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.world.WorldEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /**
@@ -73,19 +75,21 @@ public class TileEntityBlockKey extends TileEntity {
      */
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-        logger.info("Saving NBT for key block: {}", getPos());
+        logger.info("Saving NBT for key block: {}. Side {}", getPos(), FMLCommonHandler.instance().getEffectiveSide());
 
         super.writeToNBT(compound);
         NBTTagCompound logitowTag = new NBTTagCompound();
         if(assignedStructure != null) { //Assigned structure
-            logitowTag.setUniqueId("structure", assignedStructure.uuid);
+            logger.info("Saving {} as structure UUID", assignedStructure.uuid);
+            logitowTag.setString("structure", assignedStructure.uuid.toString());
         } else {
-            logitowTag.removeTag("structure");
+            logger.info("Removing tag...");
+            logitowTag.setString("structure", "NULL");
         }
         if(assignedPlayer != null) { //Assigned player
-            logitowTag.setUniqueId("player", assignedPlayer.getUniqueID());
+            logitowTag.setString("player", assignedPlayer.getUniqueID().toString());
         } else {
-            logitowTag.removeTag("player");
+            logitowTag.setString("player", "NULL");
         }
 
         compound.setTag("LOGITOW", logitowTag);
@@ -99,20 +103,27 @@ public class TileEntityBlockKey extends TileEntity {
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         if (compound.hasKey("LOGITOW")) {
-            logger.info("Loading NBT for key block: {}", getPos());
-            
+            logger.info("Loading NBT for key block: {} Side: {}", getPos(), FMLCommonHandler.instance().getEffectiveSide());
+
             NBTTagCompound logitowTag = compound.getCompoundTag("LOGITOW");
 
             //Structure
+            logger.info("NBT: Structure");
             if(this.assignedDevice == null) {
+                logger.info("Device not assigned");
                 if(logitowTag.hasKey("structure")) {
-                    UUID uuid = logitowTag.getUniqueId("structure");
-                    if(uuid == null) {
+                    logger.info("Has key");
+                    String uuid = logitowTag.getString("structure");
+                    if(uuid == null || uuid == "NULL") {
+                        logger.info("UUID is null");
                         this.assignedStructure = null;
                     } else {
+                        logger.info("UUID is not null");
                         try {
-                            this.assignedStructure = Structure.loadByUuid(uuid.toString());
+                            logger.info("Loading structure for block {} ", getPos());
+                            this.assignedStructure = Structure.loadByUuid(uuid);
                         } catch (IOException e) {
+                            logger.error("Error loading structure for key block", e);
                             this.assignedStructure = null;
                         } finally {
                             if (this.assignedStructure != null) {
@@ -123,9 +134,11 @@ public class TileEntityBlockKey extends TileEntity {
                         }
                     }
                 } else {
+                    logger.info("Doesn't have key");
                     this.assignedStructure = null;
                 }
             } else if(this.assignedStructure != this.assignedDevice.currentStructure) {
+                logger.info("Device assigned");
                 //Assign the current device's structure.
                 this.assignedStructure = this.assignedDevice.currentStructure;
                 this.markDirty();
@@ -133,13 +146,18 @@ public class TileEntityBlockKey extends TileEntity {
 
             //Player
             if(logitowTag.hasKey("player")) {
-                UUID uuid = logitowTag.getUniqueId("player");
+                String uuid = logitowTag.getString("player");
                 if(uuid == null) {
                     this.assignedPlayer = null;
                 } else {
-                    this.assignedPlayer = getWorld().getPlayerEntityByUUID(uuid);
-                    if(this.assignedPlayer == null) {
-                        this.markDirty();
+                    try {
+                        this.assignedPlayer = getWorld().getPlayerEntityByUUID(UUID.fromString(uuid));
+                    } catch (Exception e) {
+                        this.assignedPlayer = null;
+                    } finally {
+                        if(this.assignedPlayer == null) {
+                            this.markDirty();
+                        }
                     }
                 }
             } else {
@@ -407,6 +425,23 @@ public class TileEntityBlockKey extends TileEntity {
             } catch (IOException e) {
                 //e.printStackTrace();
             }
+        }
+    }
+
+    /**
+     * Called when the world is unloaded.
+     */
+    @SubscribeEvent
+    public static void onWorldUnload(WorldEvent.Unload event) {
+        ArrayList<Integer> toRemove = new ArrayList<Integer>();
+        for (int i = 0; i < LogiMine.activeKeyBlocks.size(); i++) {
+            if (LogiMine.activeKeyBlocks.get(i).getWorld().equals(event.getWorld())) {
+                toRemove.add(i);
+            }
+        }
+        for (int i :
+                toRemove) {
+            LogiMine.activeKeyBlocks.remove(i);
         }
     }
 }

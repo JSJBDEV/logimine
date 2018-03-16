@@ -53,14 +53,6 @@ public class LogitowBridgeClientEventHandler {
 
             //Show device disconnected notification.
             Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Device " + deviceDisconnectedEvent.device + " disconnected!"));
-
-            //Make sure all keyblocks are unassigned.
-            for (TileEntityBlockKey keyBlock :
-                    LogiMine.activeKeyBlocks) {
-                if (keyBlock.getAssignedDevice() == deviceDisconnectedEvent.device) {
-                    keyBlock.assignDevice(null, null);
-                }
-            }
         }
         else if (bridgeEvent instanceof BlockOperationEvent) {
             BlockOperationEvent blockOperationEvent = (BlockOperationEvent)bridgeEvent;
