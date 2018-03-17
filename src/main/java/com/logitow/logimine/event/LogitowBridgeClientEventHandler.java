@@ -13,6 +13,7 @@ import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
 import com.logitow.logimine.LogiMine;
+import com.logitow.logimine.client.gui.NotificationToast;
 import com.logitow.logimine.networking.LogitowDeviceAssignMessage;
 import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.client.Minecraft;
@@ -36,7 +37,8 @@ public class LogitowBridgeClientEventHandler {
             DeviceConnectedEvent deviceConnectedEvent = (DeviceConnectedEvent) bridgeEvent;
 
             //Show device connected notification.
-            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Device " + deviceConnectedEvent.device + " connected!"));
+            //Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Device " + deviceConnectedEvent.device + " connected!"));
+            NotificationToast.showConnect(deviceConnectedEvent.device);
 
             //Send device assign message.
             for (TileEntityBlockKey keyBlock :
@@ -51,8 +53,16 @@ public class LogitowBridgeClientEventHandler {
             //Called when a logitow device is disconnected
             DeviceDisconnectedEvent deviceDisconnectedEvent = (DeviceDisconnectedEvent) bridgeEvent;
 
+            //Make sure all keyblocks are unassigned.
+            for (TileEntityBlockKey keyBlock :
+                    LogiMine.activeKeyBlocks) {
+                if (keyBlock.getWorld() !=null && keyBlock.getWorld().isRemote && keyBlock.getAssignedDevice() != null && keyBlock.getAssignedDevice().equals(deviceDisconnectedEvent.device)) {
+                    keyBlock.assignDevice(null, null);
+                }
+            }
+
             //Show device disconnected notification.
-            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Device " + deviceDisconnectedEvent.device + " disconnected!"));
+            NotificationToast.showDisconnect(deviceDisconnectedEvent.device);
         }
         else if (bridgeEvent instanceof BlockOperationEvent) {
             BlockOperationEvent blockOperationEvent = (BlockOperationEvent)bridgeEvent;

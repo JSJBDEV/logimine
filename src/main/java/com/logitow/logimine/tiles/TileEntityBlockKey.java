@@ -25,7 +25,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.UUID;
 
 /**
@@ -205,15 +204,13 @@ public class TileEntityBlockKey extends TileEntity {
                 this.assignedDevice = device;
                 this.assignedPlayer = player;
                 this.assignedStructure = device.currentStructure;
+                clearStructure();
                 rebuildStructure();
                 logger.info("Assigned device: {} to key block at: {}", device, this.getPos());
                 this.markDirty();
             }
         } else {
             this.assignedDevice = null;
-            this.assignedPlayer = null;
-            clearStructure();
-            this.assignedStructure = null;
             logger.info("Unassigned device from key block at: {}", this.getPos());
             this.markDirty();
         }
@@ -229,6 +226,7 @@ public class TileEntityBlockKey extends TileEntity {
                 assignDevice(null, null);
             }
             this.assignedStructure = structure;
+            clearStructure();
             rebuildStructure();
         } else {
             clearStructure();
@@ -357,6 +355,7 @@ public class TileEntityBlockKey extends TileEntity {
     public void clearStructure() {
         if(getWorld() == null) return;
         if (getWorld().isRemote) return;
+        if(this.assignedStructure == null) return;
 
         logger.info("Clearing structure: {} on: {}", assignedStructure, getPos());
 
@@ -433,15 +432,10 @@ public class TileEntityBlockKey extends TileEntity {
      */
     @SubscribeEvent
     public static void onWorldUnload(WorldEvent.Unload event) {
-        ArrayList<Integer> toRemove = new ArrayList<Integer>();
         for (int i = 0; i < LogiMine.activeKeyBlocks.size(); i++) {
             if (LogiMine.activeKeyBlocks.get(i).getWorld().equals(event.getWorld())) {
-                toRemove.add(i);
+                LogiMine.activeKeyBlocks.remove(i);
             }
-        }
-        for (int i :
-                toRemove) {
-            LogiMine.activeKeyBlocks.remove(i);
         }
     }
 }

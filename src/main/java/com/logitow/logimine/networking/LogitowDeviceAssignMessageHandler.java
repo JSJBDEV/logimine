@@ -3,9 +3,10 @@ package com.logitow.logimine.networking;
 import com.logitow.bridge.communication.Device;
 import com.logitow.logimine.LogiMine;
 import com.logitow.logimine.blocks.ModBlocks;
+import com.logitow.logimine.client.gui.DeviceManagerGui;
 import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -44,18 +45,18 @@ public class LogitowDeviceAssignMessageHandler implements IMessageHandler<Logito
                 if(keyBlock != null) {
                     if(message.deviceUUID.equals("NULL")) {
                         //Assigning the keyblock.
+                        serverPlayer.sendMessage(new TextComponentTranslation(DeviceManagerGui.TEXT_DEVICE_MANAGER_UNASSIGNED, keyBlock.getAssignedDevice().info.friendlyName));
                         keyBlock.assignDevice(null, null);
-                        serverPlayer.sendMessage(new TextComponentString("Device unassigned from the key block!"));
                     } else {
                         //Assigning the keyblock.
                         keyBlock.assignDevice(serverPlayer, Device.getConnectedFromUuid(message.deviceUUID));
-                        serverPlayer.sendMessage(new TextComponentString("Device assigned to the key block!"));
+                        serverPlayer.sendMessage(new TextComponentTranslation(DeviceManagerGui.TEXT_DEVICE_MANAGER_ASSIGNED, keyBlock.getAssignedDevice().info.friendlyName));
                     }
                 } else {
-                    serverPlayer.sendMessage(new TextComponentString("The key block hasn't been initialized yet!"));
+                    serverPlayer.sendMessage(DeviceManagerGui.TEXT_DEVICE_MANAGER_KEYBLOCK_NOT_INITIALIZED);
                 }
             } else {
-                serverPlayer.sendMessage(new TextComponentString("This is not a LOGITOW key block!"));
+                serverPlayer.sendMessage(DeviceManagerGui.TEXT_DEVICE_MANAGER_BLOCK_IS_NOT_KEY);
             }
         });
 

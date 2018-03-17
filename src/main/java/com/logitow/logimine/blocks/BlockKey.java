@@ -1,5 +1,7 @@
 package com.logitow.logimine.blocks;
 
+import com.logitow.bridge.build.Structure;
+import com.logitow.logimine.LogiMine;
 import com.logitow.logimine.client.gui.DeviceManagerGui;
 import com.logitow.logimine.items.ModItems;
 import com.logitow.logimine.tiles.TileEntityBlockKey;
@@ -94,18 +96,36 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
 
     @Override
     public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
+        System.out.println("Destroyed key block at: " + pos);
         if(worldIn.isRemote) { //Client
             //Closing the gui.
             if(DeviceManagerGui.instance != null && DeviceManagerGui.instance.selectedKeyBlock != null && DeviceManagerGui.instance.selectedKeyBlock.getPos().equals(pos)) {
                 Minecraft.getMinecraft().displayGuiScreen(null);
             }
         }
-
         //Unassigning the block.
-        TileEntity te = worldIn.getTileEntity(pos);
-        if(te != null && te instanceof TileEntityBlockKey) {
-            TileEntityBlockKey blockKeyEntity = (TileEntityBlockKey) te;
-            blockKeyEntity.assignDevice(null, null);
+        for (TileEntityBlockKey keyblock :
+                LogiMine.activeKeyBlocks) {
+            if(keyblock.getPos().equals(pos)){
+                System.out.println("Clearing structure of the destroyed block.");
+                if(worldIn.isRemote) {
+                    if(keyblock.getWorld().isRemote) {
+                        if(keyblock.getAssignedDevice() != null) {
+                            keyblock.getAssignedDevice().disconnect();
+                        }
+                        keyblock.assignDevice(null, null);
+                    }
+                } else {
+                    if(!keyblock.getWorld().isRemote) {
+                        //Deleting structure file.
+                        if(keyblock.getAssignedStructure() != null) {
+                            Structure.removeFile(keyblock.getAssignedStructure());
+                            keyblock.clearStructure();
+                        }
+                        keyblock.assignDevice(null,null);
+                    }
+                }
+            }
         }
     }
 

@@ -54,7 +54,7 @@ public class LogitowBridgeServerEventHandler {
             //Make sure all keyblocks are unassigned.
             for (TileEntityBlockKey keyBlock :
                     LogiMine.activeKeyBlocks) {
-                if (keyBlock.getAssignedDevice() == deviceDisconnectedEvent.device) {
+                if (keyBlock.getWorld() != null && !keyBlock.getWorld().isRemote && keyBlock.getAssignedDevice() != null && keyBlock.getAssignedDevice().equals(deviceDisconnectedEvent.device)) {
                     keyBlock.assignDevice(null, null);
                 }
             }

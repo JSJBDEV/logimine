@@ -14,3 +14,25 @@ item.logicard.name=LogiCard
 
 #tab
 itemGroup.logimine=LogiMine for Logitow
+
+#notifications
+logitow.toast.connected.title=Device connected!
+logitow.toast.connected.subtitle=%s connected!
+logitow.toast.disconnected.title=Device disconnected!
+logitow.toast.disconnected.subtitle=%s disconnected!
+
+#device manager
+logitow.devicemanager.title=Logitow
+logitow.devicemanager.selectdevice=Select Device
+logitow.devicemanager.availabledevices=Available Devices
+logitow.devicemanager.scanning=Scanning...
+logitow.devicemanager.connecting=Connecting to device: %s
+logitow.devicemanager.disconnecting=Disconnecting device: %s
+logitow.devicemanager.assigneddevice=Device %s assigned to key block
+logitow.devicemanager.unassigneddevice=Device %s unassigned from key block
+logitow.devicemanager.cancelbutton=Cancel
+logitow.devicemanager.scanbutton=Scan
+logitow.devicemanager.disconnectbutton=Disconnect
+logitow.devicemanager.connectbutton=Connect
+logitow.devicemanager.keyblocknotinitialized=The key block hasn't been initialized yet!
+logitow.devicemanager.blockisnotkeyblock=This is not a LOGITOW key block!
