@@ -3,6 +3,7 @@ package com.logitow.logimine.blocks;
 import com.logitow.bridge.build.Structure;
 import com.logitow.logimine.LogiMine;
 import com.logitow.logimine.client.gui.DeviceManagerGui;
+import com.logitow.logimine.client.gui.ManagerChoiceGui;
 import com.logitow.logimine.items.ModItems;
 import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.block.ITileEntityProvider;
@@ -81,7 +82,7 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
                         } else if(world.isRemote) {
                             Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
                             //Assigning the block to the device manager dialog.
-                            DeviceManagerGui.onKeyBlockAssigned(blockpos);
+                            ManagerChoiceGui.setSelectedKeyBlock(blockpos);
                             return true;
                         }
                     }
@@ -99,7 +100,7 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
         System.out.println("Destroyed key block at: " + pos);
         if(worldIn.isRemote) { //Client
             //Closing the gui.
-            if(DeviceManagerGui.instance != null && DeviceManagerGui.instance.selectedKeyBlock != null && DeviceManagerGui.instance.selectedKeyBlock.getPos().equals(pos)) {
+            if(DeviceManagerGui.instance != null && ManagerChoiceGui.instance.getSelectedKeyBlock() != null && ManagerChoiceGui.instance.getSelectedKeyBlock().getPos().equals(pos)) {
                 Minecraft.getMinecraft().displayGuiScreen(null);
             }
         }

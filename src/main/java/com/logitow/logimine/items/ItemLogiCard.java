@@ -1,9 +1,6 @@
 package com.logitow.logimine.items;
 
-import com.logitow.bridge.communication.BluetoothState;
-import com.logitow.bridge.communication.LogitowDeviceManager;
 import com.logitow.logimine.LogiMine;
-import com.logitow.logimine.client.gui.BluetoothDialogGui;
 import com.logitow.logimine.client.gui.DeviceManagerGui;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
@@ -58,14 +55,8 @@ public class ItemLogiCard extends Item {
 
         //Cancel if sneaking.
         if(!playerIn.isSneaking()) {
-            //Checking for bluetooth availability.
-            if(LogitowDeviceManager.current.getBluetoothState() == BluetoothState.PoweredOn) {
-                //Opening the device manager screen.
-                Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
-            } else {
-                //Showing ble unavailable dialog.
-                Minecraft.getMinecraft().displayGuiScreen(new BluetoothDialogGui(LogitowDeviceManager.current.getBluetoothState()));
-            }
+            //Opening the manager choice gui.
+            Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
         }
 
         return super.onItemRightClick(worldIn, playerIn, handIn);

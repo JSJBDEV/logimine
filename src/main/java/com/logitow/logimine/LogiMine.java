@@ -14,10 +14,7 @@ import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
 import com.logitow.logimine.blocks.ModBlocks;
 import com.logitow.logimine.event.LogitowBridgeEvent;
 import com.logitow.logimine.items.ModItems;
-import com.logitow.logimine.networking.LogitowDeviceAssignMessage;
-import com.logitow.logimine.networking.LogitowDeviceAssignMessageHandler;
-import com.logitow.logimine.networking.LogitowEventMessage;
-import com.logitow.logimine.networking.LogitowEventMessageHandler;
+import com.logitow.logimine.networking.*;
 import com.logitow.logimine.proxy.ServerProxy;
 import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.block.Block;
@@ -48,7 +45,7 @@ public class LogiMine {
     public static final String modId = "logimine";
     public static final String name = "LogiMine";
     public static final String version = "1.0.0";
-    public static SimpleNetworkWrapper networkWrapper;
+    public final static SimpleNetworkWrapper networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(modId);
 
     public EventHandler logitowBridgeEventHandler = new EventHandler() {
         @Override
@@ -99,11 +96,10 @@ public class LogiMine {
 
         proxy.registerLogitowEvents();
 
-        networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(modId);
-
         //Registering packets.
-        networkWrapper.registerMessage(LogitowEventMessageHandler.class, LogitowEventMessage.class, 0, Side.SERVER);
-        networkWrapper.registerMessage(LogitowDeviceAssignMessageHandler.class, LogitowDeviceAssignMessage.class, 1, Side.SERVER);
+        networkWrapper.registerMessage(LogitowEventMessageHandler.class, LogitowEventMessage.class, 1, Side.SERVER);
+        networkWrapper.registerMessage(LogitowDeviceAssignMessageHandler.class, LogitowDeviceAssignMessage.class, 2, Side.SERVER);
+        networkWrapper.registerMessage(LogitowSaveStructureMessageHandler.class, LogitowSaveStructureMessage.class, 3, Side.SERVER);
     }
 
     @Mod.EventHandler

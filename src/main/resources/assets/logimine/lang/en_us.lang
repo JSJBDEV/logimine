@@ -36,3 +36,21 @@ logitow.devicemanager.disconnectbutton=Disconnect
 logitow.devicemanager.connectbutton=Connect
 logitow.devicemanager.keyblocknotinitialized=The key block hasn't been initialized yet!
 logitow.devicemanager.blockisnotkeyblock=This is not a LOGITOW key block!
+
+#managerchoice
+logitow.managerchoice.devicemanager=Device Manager
+logitow.managerchoice.structuremanager=Structure Manager
+
+#savestructure
+logitow.savestructuremanager.title=Save Structure
+logitow.savestructuremanager.savebutton=Save
+logitow.savestructuremanager.cancelbutton=Cancel
+logitow.savestructuremanager.keyblockdoesntexist=The key block doesn't exist!
+logitow.savestructuremanager.nostructureattached=No structure attached to the key block!
+logitow.savestructuremanager.savingerror=There was an error when saving the structure!
+logitow.savestructuremanager.savingsuccessful=Structure saved as %s
+logitow.savestructuremanager.saving=Saving the structure...
+
+#rotatestructure
+logitow.structure.rotated=Rotated structure by: %s
+logitow.structure.cantrotatenotattached=Can't rotate, no structure attached to the key block!

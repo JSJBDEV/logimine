@@ -9,6 +9,8 @@ import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.logimine.LogiMine;
 import com.logitow.logimine.blocks.BlockBase;
+import com.logitow.logimine.blocks.ModBlocks;
+import com.logitow.logimine.client.gui.SaveStructureGui;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -17,7 +19,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -46,6 +49,9 @@ public class TileEntityBlockKey extends TileEntity {
     private Structure assignedStructure;
 
     private static Logger logger = LogManager.getLogger(TileEntityBlockKey.class);
+
+    final ITextComponent TEXT_CANT_ROTATE_NOT_ATTACHED = new TextComponentTranslation("logitow.structure.cantrotatenotattached");
+    final String TEXT_ROTATED = "logitow.structure.rotated";
 
     /**
      * Registering the tile entity with the active key blocks.
@@ -79,8 +85,13 @@ public class TileEntityBlockKey extends TileEntity {
         super.writeToNBT(compound);
         NBTTagCompound logitowTag = new NBTTagCompound();
         if(assignedStructure != null) { //Assigned structure
-            logger.info("Saving {} as structure UUID", assignedStructure.uuid);
-            logitowTag.setString("structure", assignedStructure.uuid.toString());
+            if(assignedStructure.customName != null && assignedStructure.customName != "") {
+                logger.info("Saving {} as structure name", assignedStructure.customName);
+                logitowTag.setString("structure", assignedStructure.customName);
+            } else {
+                logger.info("Saving {} as structure UUID", assignedStructure.uuid);
+                logitowTag.setString("structure", assignedStructure.uuid.toString());
+            }
         } else {
             logger.info("Removing tag...");
             logitowTag.setString("structure", "NULL");
@@ -112,15 +123,15 @@ public class TileEntityBlockKey extends TileEntity {
                 logger.info("Device not assigned");
                 if(logitowTag.hasKey("structure")) {
                     logger.info("Has key");
-                    String uuid = logitowTag.getString("structure");
-                    if(uuid == null || uuid == "NULL") {
+                    String name = logitowTag.getString("structure");
+                    if(name == null || name == "NULL") {
                         logger.info("UUID is null");
                         this.assignedStructure = null;
                     } else {
                         logger.info("UUID is not null");
                         try {
                             logger.info("Loading structure for block {} ", getPos());
-                            this.assignedStructure = Structure.loadByUuid(uuid);
+                            this.assignedStructure = Structure.loadByName(name);
                         } catch (IOException e) {
                             logger.error("Error loading structure for key block", e);
                             this.assignedStructure = null;
@@ -203,8 +214,8 @@ public class TileEntityBlockKey extends TileEntity {
             if(this.assignedDevice == null || !this.assignedDevice.equals(device) || this.assignedPlayer == null || !this.assignedPlayer.equals(player) || this.assignedStructure == null || !this.assignedStructure.equals(device.currentStructure)) {
                 this.assignedDevice = device;
                 this.assignedPlayer = player;
-                this.assignedStructure = device.currentStructure;
                 clearStructure();
+                this.assignedStructure = device.currentStructure;
                 rebuildStructure();
                 logger.info("Assigned device: {} to key block at: {}", device, this.getPos());
                 this.markDirty();
@@ -222,11 +233,11 @@ public class TileEntityBlockKey extends TileEntity {
      */
     public void assignStructure(Structure structure) {
         if(structure != null) {
+            clearStructure();
             if(assignedDevice != null || assignedPlayer != null) {
                 assignDevice(null, null);
             }
             this.assignedStructure = structure;
-            clearStructure();
             rebuildStructure();
         } else {
             clearStructure();
@@ -246,7 +257,7 @@ public class TileEntityBlockKey extends TileEntity {
         //Getting the current structure.
         Structure current = getAssignedStructure();
         if(current == null) {
-            player.sendMessage(new TextComponentString("Can't rotate, no structure attached!"));
+            player.sendMessage(TEXT_CANT_ROTATE_NOT_ATTACHED);
             return false;
         }
 
@@ -276,7 +287,8 @@ public class TileEntityBlockKey extends TileEntity {
         System.out.println("Rotating LOGITOW base block: " + this.getPos() + " by " + rotation);
 
         //TODO: Position second base block.
-        /*switch(currentRotation)
+
+        switch(currentRotation)
         {
             case 0:
                 world.setBlockToAir(blockpos.up());
@@ -303,12 +315,12 @@ public class TileEntityBlockKey extends TileEntity {
                 world.setBlockState(blockpos.up(),ModBlocks.white_lblock.getDefaultState());
                 break;
 
-        }*/
+        }
 
         clearStructure();
         assignedStructure.rotate(rotation);
         rebuildStructure();
-        player.sendMessage(new TextComponentString("Rotated structure by: " + rotation));
+        player.sendMessage(new TextComponentTranslation(TEXT_ROTATED, rotation));
 
         return true;
     }
@@ -328,8 +340,15 @@ public class TileEntityBlockKey extends TileEntity {
         if(getWorld().isRemote) {
             if(operation.operationType == BlockOperationType.BLOCK_ADD) {
                 //Block added.
-                Block colour = BlockBase.getBlockFromName("logimine:"+operation.blockB.getBlockType().name().toLowerCase()+"_lblock");
+                BlockType blockType = operation.blockB.getBlockType();
+                Block colour = BlockBase.getBlockFromName("logimine:"+blockType.name().toLowerCase()+"_lblock");
                 Minecraft.getMinecraft().effectRenderer.addBlockDestroyEffects(affpos, colour.getDefaultState());
+
+                //Checking the end block.
+                if(blockType == BlockType.END) {
+                    //Showing the save gui.
+                    Minecraft.getMinecraft().displayGuiScreen(new SaveStructureGui(this));
+                }
             } else {
                 //Block removed.
                 IBlockState state = getWorld().getBlockState(affpos);
