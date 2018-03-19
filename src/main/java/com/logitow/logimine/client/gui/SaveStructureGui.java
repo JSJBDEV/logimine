@@ -18,14 +18,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Represents the save structure GUI window.
+ * Represents the save structures GUI window.
  */
 @SideOnly(Side.CLIENT)
 public class SaveStructureGui extends GuiScreen {
     /**
      * The location of the gui texture.
      */
-    final public ResourceLocation guiTexture = new ResourceLocation(LogiMine.modId, "gui/structure-save-manager.png");
+    final public ResourceLocation guiTexture = new ResourceLocation(LogiMine.modId, "gui/structures-save-manager.png");
 
     private ArrayList<GuiTextField> textFields = new ArrayList<>();
 

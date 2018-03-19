@@ -77,7 +77,7 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
                     ItemStack stack = player.getHeldItem(hand);
                     if (stack.getItem() == ModItems.logiCard) {
                         if (player.isSneaking()) {
-                            //Rotating the structure.
+                            //Rotating the structures.
                             return blockKeyEntity.rotateStructure(player, facing);
                         } else if(world.isRemote) {
                             Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
@@ -108,7 +108,7 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
         for (TileEntityBlockKey keyblock :
                 LogiMine.activeKeyBlocks) {
             if(keyblock.getPos().equals(pos)){
-                System.out.println("Clearing structure of the destroyed block.");
+                System.out.println("Clearing structures of the destroyed block.");
                 if(worldIn.isRemote) {
                     if(keyblock.getWorld().isRemote) {
                         if(keyblock.getAssignedDevice() != null) {
@@ -118,7 +118,7 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
                     }
                 } else {
                     if(!keyblock.getWorld().isRemote) {
-                        //Deleting structure file.
+                        //Deleting structures file.
                         if(keyblock.getAssignedStructure() != null) {
                             Structure.removeFile(keyblock.getAssignedStructure());
                             keyblock.clearStructure();

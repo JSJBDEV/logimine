@@ -33,7 +33,7 @@ public class ManagerChoiceGui extends GuiScreen {
     public ManagerButton structureManagerButton;
 
     final public ResourceLocation deviceManagerButtonTexture = new ResourceLocation(LogiMine.modId, "gui/device-manager-button.png");
-    final public ResourceLocation structureManagerButtonTexture = new ResourceLocation(LogiMine.modId, "gui/structure-manager-button.png");
+    final public ResourceLocation structureManagerButtonTexture = new ResourceLocation(LogiMine.modId, "gui/structures-manager-button.png");
 
     final public TextComponentTranslation TEXT_DEVICE_MANAGER = new TextComponentTranslation("logitow.managerchoice.devicemanager");
     final public TextComponentTranslation TEXT_STRUCTURE_MANAGER = new TextComponentTranslation("logitow.managerchoice.structuremanager");

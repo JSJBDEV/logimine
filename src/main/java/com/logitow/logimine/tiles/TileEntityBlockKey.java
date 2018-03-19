@@ -44,14 +44,14 @@ public class TileEntityBlockKey extends TileEntity {
      */
     private Device assignedDevice;
     /**
-     * The structure currently assigned to this key block.
+     * The structures currently assigned to this key block.
      */
     private Structure assignedStructure;
 
     private static Logger logger = LogManager.getLogger(TileEntityBlockKey.class);
 
-    final ITextComponent TEXT_CANT_ROTATE_NOT_ATTACHED = new TextComponentTranslation("logitow.structure.cantrotatenotattached");
-    final String TEXT_ROTATED = "logitow.structure.rotated";
+    final ITextComponent TEXT_CANT_ROTATE_NOT_ATTACHED = new TextComponentTranslation("logitow.structures.cantrotatenotattached");
+    final String TEXT_ROTATED = "logitow.structures.rotated";
 
     /**
      * Registering the tile entity with the active key blocks.
@@ -84,17 +84,17 @@ public class TileEntityBlockKey extends TileEntity {
 
         super.writeToNBT(compound);
         NBTTagCompound logitowTag = new NBTTagCompound();
-        if(assignedStructure != null) { //Assigned structure
+        if(assignedStructure != null) { //Assigned structures
             if(assignedStructure.customName != null && assignedStructure.customName != "") {
-                logger.info("Saving {} as structure name", assignedStructure.customName);
-                logitowTag.setString("structure", assignedStructure.customName);
+                logger.info("Saving {} as structures name", assignedStructure.customName);
+                logitowTag.setString("structures", assignedStructure.customName);
             } else {
-                logger.info("Saving {} as structure UUID", assignedStructure.uuid);
-                logitowTag.setString("structure", assignedStructure.uuid.toString());
+                logger.info("Saving {} as structures UUID", assignedStructure.uuid);
+                logitowTag.setString("structures", assignedStructure.uuid.toString());
             }
         } else {
             logger.info("Removing tag...");
-            logitowTag.setString("structure", "NULL");
+            logitowTag.setString("structures", "NULL");
         }
         if(assignedPlayer != null) { //Assigned player
             logitowTag.setString("player", assignedPlayer.getUniqueID().toString());
@@ -121,23 +121,23 @@ public class TileEntityBlockKey extends TileEntity {
             logger.info("NBT: Structure");
             if(this.assignedDevice == null) {
                 logger.info("Device not assigned");
-                if(logitowTag.hasKey("structure")) {
+                if(logitowTag.hasKey("structures")) {
                     logger.info("Has key");
-                    String name = logitowTag.getString("structure");
+                    String name = logitowTag.getString("structures");
                     if(name == null || name == "NULL") {
                         logger.info("UUID is null");
                         this.assignedStructure = null;
                     } else {
                         logger.info("UUID is not null");
                         try {
-                            logger.info("Loading structure for block {} ", getPos());
+                            logger.info("Loading structures for block {} ", getPos());
                             this.assignedStructure = Structure.loadByName(name);
                         } catch (IOException e) {
-                            logger.error("Error loading structure for key block", e);
+                            logger.error("Error loading structures for key block", e);
                             this.assignedStructure = null;
                         } finally {
                             if (this.assignedStructure != null) {
-                                logger.info("Loaded structure from NBT: {}", this.assignedStructure);
+                                logger.info("Loaded structures from NBT: {}", this.assignedStructure);
                             } else {
                                 this.markDirty();
                             }
@@ -149,7 +149,7 @@ public class TileEntityBlockKey extends TileEntity {
                 }
             } else if(this.assignedStructure != this.assignedDevice.currentStructure) {
                 logger.info("Device assigned");
-                //Assign the current device's structure.
+                //Assign the current device's structures.
                 this.assignedStructure = this.assignedDevice.currentStructure;
                 this.markDirty();
             }
@@ -197,7 +197,7 @@ public class TileEntityBlockKey extends TileEntity {
     }
 
     /**
-     * Gets the structure assigned to this key block.
+     * Gets the structures assigned to this key block.
      * @return
      */
     public Structure getAssignedStructure() {
@@ -228,7 +228,7 @@ public class TileEntityBlockKey extends TileEntity {
     }
 
     /**
-     * Assigns the given structure to this key block.
+     * Assigns the given structures to this key block.
      * @param structure
      */
     public void assignStructure(Structure structure) {
@@ -248,13 +248,13 @@ public class TileEntityBlockKey extends TileEntity {
     }
 
     /**
-     * Rotates the structure assigned to this key block.
+     * Rotates the structures assigned to this key block.
      */
     public boolean rotateStructure(EntityPlayer player, EnumFacing facing)
     {
         if (getWorld().isRemote)return false;
 
-        //Getting the current structure.
+        //Getting the current structures.
         Structure current = getAssignedStructure();
         if(current == null) {
             player.sendMessage(TEXT_CANT_ROTATE_NOT_ATTACHED);
@@ -325,7 +325,7 @@ public class TileEntityBlockKey extends TileEntity {
         return true;
     }
     /**
-     * Called when the structure data is updated from the assigned device.
+     * Called when the structures data is updated from the assigned device.
      * Called on both client and server.
      * @param event
      */
@@ -333,7 +333,7 @@ public class TileEntityBlockKey extends TileEntity {
         logger.info("Handling block update on key block: {} ", getPos());
         BlockOperation operation = event.operation;
 
-        //No need to recreate the structure each time. Just adding the one updated block.
+        //No need to recreate the structures each time. Just adding the one updated block.
         //Getting the affected position.
         BlockPos affpos = getPos().add(operation.blockB.coordinate.getX(),operation.blockB.coordinate.getY(),operation.blockB.coordinate.getZ());
 
@@ -369,14 +369,14 @@ public class TileEntityBlockKey extends TileEntity {
     }
 
     /**
-     * Clears the current structure.
+     * Clears the current structures.
      */
     public void clearStructure() {
         if(getWorld() == null) return;
         if (getWorld().isRemote) return;
         if(this.assignedStructure == null) return;
 
-        logger.info("Clearing structure: {} on: {}", assignedStructure, getPos());
+        logger.info("Clearing structures: {} on: {}", assignedStructure, getPos());
 
         //Removing all the old blocks.
         for (int i = 0; i < this.assignedStructure.blocks.size(); i++) {
@@ -390,12 +390,12 @@ public class TileEntityBlockKey extends TileEntity {
         }
     }
     /**
-     * Rebuilds the current structure.
+     * Rebuilds the current structures.
      */
     public void rebuildStructure() {
         if (getWorld().isRemote)return;
 
-        logger.info("Rebuilding structure: {} on: {}", assignedStructure, getPos());
+        logger.info("Rebuilding structures: {} on: {}", assignedStructure, getPos());
 
         //Placing all the new blocks.
         for (com.logitow.bridge.build.block.Block b :
@@ -434,7 +434,7 @@ public class TileEntityBlockKey extends TileEntity {
 
         for (TileEntityBlockKey keyBlock :
                 LogiMine.activeKeyBlocks) {
-            //Saving the current structure to file.
+            //Saving the current structures to file.
             try {
                 if(keyBlock.getWorld() != saveEvent.getWorld()) continue;
                 if(keyBlock.assignedStructure != null) {

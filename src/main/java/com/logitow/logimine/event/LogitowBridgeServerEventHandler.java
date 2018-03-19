@@ -36,7 +36,7 @@ public class LogitowBridgeServerEventHandler {
         } else if(bridgeEvent instanceof BlockOperationErrorEvent) {
             BlockOperationErrorEvent blockOperationErrorEvent = (BlockOperationErrorEvent)bridgeEvent;
 
-            System.out.println("Handling the block structure update in the mod.");
+            System.out.println("Handling the block structures update in the mod.");
 
             //Passing the event to the respective assigned key block.
             for (TileEntityBlockKey keyBlock :

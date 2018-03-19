@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import java.io.IOException;
 
 /**
- * Handles the save structure messages.
+ * Handles the save structures messages.
  */
 public class LogitowSaveStructureMessageHandler implements IMessageHandler<LogitowSaveStructureMessage, IMessage> {
 
@@ -66,7 +66,7 @@ public class LogitowSaveStructureMessageHandler implements IMessageHandler<Logit
             //setting custom name
             usedKeyBlock.getAssignedStructure().customName = strucName;
 
-            //saving structure
+            //saving structures
             try {
                 usedKeyBlock.getAssignedStructure().saveToFile();
             } catch (IOException e) {

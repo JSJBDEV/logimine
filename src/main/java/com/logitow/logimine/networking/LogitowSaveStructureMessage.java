@@ -7,17 +7,17 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import java.nio.charset.Charset;
 
 /**
- * Signals the server to save the given structure to a file.
+ * Signals the server to save the given structures to a file.
  */
 public class LogitowSaveStructureMessage implements IMessage {
 
     /**
-     * The keyblock which structure to save.
+     * The keyblock which structures to save.
      */
     public BlockPos keyBlock;
 
     /**
-     * The name under which to save the structure.
+     * The name under which to save the structures.
      */
     public String name;
 

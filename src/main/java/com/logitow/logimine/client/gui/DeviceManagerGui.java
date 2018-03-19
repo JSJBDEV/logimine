@@ -34,7 +34,7 @@ public class DeviceManagerGui extends GuiScreen {
     /**
      * The location of the gui texture.
      */
-    final public ResourceLocation guiTexture = new ResourceLocation(LogiMine.modId, "gui/device-manager.png");
+    final public ResourceLocation guiTexture = new ResourceLocation(LogiMine.modId, "gui/tall-manager.png");
 
     /**
      * The height of the container graphic.
@@ -196,13 +196,13 @@ public class DeviceManagerGui extends GuiScreen {
         int buttonWidth = 50;
 
         //Accept bttn
-        buttonList.add(connectButton = new GuiButton(CONNECT_BUTTON_ID, width/2 - buttonWidth/2 - buttonSeparation, height/2 + 100, buttonWidth, 20, TEXT_DEVICE_MANAGER_CONNECT_BUTTON.getFormattedText()));
+        buttonList.add(connectButton = new GuiButton(CONNECT_BUTTON_ID, width/2 - buttonWidth/2 - buttonSeparation, height/2 + 81, buttonWidth, 20, TEXT_DEVICE_MANAGER_CONNECT_BUTTON.getFormattedText()));
 
         //Scan bttn
-        buttonList.add(scanButton = new GuiButton(SCAN_BUTTON_ID, width/2 - buttonWidth/2, height/2 + 100, buttonWidth, 20, TEXT_DEVICE_MANAGER_SCAN_BUTTON.getFormattedText()));
+        buttonList.add(scanButton = new GuiButton(SCAN_BUTTON_ID, width/2 - buttonWidth/2, height/2 + 81, buttonWidth, 20, TEXT_DEVICE_MANAGER_SCAN_BUTTON.getFormattedText()));
 
         //Cancel bttn
-        buttonList.add(cancelButton = new GuiButton(CANCEL_BUTTON_ID, width/2 - buttonWidth/2 + buttonSeparation, height/2 + 100, buttonWidth, 20, TEXT_DEVICE_MANAGER_CANCEL_BUTTON.getFormattedText()));
+        buttonList.add(cancelButton = new GuiButton(CANCEL_BUTTON_ID, width/2 - buttonWidth/2 + buttonSeparation, height/2 + 81, buttonWidth, 20, TEXT_DEVICE_MANAGER_CANCEL_BUTTON.getFormattedText()));
 
         //Adding the assigned device button.
         if(ManagerChoiceGui.instance.getSelectedKeyBlock() != null && ManagerChoiceGui.instance.getSelectedKeyBlock().getAssignedDevice() != null) {
