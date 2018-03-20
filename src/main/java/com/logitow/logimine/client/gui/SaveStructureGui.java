@@ -25,7 +25,7 @@ public class SaveStructureGui extends GuiScreen {
     /**
      * The location of the gui texture.
      */
-    final public ResourceLocation guiTexture = new ResourceLocation(LogiMine.modId, "gui/structures-save-manager.png");
+    final public ResourceLocation guiTexture = new ResourceLocation(LogiMine.modId, "gui/structure-save-manager.png");
 
     private ArrayList<GuiTextField> textFields = new ArrayList<>();
 
@@ -127,6 +127,8 @@ public class SaveStructureGui extends GuiScreen {
         field.setEnabled(true);
         field.setFocused(true);
         field.setCursorPosition(0);
+
+        Minecraft.getMinecraft().mouseHelper.ungrabMouseCursor();
 
         super.initGui();
     }

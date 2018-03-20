@@ -1,7 +1,7 @@
 package com.logitow.logimine.items;
 
 import com.logitow.logimine.LogiMine;
-import com.logitow.logimine.client.gui.DeviceManagerGui;
+import com.logitow.logimine.client.gui.HubGui;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -56,7 +56,7 @@ public class ItemLogiCard extends Item {
         //Cancel if sneaking.
         if(!playerIn.isSneaking()) {
             //Opening the manager choice gui.
-            Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
+            Minecraft.getMinecraft().displayGuiScreen(new HubGui());
         }
 
         return super.onItemRightClick(worldIn, playerIn, handIn);

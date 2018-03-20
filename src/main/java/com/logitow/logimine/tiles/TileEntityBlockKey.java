@@ -9,7 +9,6 @@ import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.logimine.LogiMine;
 import com.logitow.logimine.blocks.BlockBase;
-import com.logitow.logimine.blocks.ModBlocks;
 import com.logitow.logimine.client.gui.SaveStructureGui;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -50,8 +49,8 @@ public class TileEntityBlockKey extends TileEntity {
 
     private static Logger logger = LogManager.getLogger(TileEntityBlockKey.class);
 
-    final ITextComponent TEXT_CANT_ROTATE_NOT_ATTACHED = new TextComponentTranslation("logitow.structures.cantrotatenotattached");
-    final String TEXT_ROTATED = "logitow.structures.rotated";
+    final ITextComponent TEXT_CANT_ROTATE_NOT_ATTACHED = new TextComponentTranslation("logitow.structure.cantrotatenotattached");
+    final String TEXT_ROTATED = "logitow.structure.rotated";
 
     /**
      * Registering the tile entity with the active key blocks.
@@ -215,6 +214,10 @@ public class TileEntityBlockKey extends TileEntity {
                 this.assignedDevice = device;
                 this.assignedPlayer = player;
                 clearStructure();
+                if(this.assignedStructure != null && this.assignedStructure.customName == null) {
+                    //Deleting the structure file.
+                    Structure.removeFile(this.assignedStructure);
+                }
                 this.assignedStructure = device.currentStructure;
                 rebuildStructure();
                 logger.info("Assigned device: {} to key block at: {}", device, this.getPos());
@@ -286,37 +289,6 @@ public class TileEntityBlockKey extends TileEntity {
 
         System.out.println("Rotating LOGITOW base block: " + this.getPos() + " by " + rotation);
 
-        //TODO: Position second base block.
-
-        switch(currentRotation)
-        {
-            case 0:
-                world.setBlockToAir(blockpos.up());
-                world.setBlockState(blockpos.down(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 1:
-                world.setBlockToAir(blockpos.down());
-                world.setBlockState(blockpos.east(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 2:
-                world.setBlockToAir(blockpos.east());
-                world.setBlockState(blockpos.west(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 3:
-                world.setBlockToAir(blockpos.west());
-                world.setBlockState(blockpos.north(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 4:
-                world.setBlockToAir(blockpos.north());
-                world.setBlockState(blockpos.south(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 5:
-                world.setBlockToAir(blockpos.south());
-                world.setBlockState(blockpos.up(),ModBlocks.white_lblock.getDefaultState());
-                break;
-
-        }
-
         clearStructure();
         assignedStructure.rotate(rotation);
         rebuildStructure();
@@ -382,7 +354,7 @@ public class TileEntityBlockKey extends TileEntity {
         for (int i = 0; i < this.assignedStructure.blocks.size(); i++) {
             com.logitow.bridge.build.block.Block b = this.assignedStructure.blocks.get(i);
             if(b==null) continue;
-            if(b.getBlockType() == BlockType.BASE) continue;
+            if(b.coordinate.equals(Vec3.zero())) continue;
 
             BlockPos removePosition = this.getPos().add(b.coordinate.getX(), b.coordinate.getY(), b.coordinate.getZ());
 
@@ -401,12 +373,17 @@ public class TileEntityBlockKey extends TileEntity {
         for (com.logitow.bridge.build.block.Block b :
                 assignedStructure.blocks) {
             //Block added.
-            if(b.getBlockType() != BlockType.BASE) {
+            if(!b.coordinate.equals(Vec3.zero())) {
                 //Getting the affected position.
                 BlockPos affpos = this.getPos().add(b.coordinate.getX(),b.coordinate.getY(),b.coordinate.getZ());
                 System.out.println("Placing block: " + b + " at: " + affpos);
 
-                Block colour = BlockBase.getBlockFromName("logimine:"+b.getBlockType().name().toLowerCase()+"_lblock");
+                Block colour;
+                if(b.getBlockType() == BlockType.BASE) {
+                    colour = BlockBase.getBlockFromName("logimine:"+"white"+"_lblock");
+                } else {
+                    colour = BlockBase.getBlockFromName("logimine:"+b.getBlockType().name().toLowerCase()+"_lblock");
+                }
                 getWorld().setBlockState(affpos,colour.getDefaultState());
             }
         }
@@ -436,7 +413,7 @@ public class TileEntityBlockKey extends TileEntity {
                 LogiMine.activeKeyBlocks) {
             //Saving the current structures to file.
             try {
-                if(keyBlock.getWorld() != saveEvent.getWorld()) continue;
+                if(keyBlock.getWorld().isRemote) continue;
                 if(keyBlock.assignedStructure != null) {
                     keyBlock.assignedStructure.saveToFile();
                 }
