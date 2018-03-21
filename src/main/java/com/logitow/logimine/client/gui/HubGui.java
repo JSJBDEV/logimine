@@ -10,6 +10,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nullable;
@@ -17,8 +19,8 @@ import java.io.IOException;
 
 /**
  * GUI for choosing between LOGITOW managers.
- * TODO: Actually implement as a functionality.
  */
+@SideOnly(Side.CLIENT)
 public class HubGui extends GuiScreen {
 
     public static HubGui instance;

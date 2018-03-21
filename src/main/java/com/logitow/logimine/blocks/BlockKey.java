@@ -2,14 +2,12 @@ package com.logitow.logimine.blocks;
 
 import com.logitow.bridge.build.Structure;
 import com.logitow.logimine.LogiMine;
-import com.logitow.logimine.client.gui.DeviceManagerGui;
-import com.logitow.logimine.client.gui.HubGui;
 import com.logitow.logimine.items.ModItems;
+import com.logitow.logimine.proxy.ClientProxy;
 import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -80,9 +78,9 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
                             //Rotating the structures.
                             return blockKeyEntity.rotateStructure(player, facing);
                         } else if(world.isRemote) {
-                            Minecraft.getMinecraft().displayGuiScreen(new HubGui());
+                            ((ClientProxy)LogiMine.proxy).showClientGui(0);
                             //Assigning the block to the device manager dialog.
-                            HubGui.setSelectedKeyBlock(blockpos);
+                            ((ClientProxy)LogiMine.proxy).setSelectedKeyBlock(blockpos);
                             return true;
                         }
                     }
@@ -100,9 +98,7 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
         System.out.println("Destroyed key block at: " + pos);
         if(worldIn.isRemote) { //Client
             //Closing the gui.
-            if(DeviceManagerGui.instance != null && HubGui.instance.getSelectedKeyBlock() != null && HubGui.instance.getSelectedKeyBlock().getPos().equals(pos)) {
-                Minecraft.getMinecraft().displayGuiScreen(null);
-            }
+            ((ClientProxy)LogiMine.proxy).closeManagersWhenDestroyed(pos);
         }
         //Unassigning the block.
         for (TileEntityBlockKey keyblock :

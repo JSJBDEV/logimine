@@ -4,6 +4,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
+import java.nio.charset.Charset;
+
 /**
  * Asks the server to load a specific structure to a keyblock.
  */
@@ -27,11 +29,17 @@ public class LogitowLoadStructureMessage implements IMessage {
 
     @Override
     public void fromBytes(ByteBuf buf) {
-        //TODO
+        this.keyBlock = BlockPos.fromLong(buf.readLong());
+        byte[] name = new byte[buf.readInt()];
+        buf.readBytes(name);
+        this.structureName = new String(name, Charset.forName("UTF-8"));
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        //TODO
+        buf.writeLong(this.keyBlock.toLong());
+        byte[] name = this.structureName.getBytes(Charset.forName("UTF-8"));
+        buf.writeInt(name.length);
+        buf.writeBytes(name);
     }
 }

@@ -106,12 +106,8 @@ public class DeviceManagerGui extends GuiScreen {
     public static final ITextComponent TEXT_DEVICE_MANAGER_DISCONNECT_BUTTON = new TextComponentTranslation("logitow.devicemanager.disconnectbutton");
     public static final ITextComponent TEXT_DEVICE_MANAGER_SCAN_BUTTON = new TextComponentTranslation("logitow.devicemanager.scanbutton");
     public static final ITextComponent TEXT_DEVICE_MANAGER_CANCEL_BUTTON = new TextComponentTranslation("logitow.devicemanager.cancelbutton");
-    public static final ITextComponent TEXT_DEVICE_MANAGER_KEYBLOCK_NOT_INITIALIZED = new TextComponentTranslation("logitow.devicemanager.keyblocknotinitialized");
-    public static final ITextComponent TEXT_DEVICE_MANAGER_BLOCK_IS_NOT_KEY = new TextComponentTranslation("logitow.devicemanager.blockisnotkeyblock");
     public static final String TEXT_DEVICE_MANAGER_CONNECTING = "logitow.devicemanager.connecting";
     public static final String TEXT_DEVICE_MANAGER_DISCONNECTING = "logitow.devicemanager.disconnecting";
-    public static final String TEXT_DEVICE_MANAGER_ASSIGNED = "logitow.devicemanager.assigneddevice";
-    public static final String TEXT_DEVICE_MANAGER_UNASSIGNED = "logitow.devicemanager.unassigneddevice";
 
     /**
      * Draws the screen and all the components in it.

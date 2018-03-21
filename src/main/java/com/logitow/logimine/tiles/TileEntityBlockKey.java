@@ -9,7 +9,7 @@ import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.logimine.LogiMine;
 import com.logitow.logimine.blocks.BlockBase;
-import com.logitow.logimine.client.gui.SaveStructureGui;
+import com.logitow.logimine.proxy.ClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -319,7 +319,7 @@ public class TileEntityBlockKey extends TileEntity {
                 //Checking the end block.
                 if(blockType == BlockType.END) {
                     //Showing the save gui.
-                    Minecraft.getMinecraft().displayGuiScreen(new SaveStructureGui(this));
+                    ((ClientProxy)LogiMine.proxy).showSaveStructureGui(this);
                 }
             } else {
                 //Block removed.

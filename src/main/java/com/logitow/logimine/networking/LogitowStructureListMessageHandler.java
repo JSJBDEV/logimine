@@ -1,6 +1,7 @@
 package com.logitow.logimine.networking;
 
-import com.logitow.logimine.client.gui.LoadStructureGui;
+import com.logitow.logimine.LogiMine;
+import com.logitow.logimine.proxy.ClientProxy;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -22,10 +23,7 @@ public class LogitowStructureListMessageHandler implements IMessageHandler<Logit
     public IMessage onMessage(LogitowStructureListMessage message, MessageContext ctx) {
         System.out.println("Received saved structures page: " + message.requestedPage.id);
 
-        //Passing the received page to the gui.
-        if(LoadStructureGui.instance != null) {
-            LoadStructureGui.instance.onPageLoaded(message.requestedPage);
-        }
+        ((ClientProxy) LogiMine.proxy).notifySavedStructuresPageLoaded(message.requestedPage);
 
         return null;
     }

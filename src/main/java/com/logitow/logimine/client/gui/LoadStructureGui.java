@@ -9,13 +9,18 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraftforge.common.UsernameCache;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Gui for loading structures onto key blocks.
  */
+@SideOnly(Side.CLIENT)
 public class LoadStructureGui extends GuiScreen {
 
     /**
@@ -46,6 +51,7 @@ public class LoadStructureGui extends GuiScreen {
     /**
      * The currently opened page.
      */
+    private StructuresPage currentPage;
     private int currentPageId = 0;
 
     /**
@@ -77,6 +83,7 @@ public class LoadStructureGui extends GuiScreen {
     public final static ITextComponent TEXT_LOAD_STRUCTURE_TITLE = new TextComponentTranslation("logitow.loadstructuremanager.title");
     public final static ITextComponent TEXT_LOAD_STRUCTURE_SUBTITLE = new TextComponentTranslation("logitow.loadstructuremanager.subtitle");
     public final static ITextComponent TEXT_LOAD_PAGE_LOADING = new TextComponentTranslation("logitow.loadstructuremanager.pageloading");
+    public final static String TEXT_LOAD_STRUCTURE_AUTHOR_KEY = "logitow.loadstructuremanager.structureauthor";
     public final static String TEXT_LOADING_STRUCTURE_KEY = "logitow.loadstructuremanager.loading";
 
     @Override
@@ -103,6 +110,8 @@ public class LoadStructureGui extends GuiScreen {
             drawString(fontRenderer, scanning, (width/2) - fontRenderer.getStringWidth(scanning)/2, (height/2) + 1, 0x8b8b8b);
         }
 
+        super.drawScreen(mouseX, mouseY, partialTicks);
+
         //Checking button enabling.
         for (GuiButton button :
                 buttonList) {
@@ -113,10 +122,13 @@ public class LoadStructureGui extends GuiScreen {
                 } else {
                     button.enabled = true;
                 }
+
+                //tip
+                if(button.isMouseOver()) {
+                    this.drawHoveringText(new TextComponentTranslation(TEXT_LOAD_STRUCTURE_AUTHOR_KEY, UsernameCache.getLastKnownUsername(UUID.fromString(currentPage.structures.get(id).split("\\^")[1]))).getFormattedText(), mouseX, mouseY);
+                }
             }
         }
-
-        super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
     @Override
@@ -134,6 +146,7 @@ public class LoadStructureGui extends GuiScreen {
     public void onPageLoaded(StructuresPage page) {
         loadedPages.add(page);
         if(page.id == currentPageId) {
+            currentPage = page;
             updateButtons();
         }
     }
@@ -159,12 +172,6 @@ public class LoadStructureGui extends GuiScreen {
         buttonList.add(nextPageButton = new GuiButton(2, width/2 - buttonWidth/2 + buttonSeparation, height/2 + 81, buttonWidth, 20, ">>"));
 
         //Going through each of the structures.
-        StructuresPage currentPage;
-        if(loadedPages.size() < currentPageId + 1) {
-            currentPage = null;
-        } else {
-            currentPage= loadedPages.get(currentPageId);
-        }
         int lastButtonHeight = getListStartPosition();
         int verticalSeparation = 11;
         int structureButtonWidth = 138;
@@ -217,14 +224,13 @@ public class LoadStructureGui extends GuiScreen {
         if(page <0) return;
         //Checking if the page is loaded.
         currentPageId = page;
-        StructuresPage loadedPage;
         if(loadedPages.size() < currentPageId + 1) {
-            loadedPage = null;
+            currentPage = null;
         } else {
-            loadedPage = loadedPages.get(page);
+            currentPage = loadedPages.get(page);
         }
 
-        if(loadedPage == null) {
+        if(currentPage == null) {
             //Requesting the page.
             requestLoadPage(page);
         }
@@ -248,9 +254,8 @@ public class LoadStructureGui extends GuiScreen {
      * Loads the currently selected
      */
     public void loadSelected() {
-        StructuresPage currPage = loadedPages.get(currentPageId);
-        if(selectedStructure >= 0 && currPage != null) {
-            String structure = currPage.structures.get(selectedStructure);
+        if(selectedStructure >= 0 && currentPage != null) {
+            String structure = currentPage.structures.get(selectedStructure);
             LogiMine.networkWrapper.sendToServer(new LogitowLoadStructureMessage(HubGui.getSelectedKeyBlock().getPos(), structure));
             Minecraft.getMinecraft().player.sendMessage(new TextComponentTranslation(TEXT_LOADING_STRUCTURE_KEY, getStructureNameFormatted(structure)));
         }

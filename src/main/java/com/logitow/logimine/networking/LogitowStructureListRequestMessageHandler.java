@@ -23,10 +23,14 @@ public class LogitowStructureListRequestMessageHandler implements IMessageHandle
         for (File file :
                 Structure.getStructureSaveDir().listFiles()) {
             String fileName = file.getName().split("\\.")[0];
+            if(!fileName.contains("^")) continue;
             if(i >= startIndex && i <= endIndex) {
                 requestedPage.structures.add(fileName);
             }
             i++;
+        }
+        if(requestedPage.structures.size() <= 0) {
+            return null;
         }
 
         return new LogitowStructureListMessage(requestedPage); //Responding with the requested list.
