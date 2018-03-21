@@ -100,6 +100,9 @@ public class LogiMine {
         networkWrapper.registerMessage(LogitowEventMessageHandler.class, LogitowEventMessage.class, 1, Side.SERVER);
         networkWrapper.registerMessage(LogitowDeviceAssignMessageHandler.class, LogitowDeviceAssignMessage.class, 2, Side.SERVER);
         networkWrapper.registerMessage(LogitowSaveStructureMessageHandler.class, LogitowSaveStructureMessage.class, 3, Side.SERVER);
+        networkWrapper.registerMessage(LogitowLoadStructureMessageHandler.class, LogitowLoadStructureMessage.class, 4, Side.SERVER);
+        networkWrapper.registerMessage(LogitowStructureListMessageHandler.class, LogitowStructureListMessage.class, 5, Side.CLIENT);
+        networkWrapper.registerMessage(LogitowStructureListRequestMessageHandler.class, LogitowStructureListRequestMessage.class, 6, Side.SERVER);
     }
 
     @Mod.EventHandler

@@ -13,7 +13,7 @@ import com.logitow.logimine.LogiMine;
 public class ModBlocks {
     public static BlockKey key_lblock = new BlockKey("key_lblock").setCreativeTab(LogiMine.tab);
 
-    //Below blocks will only appear as a part of a structure. They will not be available in creative.
+    //Below blocks will only appear as a part of a structures. They will not be available in creative.
     public static BlockBase white_lblock = new BlockBase(Material.CAKE,"white_lblock");
     public static BlockBase blue_lblock = new BlockBase(Material.CAKE,"blue_lblock");
     public static BlockBase magenta_lblock = new BlockBase(Material.CAKE,"magenta_lblock");

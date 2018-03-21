@@ -13,8 +13,8 @@ import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStartedEvent
 import com.logitow.bridge.event.devicemanager.DeviceManagerDiscoveryStoppedEvent;
 import com.logitow.bridge.event.devicemanager.DeviceManagerErrorEvent;
 import com.logitow.logimine.LogiMine;
-import com.logitow.logimine.client.gui.NotificationToast;
 import com.logitow.logimine.networking.LogitowDeviceAssignMessage;
+import com.logitow.logimine.proxy.ClientProxy;
 import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.TextComponentString;
@@ -37,8 +37,7 @@ public class LogitowBridgeClientEventHandler {
             DeviceConnectedEvent deviceConnectedEvent = (DeviceConnectedEvent) bridgeEvent;
 
             //Show device connected notification.
-            //Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Device " + deviceConnectedEvent.device + " connected!"));
-            NotificationToast.showConnect(deviceConnectedEvent.device);
+            ((ClientProxy)LogiMine.proxy).showConnectNotification(deviceConnectedEvent.device);
 
             //Send device assign message.
             for (TileEntityBlockKey keyBlock :
@@ -62,7 +61,7 @@ public class LogitowBridgeClientEventHandler {
             }
 
             //Show device disconnected notification.
-            NotificationToast.showDisconnect(deviceDisconnectedEvent.device);
+            ((ClientProxy)LogiMine.proxy).showDisconnectNotification(deviceDisconnectedEvent.device);
         }
         else if (bridgeEvent instanceof BlockOperationEvent) {
             BlockOperationEvent blockOperationEvent = (BlockOperationEvent)bridgeEvent;

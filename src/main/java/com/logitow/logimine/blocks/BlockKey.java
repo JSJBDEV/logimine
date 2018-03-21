@@ -2,14 +2,12 @@ package com.logitow.logimine.blocks;
 
 import com.logitow.bridge.build.Structure;
 import com.logitow.logimine.LogiMine;
-import com.logitow.logimine.client.gui.DeviceManagerGui;
-import com.logitow.logimine.client.gui.ManagerChoiceGui;
 import com.logitow.logimine.items.ModItems;
+import com.logitow.logimine.proxy.ClientProxy;
 import com.logitow.logimine.tiles.TileEntityBlockKey;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -77,12 +75,12 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
                     ItemStack stack = player.getHeldItem(hand);
                     if (stack.getItem() == ModItems.logiCard) {
                         if (player.isSneaking()) {
-                            //Rotating the structure.
+                            //Rotating the structures.
                             return blockKeyEntity.rotateStructure(player, facing);
                         } else if(world.isRemote) {
-                            Minecraft.getMinecraft().displayGuiScreen(new DeviceManagerGui());
+                            ((ClientProxy)LogiMine.proxy).showClientGui(0);
                             //Assigning the block to the device manager dialog.
-                            ManagerChoiceGui.setSelectedKeyBlock(blockpos);
+                            ((ClientProxy)LogiMine.proxy).setSelectedKeyBlock(blockpos);
                             return true;
                         }
                     }
@@ -100,15 +98,13 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
         System.out.println("Destroyed key block at: " + pos);
         if(worldIn.isRemote) { //Client
             //Closing the gui.
-            if(DeviceManagerGui.instance != null && ManagerChoiceGui.instance.getSelectedKeyBlock() != null && ManagerChoiceGui.instance.getSelectedKeyBlock().getPos().equals(pos)) {
-                Minecraft.getMinecraft().displayGuiScreen(null);
-            }
+            ((ClientProxy)LogiMine.proxy).closeManagersWhenDestroyed(pos);
         }
         //Unassigning the block.
         for (TileEntityBlockKey keyblock :
                 LogiMine.activeKeyBlocks) {
             if(keyblock.getPos().equals(pos)){
-                System.out.println("Clearing structure of the destroyed block.");
+                System.out.println("Clearing structures of the destroyed block.");
                 if(worldIn.isRemote) {
                     if(keyblock.getWorld().isRemote) {
                         if(keyblock.getAssignedDevice() != null) {
@@ -118,9 +114,11 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
                     }
                 } else {
                     if(!keyblock.getWorld().isRemote) {
-                        //Deleting structure file.
+                        //Deleting structures file.
                         if(keyblock.getAssignedStructure() != null) {
-                            Structure.removeFile(keyblock.getAssignedStructure());
+                            if(keyblock.getAssignedStructure().customName == null || keyblock.getAssignedStructure().customName == "") {
+                                Structure.removeFile(keyblock.getAssignedStructure());
+                            }
                             keyblock.clearStructure();
                         }
                         keyblock.assignDevice(null,null);

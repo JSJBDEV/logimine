@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Represents the save structure GUI window.
+ * Represents the save structures GUI window.
  */
 @SideOnly(Side.CLIENT)
 public class SaveStructureGui extends GuiScreen {
@@ -127,6 +127,8 @@ public class SaveStructureGui extends GuiScreen {
         field.setEnabled(true);
         field.setFocused(true);
         field.setCursorPosition(0);
+
+        Minecraft.getMinecraft().mouseHelper.ungrabMouseCursor();
 
         super.initGui();
     }

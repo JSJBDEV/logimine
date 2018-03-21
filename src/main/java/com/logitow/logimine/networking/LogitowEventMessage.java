@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import java.io.*;
 
 /**
- * Packet with structure update info.
+ * Packet with structures update info.
  * Sent from client to server.
  */
 public class LogitowEventMessage implements IMessage {

@@ -37,9 +37,12 @@ logitow.devicemanager.connectbutton=Connect
 logitow.devicemanager.keyblocknotinitialized=The key block hasn't been initialized yet!
 logitow.devicemanager.blockisnotkeyblock=This is not a LOGITOW key block!
 
-#managerchoice
+#hub
 logitow.managerchoice.devicemanager=Device Manager
 logitow.managerchoice.structuremanager=Structure Manager
+logitow.hub.subtitle=Choose the manager
+logitow.hub.connecteddevice=Connected device: %s
+logitow.hub.connecteddevice.battery=Battery: %s
 
 #savestructure
 logitow.savestructuremanager.title=Save Structure
@@ -50,6 +53,15 @@ logitow.savestructuremanager.nostructureattached=No structure attached to the ke
 logitow.savestructuremanager.savingerror=There was an error when saving the structure!
 logitow.savestructuremanager.savingsuccessful=Structure saved as %s
 logitow.savestructuremanager.saving=Saving the structure...
+
+#loadstructure
+logitow.loadstructuremanager.loadselected=Load
+logitow.loadstructuremanager.loading=Loading structure: %s
+logitow.loadstructuremanager.title=Load Structure
+logitow.loadstructuremanager.subtitle=Choose the structure to load
+logitow.loadstructuremanager.pageloading=Loading...
+logitow.loadstructuremanager.structureloaded=Structure: %s loaded
+logitow.loadstructuremanager.structureauthor=Author: %s
 
 #rotatestructure
 logitow.structure.rotated=Rotated structure by: %s

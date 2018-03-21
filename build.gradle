@@ -8,10 +8,11 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
+
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.12.2-0.1"
+version = "1.12.2-0.9"
 group = "com.logitow.logimine" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "logimine"
 
@@ -42,7 +43,7 @@ dependencies {
     // https://mvnrepository.com/artifact/net.sf.jni4net/jni4net.j
     compile group: 'net.sf.jni4net', name: 'jni4net.j', version: '0.8.8.0', ext: 'pom'
     compile 'org.apache.commons:commons-lang3:3.5'
-    compile name: 'logitow-bridge-0.3-all'
+    compile name: 'logitow-bridge-0.9-all'
 
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..

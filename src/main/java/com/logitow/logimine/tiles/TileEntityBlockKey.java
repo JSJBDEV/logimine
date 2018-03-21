@@ -9,8 +9,7 @@ import com.logitow.bridge.communication.Device;
 import com.logitow.bridge.event.device.block.BlockOperationEvent;
 import com.logitow.logimine.LogiMine;
 import com.logitow.logimine.blocks.BlockBase;
-import com.logitow.logimine.blocks.ModBlocks;
-import com.logitow.logimine.client.gui.SaveStructureGui;
+import com.logitow.logimine.proxy.ClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -44,7 +43,7 @@ public class TileEntityBlockKey extends TileEntity {
      */
     private Device assignedDevice;
     /**
-     * The structure currently assigned to this key block.
+     * The structures currently assigned to this key block.
      */
     private Structure assignedStructure;
 
@@ -84,17 +83,17 @@ public class TileEntityBlockKey extends TileEntity {
 
         super.writeToNBT(compound);
         NBTTagCompound logitowTag = new NBTTagCompound();
-        if(assignedStructure != null) { //Assigned structure
+        if(assignedStructure != null) { //Assigned structures
             if(assignedStructure.customName != null && assignedStructure.customName != "") {
-                logger.info("Saving {} as structure name", assignedStructure.customName);
-                logitowTag.setString("structure", assignedStructure.customName);
+                logger.info("Saving {} as structures name", assignedStructure.customName);
+                logitowTag.setString("structures", assignedStructure.customName);
             } else {
-                logger.info("Saving {} as structure UUID", assignedStructure.uuid);
-                logitowTag.setString("structure", assignedStructure.uuid.toString());
+                logger.info("Saving {} as structures UUID", assignedStructure.uuid);
+                logitowTag.setString("structures", assignedStructure.uuid.toString());
             }
         } else {
             logger.info("Removing tag...");
-            logitowTag.setString("structure", "NULL");
+            logitowTag.setString("structures", "NULL");
         }
         if(assignedPlayer != null) { //Assigned player
             logitowTag.setString("player", assignedPlayer.getUniqueID().toString());
@@ -121,23 +120,23 @@ public class TileEntityBlockKey extends TileEntity {
             logger.info("NBT: Structure");
             if(this.assignedDevice == null) {
                 logger.info("Device not assigned");
-                if(logitowTag.hasKey("structure")) {
+                if(logitowTag.hasKey("structures")) {
                     logger.info("Has key");
-                    String name = logitowTag.getString("structure");
+                    String name = logitowTag.getString("structures");
                     if(name == null || name == "NULL") {
                         logger.info("UUID is null");
                         this.assignedStructure = null;
                     } else {
                         logger.info("UUID is not null");
                         try {
-                            logger.info("Loading structure for block {} ", getPos());
+                            logger.info("Loading structures for block {} ", getPos());
                             this.assignedStructure = Structure.loadByName(name);
                         } catch (IOException e) {
-                            logger.error("Error loading structure for key block", e);
+                            logger.error("Error loading structures for key block", e);
                             this.assignedStructure = null;
                         } finally {
                             if (this.assignedStructure != null) {
-                                logger.info("Loaded structure from NBT: {}", this.assignedStructure);
+                                logger.info("Loaded structures from NBT: {}", this.assignedStructure);
                             } else {
                                 this.markDirty();
                             }
@@ -149,7 +148,7 @@ public class TileEntityBlockKey extends TileEntity {
                 }
             } else if(this.assignedStructure != this.assignedDevice.currentStructure) {
                 logger.info("Device assigned");
-                //Assign the current device's structure.
+                //Assign the current device's structures.
                 this.assignedStructure = this.assignedDevice.currentStructure;
                 this.markDirty();
             }
@@ -197,7 +196,7 @@ public class TileEntityBlockKey extends TileEntity {
     }
 
     /**
-     * Gets the structure assigned to this key block.
+     * Gets the structures assigned to this key block.
      * @return
      */
     public Structure getAssignedStructure() {
@@ -215,6 +214,10 @@ public class TileEntityBlockKey extends TileEntity {
                 this.assignedDevice = device;
                 this.assignedPlayer = player;
                 clearStructure();
+                if(this.assignedStructure != null && this.assignedStructure.customName == null) {
+                    //Deleting the structure file.
+                    Structure.removeFile(this.assignedStructure);
+                }
                 this.assignedStructure = device.currentStructure;
                 rebuildStructure();
                 logger.info("Assigned device: {} to key block at: {}", device, this.getPos());
@@ -228,7 +231,7 @@ public class TileEntityBlockKey extends TileEntity {
     }
 
     /**
-     * Assigns the given structure to this key block.
+     * Assigns the given structures to this key block.
      * @param structure
      */
     public void assignStructure(Structure structure) {
@@ -248,13 +251,13 @@ public class TileEntityBlockKey extends TileEntity {
     }
 
     /**
-     * Rotates the structure assigned to this key block.
+     * Rotates the structures assigned to this key block.
      */
     public boolean rotateStructure(EntityPlayer player, EnumFacing facing)
     {
         if (getWorld().isRemote)return false;
 
-        //Getting the current structure.
+        //Getting the current structures.
         Structure current = getAssignedStructure();
         if(current == null) {
             player.sendMessage(TEXT_CANT_ROTATE_NOT_ATTACHED);
@@ -286,37 +289,6 @@ public class TileEntityBlockKey extends TileEntity {
 
         System.out.println("Rotating LOGITOW base block: " + this.getPos() + " by " + rotation);
 
-        //TODO: Position second base block.
-
-        switch(currentRotation)
-        {
-            case 0:
-                world.setBlockToAir(blockpos.up());
-                world.setBlockState(blockpos.down(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 1:
-                world.setBlockToAir(blockpos.down());
-                world.setBlockState(blockpos.east(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 2:
-                world.setBlockToAir(blockpos.east());
-                world.setBlockState(blockpos.west(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 3:
-                world.setBlockToAir(blockpos.west());
-                world.setBlockState(blockpos.north(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 4:
-                world.setBlockToAir(blockpos.north());
-                world.setBlockState(blockpos.south(),ModBlocks.white_lblock.getDefaultState());
-                break;
-            case 5:
-                world.setBlockToAir(blockpos.south());
-                world.setBlockState(blockpos.up(),ModBlocks.white_lblock.getDefaultState());
-                break;
-
-        }
-
         clearStructure();
         assignedStructure.rotate(rotation);
         rebuildStructure();
@@ -325,7 +297,7 @@ public class TileEntityBlockKey extends TileEntity {
         return true;
     }
     /**
-     * Called when the structure data is updated from the assigned device.
+     * Called when the structures data is updated from the assigned device.
      * Called on both client and server.
      * @param event
      */
@@ -333,7 +305,7 @@ public class TileEntityBlockKey extends TileEntity {
         logger.info("Handling block update on key block: {} ", getPos());
         BlockOperation operation = event.operation;
 
-        //No need to recreate the structure each time. Just adding the one updated block.
+        //No need to recreate the structures each time. Just adding the one updated block.
         //Getting the affected position.
         BlockPos affpos = getPos().add(operation.blockB.coordinate.getX(),operation.blockB.coordinate.getY(),operation.blockB.coordinate.getZ());
 
@@ -347,7 +319,7 @@ public class TileEntityBlockKey extends TileEntity {
                 //Checking the end block.
                 if(blockType == BlockType.END) {
                     //Showing the save gui.
-                    Minecraft.getMinecraft().displayGuiScreen(new SaveStructureGui(this));
+                    ((ClientProxy)LogiMine.proxy).showSaveStructureGui(this);
                 }
             } else {
                 //Block removed.
@@ -369,20 +341,20 @@ public class TileEntityBlockKey extends TileEntity {
     }
 
     /**
-     * Clears the current structure.
+     * Clears the current structures.
      */
     public void clearStructure() {
         if(getWorld() == null) return;
         if (getWorld().isRemote) return;
         if(this.assignedStructure == null) return;
 
-        logger.info("Clearing structure: {} on: {}", assignedStructure, getPos());
+        logger.info("Clearing structures: {} on: {}", assignedStructure, getPos());
 
         //Removing all the old blocks.
         for (int i = 0; i < this.assignedStructure.blocks.size(); i++) {
             com.logitow.bridge.build.block.Block b = this.assignedStructure.blocks.get(i);
             if(b==null) continue;
-            if(b.getBlockType() == BlockType.BASE) continue;
+            if(b.coordinate.equals(Vec3.zero())) continue;
 
             BlockPos removePosition = this.getPos().add(b.coordinate.getX(), b.coordinate.getY(), b.coordinate.getZ());
 
@@ -390,23 +362,28 @@ public class TileEntityBlockKey extends TileEntity {
         }
     }
     /**
-     * Rebuilds the current structure.
+     * Rebuilds the current structures.
      */
     public void rebuildStructure() {
         if (getWorld().isRemote)return;
 
-        logger.info("Rebuilding structure: {} on: {}", assignedStructure, getPos());
+        logger.info("Rebuilding structures: {} on: {}", assignedStructure, getPos());
 
         //Placing all the new blocks.
         for (com.logitow.bridge.build.block.Block b :
                 assignedStructure.blocks) {
             //Block added.
-            if(b.getBlockType() != BlockType.BASE) {
+            if(!b.coordinate.equals(Vec3.zero())) {
                 //Getting the affected position.
                 BlockPos affpos = this.getPos().add(b.coordinate.getX(),b.coordinate.getY(),b.coordinate.getZ());
                 System.out.println("Placing block: " + b + " at: " + affpos);
 
-                Block colour = BlockBase.getBlockFromName("logimine:"+b.getBlockType().name().toLowerCase()+"_lblock");
+                Block colour;
+                if(b.getBlockType() == BlockType.BASE) {
+                    colour = BlockBase.getBlockFromName("logimine:"+"white"+"_lblock");
+                } else {
+                    colour = BlockBase.getBlockFromName("logimine:"+b.getBlockType().name().toLowerCase()+"_lblock");
+                }
                 getWorld().setBlockState(affpos,colour.getDefaultState());
             }
         }
@@ -434,9 +411,9 @@ public class TileEntityBlockKey extends TileEntity {
 
         for (TileEntityBlockKey keyBlock :
                 LogiMine.activeKeyBlocks) {
-            //Saving the current structure to file.
+            //Saving the current structures to file.
             try {
-                if(keyBlock.getWorld() != saveEvent.getWorld()) continue;
+                if(keyBlock.getWorld().isRemote) continue;
                 if(keyBlock.assignedStructure != null) {
                     keyBlock.assignedStructure.saveToFile();
                 }
