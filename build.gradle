@@ -7,10 +7,6 @@ buildscript {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
-plugins {
-    id "java"
-    id "com.github.johnrengelman.shadow" version "2.0.2"
-}
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
@@ -47,7 +43,7 @@ dependencies {
     // https://mvnrepository.com/artifact/net.sf.jni4net/jni4net.j
     compile group: 'net.sf.jni4net', name: 'jni4net.j', version: '0.8.8.0', ext: 'pom'
     compile 'org.apache.commons:commons-lang3:3.5'
-    compile name: 'logitow-bridge-0.3-all'
+    compile name: 'logitow-bridge-0.9-all'
 
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..

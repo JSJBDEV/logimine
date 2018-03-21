@@ -116,7 +116,7 @@ public class BlockKey extends BlockBase implements ITileEntityProvider {
                     if(!keyblock.getWorld().isRemote) {
                         //Deleting structures file.
                         if(keyblock.getAssignedStructure() != null) {
-                            if(keyblock.getAssignedStructure().customName == null) {
+                            if(keyblock.getAssignedStructure().customName == null || keyblock.getAssignedStructure().customName == "") {
                                 Structure.removeFile(keyblock.getAssignedStructure());
                             }
                             keyblock.clearStructure();
